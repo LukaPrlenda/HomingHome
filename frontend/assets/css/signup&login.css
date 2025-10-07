@@ -1,0 +1,298 @@
+.navi_2 {
+    display: flex;
+    width: 100%;
+}
+
+.navi_2 .login_navi_button_left {
+    flex: 1;
+    color: navy;
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: burlywood;
+    height: 40px;
+    border: none;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 40%;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.25s;
+    transition: color 0.25;
+}
+
+.navi_2 .login_navi_button_left:hover {
+    color: burlywood;
+    background-color: navy;
+}
+
+.navi_2 .login_navi_button_left:active {
+    color: beige;
+    background-color: rgb(5, 5, 100);
+}
+
+.navi_2 .signup_navi_button_left {
+    flex: 1;
+    color: navy;
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: burlywood;
+    height: 40px;
+    border: none;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 44.6%;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.25s;
+    transition: color 0.25;
+}
+
+.navi_2 .signup_navi_button_left:hover {
+    color: burlywood;
+    background-color: navy;
+}
+
+.navi_2 .signup_navi_button_left:active {
+    color: beige;
+    background-color: rgb(5, 5, 100);
+}
+
+.navi_2 p {
+    color: navy;
+    font-weight: 600;
+    font-size: larger;
+}
+
+.navi_2 .navi_button_right {
+    flex: 1;
+    color: navy;
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: burlywood;
+    border: none;
+    height: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 1%;
+    cursor: pointer;
+    transition: background-color 0.25s;
+    transition: color 0.25;
+}
+
+.navi_2 .navi_button_right:hover {
+    color: burlywood;
+    background-color: navy;
+}
+
+.navi_2 .navi_button_right:active {
+    color: beige;
+    background-color: rgb(5, 5, 100);
+}
+
+@media (max-width: 700px) {
+    .navi_2 {
+        display: flex;
+        width: 100%;
+    }
+    .navi_2 .login_navi_button_left {
+        flex: 1;
+        color: navy;
+        text-align: center;
+        align-content: center;
+        text-decoration: none;
+        font-size: small;
+        font-weight: 600;
+        background-color: burlywood;
+        height: 40px;
+        border: none;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: 10%;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.25s;
+        transition: color 0.25;
+    }
+    .navi_2 .login_navi_button_left:hover {
+        color: burlywood;
+        background-color: navy;
+    }
+    .navi_2 .login_navi_button_left:active {
+        color: beige;
+        background-color: rgb(5, 5, 100);
+    }
+    .navi_2 .signup_navi_button_left {
+        flex: 1;
+        color: navy;
+        text-align: center;
+        align-content: center;
+        text-decoration: none;
+        font-size: small;
+        font-weight: 600;
+        background-color: burlywood;
+        height: 40px;
+        border: none;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: 23.5%;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.25s;
+        transition: color 0.25;
+    }
+    .navi_2 .signup_navi_button_left:hover {
+        color: burlywood;
+        background-color: navy;
+    }
+    .navi_2 .signup_navi_button_left:active {
+        color: beige;
+        background-color: rgb(5, 5, 100);
+    }
+    .navi_2 p {
+        color: navy;
+        font-weight: 600;
+        font-size: medium;
+    }
+    .navi_2 .navi_button_right {
+        flex: 1;
+        color: navy;
+        text-align: center;
+        align-content: center;
+        text-decoration: none;
+        font-size: small;
+        font-weight: 600;
+        background-color: burlywood;
+        border: none;
+        height: 40px;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 1%;
+        cursor: pointer;
+        transition: background-color 0.25s;
+        transition: color 0.25;
+    }
+    .navi_2 .navi_button_right:hover {
+        color: burlywood;
+        background-color: navy;
+    }
+    .navi_2 .navi_button_right:active {
+        color: beige;
+        background-color: rgb(5, 5, 100);
+    }
+}
+
+#signup_h4 {
+    text-align: center;
+    color: navy;
+    font-weight: 800;
+    font-size: x-large;
+}
+
+#signup_p_h4 {
+    text-align: center;
+    color: burlywood;
+    font-weight: 400;
+}
+
+.signup_form .signup_row {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.signup_form .signup_row label {
+    color: navy;
+    font-size: large;
+    font-weight: 600;
+}
+
+.signup_form .signup_row .input {
+    width: 100%;
+    color: black;
+    font-size: medium;
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 3px;
+}
+
+.signup_form .signup_row .invalid-feedback {
+    color: burlywood;
+}
+
+.signup_form .signup_row .password_strenght {
+    font-size: small;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.signup_form .signup_row .password_strenght #password_strenght {
+    border-radius: 10px;
+}
+
+.signup_form .signup_row .submit_btn {
+    color: whitesmoke;
+    font-size: large;
+    font-weight: 600;
+    background-color: royalblue;
+    border: none;
+    padding: 1.5%;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notification_green {
+    display: none;
+    position: fixed;
+    top: 30px;
+    bottom: 800px;
+    left: 20%;
+    right: 20%;
+    z-index: 1;
+    border-radius: 15px;
+    background-color: rgba(25, 181, 78, 0.8);
+    border: 1.5px solid darkgreen;
+}
+
+.notification_green p {
+    color: darkgreen;
+    padding-left: 10%;
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .notification_green {
+        bottom: 750px;
+    }
+}
+
+.notification_red {
+    display: none;
+    position: fixed;
+    top: 30px;
+    bottom: 800px;
+    left: 20%;
+    right: 20%;
+    z-index: 1;
+    border-radius: 15px;
+    background-color: rgba(237, 28, 36, 0.5);
+    border: 1.5px solid crimson;
+}
+
+.notification_red p {
+    color: crimson;
+    padding-left: 10%;
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .notification_red {
+        bottom: 750px;
+    }
+}

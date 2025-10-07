@@ -29,6 +29,11 @@ app.route({
     view: "page_Signup",
     onReady: function() {runCustom(); start_signup_js();}
 });
+
+app.route({
+    view: "page_Login",
+    onReady: function() {runCustom();}
+});
 /*
 
     OLD CODE FROM OTHER WEBSITE
