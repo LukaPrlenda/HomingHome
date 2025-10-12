@@ -38,6 +38,10 @@ app.route({
     view: "page_My-account",
     onReady: function() {runCustom(); navigationMenu("#page_My-account");}
 });
+app.route({
+    view: "page_Admin",
+    onReady: function() {runCustom(); navigationMenu("#page_Admin");}
+});
 /*
 
     OLD CODE FROM OTHER WEBSITE
