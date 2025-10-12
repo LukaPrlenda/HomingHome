@@ -413,30 +413,63 @@
 
                                 <div class="tab-pane fade" id="removeListing" role="tabpanel" aria-labelledby="penthouse-tab">
 
-                                    <div class="row">
-                                        <div class="col-lg-3">
-                                            <div class="info-table">
-                                                <ul>
-                                                    <li>Total Flat Space <span>320 m2</span></li>
-                                                    <li>Floor number <span>34th</span></li>
-                                                    <li>Number of rooms <span>6</span></li>
-                                                    <li>Parking Available <span>Yes</span></li>
-                                                    <li>Payment Process <span>Bank</span></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <img src="assets/images/deal-03.jpg" alt="">
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <h4>Extra Info About Penthouse</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper
-                                                mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
-                                            <div class="icon-button">
-                                                <a href="#page_Property-details"><i class="fa fa-calendar"></i> Schedule a visit</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="contact-page section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <h6>| Remove Listing</h6>
+            <h2>You Can Remove Your Listing! </h2>
+          </div>
+          <p>You can remove your listing by chosing the listing that you wold like to remove and then selecting a reason and if you want a message why you removed it</p>
+          <div class="row">
+
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <form id="contact-form" action="" method="post">
+            <div class="row">
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="propertyType">Property Listing</label>
+                    <select id="propertyType" name="propertyType" class="input" required>
+
+                      <option value="" disabeled selected>Chouse the property...</option>
+                      <option value="18_New_Street_Miami,_OR_97219">18 New Street Miami, OR 97219</option>
+                      <option value="22_New_Street_Portland,_OR_16540">22 New Street Portland, OR 16540</option>
+                      <option value="34_Beach_Street_Miami,_OR_42680">34 Beach Street Miami, OR 42680</option>
+
+                    </select>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="propertyType">Status</label>
+                    <select id="propertyType" name="propertyType" class="input" required>
+                        <option value="" disabeled selected>Chouse the removal status...</option>
+                        <option value="noMoreInterest">Sold!</option>
+                        <option value="foundProperty">Do not want to sell</option>
+                        <option value="somethingElse">Something else</option>
+                    </select>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="message">Message</label>
+                  <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="orange-button">Remove this listing</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
                                 </div>
 
