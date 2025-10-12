@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12">
-                            <div class="item email">
+                            <div class="item phone">
                                 <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
                                 <h6>info@villa.co<br><span>Personal Email</span></h6>
                             </div>
@@ -53,7 +53,7 @@
                             <div class="col-lg-12">
                                 <div class="item email">
                                     <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
-                                    <h6>10<br><span>Number of intrests in you</span></h6>
+                                    <h6>10<br><span>Number of interests in you</span></h6>
                                 </div>
                             </div>
                         </div>
@@ -68,8 +68,8 @@
             <div class="row">
                 <div class="col-lg-4 offset-lg-4">
                     <div class="section-heading text-center">
-                        <h6>| Intrests in my properties</h6>
-                        <h2>All intrests in wisiting your propertys</h2>
+                        <h6>| Interests in my properties</h6>
+                        <h2>All interests in wisiting your propertys</h2>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                             <li>Date: <span>00/00/0000</span></li>
                             <li>Phone: <span>000-111 222</span></li>
                             <li>Email: <span>name@address</span></li>
-                            <li>Message: <span>I am intrested in your property, and i want to take a look at it</span></li>
+                            <li>Message: <span>I am interested in your property, and i want to take a look at it</span></li>
                         </ul>
                         </div>
                         <div class="main-button ">
@@ -120,7 +120,7 @@
                             <li>Date: <span>00/00/0000</span></li>
                             <li>Phone: <span>000-111 222</span></li>
                             <li>Email: <span>name@address</span></li>
-                            <li>Message: <span>I am intrested in your property, and i want to take a look at it</span></li>
+                            <li>Message: <span>I am interested in your property, and i want to take a look at it</span></li>
                         </ul>
                         </div>
                         <div class="main-button ">
@@ -220,7 +220,7 @@
                                         <button class="nav-link active" id="appartment-tab" data-bs-toggle="tab" data-bs-target="#addListing" type="button" role="tab" aria-controls="addListing" aria-selected="true">Add Listing</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="villa-tab" data-bs-toggle="tab" data-bs-target="#editIntrests" type="button" role="tab" aria-controls="editIntrests" aria-selected="false">Edit Intrests</button>
+                                        <button class="nav-link" id="villa-tab" data-bs-toggle="tab" data-bs-target="#editInterests" type="button" role="tab" aria-controls="editInterests" aria-selected="false">Edit Interests</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="penthouse-tab" data-bs-toggle="tab" data-bs-target="#removeListing" type="button" role="tab" aria-controls="removeListing" aria-selected="false">Remove Listing</button>
@@ -340,30 +340,19 @@
                                 </div>
 
 
-                                <div class="tab-pane fade" id="editIntrests" role="tabpanel" aria-labelledby="villa-tab">
+                                <div class="tab-pane fade" id="editInterests" role="tabpanel" aria-labelledby="villa-tab">
 
                                     <div class="contact-page section">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
           <div class="section-heading">
-            <h6>| Add Listing</h6>
-            <h2>Add Youe New Listing Here!</h2>
+            <h6>| Edit Interests</h6>
+            <h2>Edit Interests in You and Your Interests! </h2>
           </div>
-          <p>To add new listing fill out the form and submit it. Your contact information is wsidibel beneth, so you do not need to fill that it, we did it for you.</p>
+          <p>You can edit the status of your properties that peaople have interest or edit the status or the property that you expressed your interest to before</p>
           <div class="row">
-            <div class="col-lg-12">
-              <div class="item phone">
-                <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
-                <h6>010-020-0340<br><span>Phone Number</span></h6>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <div class="item email">
-                <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
-                <h6>info@villa.co<br><span>Business Email</span></h6>
-              </div>
-            </div>
+
           </div>
         </div>
         <div class="col-lg-6">
@@ -371,20 +360,34 @@
             <div class="row">
               <div class="col-lg-12">
                 <fieldset>
-                  <label for="name">Property Location</label>
-                  <input type="name" name="propertyLocation" id="propertyLocation" placeholder="Your Property Location..." autocomplete="on" required>
+                  <label for="propertyType">Property Listing</label>
+                    <select id="propertyType" name="propertyType" class="input" required>
+
+                        <option value="" disabeled selected>Chouse the property...</option>
+
+                        <optgroup label="Interest in my properties:">
+                            <option value="18_New_Street_Miami,_OR_97219">18 New Street Miami, OR 97219</option>
+                            <option value="22_New_Street_Portland,_OR_16540">22 New Street Portland, OR 16540</option>
+                        </optgroup>
+
+                         <optgroup label="My interest in properties:">
+                            <option value="26_Old_Street_Miami,_OR_12870">26 Old Street Miami, OR 12870</option>
+                            <option value="54_New_Street_Florida,_OR_27001">54 New Street Florida, OR 27001</option>
+                        </optgroup>
+
+                    </select>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <label for="email">Email Address</label>
-                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <label for="subject">Subject</label>
-                  <input type="subject" name="subject" id="subject" placeholder="Subject..." autocomplete="on" >
+                  <label for="propertyType">Status</label>
+                    <select id="propertyType" name="propertyType" class="input" required>
+                        <option value="" disabeled selected>Chouse status of the interest...</option>
+                        <option value="noMoreInterest">No more interest</option>
+                        <option value="foundProperty">Found property</option>
+                        <option value="remove">Remove</option>
+                        <option value="somethingElse">Something else</option>
+                    </select>
                 </fieldset>
               </div>
               <div class="col-lg-12">
@@ -395,16 +398,11 @@
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <button type="submit" id="form-submit" class="orange-button">Send Message</button>
+                  <button type="submit" id="form-submit" class="orange-button">Update Interest Status</button>
                 </fieldset>
               </div>
             </div>
           </form>
-        </div>
-        <div class="col-lg-12">
-          <div id="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12469.776493332698!2d-80.14036379941481!3d25.907788681148624!2m3!1f357.26927939317244!2f20.870722720054623!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x88d9add4b4ac788f%3A0xe77469d09480fcdb!2sSunny%20Isles%20Beach!5e1!3m2!1sen!2sth!4v1642869952544!5m2!1sen!2sth" width="100%" height="500px" frameborder="0" style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);" allowfullscreen=""></iframe>
-          </div>
         </div>
       </div>
     </div>
