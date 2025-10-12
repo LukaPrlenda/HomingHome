@@ -34,6 +34,10 @@ app.route({
     view: "page_Login",
     onReady: function() {runCustom(); navigationMenu("#page_Login");}
 });
+app.route({
+    view: "page_My-account",
+    onReady: function() {runCustom(); navigationMenu("#page_My-account");}
+});
 /*
 
     OLD CODE FROM OTHER WEBSITE
