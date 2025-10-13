@@ -1,3 +1,11 @@
+:root{
+    --color-main: navy;
+    --color-mian2: burlywood;
+    --color-active: beige;
+    --color-active-background: rgb(5, 5, 100);
+}
+
+
 .navi_2 {
     display: flex;
     width: 100%;
@@ -5,12 +13,12 @@
 
 .navi_2 .login_navi_button_left {
     flex: 1;
-    color: navy;
+    color: var(--color-main);
     text-align: center;
     align-content: center;
     text-decoration: none;
     font-weight: 600;
-    background-color: burlywood;
+    background-color: var(--color-mian2);
     height: 40px;
     border: none;
     margin-top: auto;
@@ -23,23 +31,23 @@
 }
 
 .navi_2 .login_navi_button_left:hover {
-    color: burlywood;
-    background-color: navy;
+    color: var(--color-mian2);
+    background-color: var(--color-main);
 }
 
 .navi_2 .login_navi_button_left:active {
-    color: beige;
-    background-color: rgb(5, 5, 100);
+    color: var(--color-active);
+    background-color: var(--color-active-background);
 }
 
 .navi_2 .signup_navi_button_left {
     flex: 1;
-    color: navy;
+    color: var(--color-main);
     text-align: center;
     align-content: center;
     text-decoration: none;
     font-weight: 600;
-    background-color: burlywood;
+    background-color: var(--color-mian2);
     height: 40px;
     border: none;
     margin-top: auto;
@@ -52,29 +60,29 @@
 }
 
 .navi_2 .signup_navi_button_left:hover {
-    color: burlywood;
-    background-color: navy;
+    color: var(--color-mian2);
+    background-color: var(--color-main);
 }
 
 .navi_2 .signup_navi_button_left:active {
-    color: beige;
-    background-color: rgb(5, 5, 100);
+    color: var(--color-active);
+    background-color: var(--color-active-background);
 }
 
 .navi_2 p {
-    color: navy;
+    color: var(--color-main);
     font-weight: 600;
     font-size: larger;
 }
 
 .navi_2 .navi_button_right {
     flex: 1;
-    color: navy;
+    color: var(--color-main);
     text-align: center;
     align-content: center;
     text-decoration: none;
     font-weight: 600;
-    background-color: burlywood;
+    background-color: var(--color-mian2);
     border: none;
     height: 40px;
     margin-top: auto;
@@ -86,13 +94,13 @@
 }
 
 .navi_2 .navi_button_right:hover {
-    color: burlywood;
-    background-color: navy;
+    color: var(--color-mian2);
+    background-color: var(--color-main);
 }
 
 .navi_2 .navi_button_right:active {
-    color: beige;
-    background-color: rgb(5, 5, 100);
+    color: var(--color-active);
+    background-color: var(--color-active-background);
 }
 
 @media (max-width: 700px) {
@@ -102,13 +110,13 @@
     }
     .navi_2 .login_navi_button_left {
         flex: 1;
-        color: navy;
+        color: var(--color-main);
         text-align: center;
         align-content: center;
         text-decoration: none;
         font-size: small;
         font-weight: 600;
-        background-color: burlywood;
+        background-color: var(--color-mian2);
         height: 40px;
         border: none;
         margin-top: auto;
@@ -120,22 +128,22 @@
         transition: color 0.25;
     }
     .navi_2 .login_navi_button_left:hover {
-        color: burlywood;
-        background-color: navy;
+        color: var(--color-mian2);
+        background-color: var(--color-main);
     }
     .navi_2 .login_navi_button_left:active {
-        color: beige;
-        background-color: rgb(5, 5, 100);
+        color: var(--color-active);
+        background-color: var(--color-active-background);
     }
     .navi_2 .signup_navi_button_left {
         flex: 1;
-        color: navy;
+        color: var(--color-main);
         text-align: center;
         align-content: center;
         text-decoration: none;
         font-size: small;
         font-weight: 600;
-        background-color: burlywood;
+        background-color: var(--color-mian2);
         height: 40px;
         border: none;
         margin-top: auto;
@@ -147,27 +155,27 @@
         transition: color 0.25;
     }
     .navi_2 .signup_navi_button_left:hover {
-        color: burlywood;
-        background-color: navy;
+        color: var(--color-mian2);
+        background-color: var(--color-main);
     }
     .navi_2 .signup_navi_button_left:active {
-        color: beige;
-        background-color: rgb(5, 5, 100);
+        color: var(--color-active);
+        background-color: var(--color-active-background);
     }
     .navi_2 p {
-        color: navy;
+        color: var(--color-main);
         font-weight: 600;
         font-size: medium;
     }
     .navi_2 .navi_button_right {
         flex: 1;
-        color: navy;
+        color: var(--color-main);
         text-align: center;
         align-content: center;
         text-decoration: none;
         font-size: small;
         font-weight: 600;
-        background-color: burlywood;
+        background-color: var(--color-mian2);
         border: none;
         height: 40px;
         margin-top: auto;
@@ -178,25 +186,25 @@
         transition: color 0.25;
     }
     .navi_2 .navi_button_right:hover {
-        color: burlywood;
-        background-color: navy;
+        color: var(--color-mian2);
+        background-color: var(--color-main);
     }
     .navi_2 .navi_button_right:active {
-        color: beige;
-        background-color: rgb(5, 5, 100);
+        color: var(--color-active);
+        background-color: var(--color-active-background);
     }
 }
 
 #signup_h4 {
     text-align: center;
-    color: navy;
+    color: var(--color-main);
     font-weight: 800;
     font-size: x-large;
 }
 
 #signup_p_h4 {
     text-align: center;
-    color: burlywood;
+    color: var(--color-mian2);
     font-weight: 400;
 }
 
@@ -207,7 +215,7 @@
 }
 
 .signup_form .signup_row label {
-    color: navy;
+    color: var(--color-main);
     font-size: large;
     font-weight: 600;
 }
@@ -222,7 +230,7 @@
 }
 
 .signup_form .signup_row .invalid-feedback {
-    color: burlywood;
+    color: var(--color-mian2);
 }
 
 .signup_form .signup_row .password_strenght {
@@ -246,6 +254,9 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+
+/* Notification css */
 
 .notification_green {
     display: none;
