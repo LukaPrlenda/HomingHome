@@ -2,28 +2,34 @@
     <hr class="section_line">
     <nav class="navi_2">
         <a class="login_navi_button_left" href="#page_Main">Home page</a>
-        <p id="theme1,16">If you do not have an account</p>
+        <p>If you do not have an account</p>
         <a class="navi_button_right" href="#page_Signup">Sign up</a>
     </nav>
 
-    <section style="text-align: center;">
+    <section class="signup_form">
 
         <br><br><br>
 
-        <h4 id="login_h4">Your Account Login</h4>
+        <h2 id="signup_h4">Your Account Login</h2>
         <p id="signup_p_h4">| Please enter your information</p>
+        <br><br>
 
-        <form id="form_login" method="POST">
+        <div class="signup_row">
+            <div class="background_form">
+                <form id="form_login" method="POST">
 
-            <label for="username" id="theme1,17">Username</label>
-            <input type="text" id="login_name" name="username" required><br>
-            <br>
-            <label for="password" id="theme1,20">Password</label>
-            <input type="password" id="login_password" name="password" required><br>
-            <br>
-            <input type="submit" value="Submit" style="color: darkcyan;">
+                    <label for="username">Username</label>
+                    <input type="text" id="login_name" name="username" class="input" required><br>
+                    <br>
+                    <label for="password">Password</label>
+                    <input type="password" id="login_password" name="password" class="input" required><br>
+                    <br><br><br><br><br>
+                    <input id="submit_btn" type="submit" value="Submit" class="submit_btn">
 
-        </form>
+                </form>
+            </div>
+        </div>
+
     </section>
     <br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br>

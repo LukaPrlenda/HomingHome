@@ -106,6 +106,17 @@
     background-color: var(--color-active-background);
 }
 
+
+.background_form{
+  margin-left: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  padding: 35px 30px;
+  background-color: #fff;
+}
+
+
+
 @media (max-width: 700px) {
     .navi_2 {
         display: flex;
@@ -205,7 +216,7 @@
     text-align: center;
     color: var(--color-main);
     font-weight: 800;
-    font-size: x-large;
+    font-size: xx-large;
 }
 
 #signup_p_h4 {
