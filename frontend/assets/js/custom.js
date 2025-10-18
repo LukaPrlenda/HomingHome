@@ -86,7 +86,7 @@ const runCustom = () => {
 
     // Menu Dropdown Toggle
     if ($('.menu-trigger').length) {
-        $(".menu-trigger").on('click', function() {
+        $(".menu-trigger").off('click').on('click', function() {
             $(this).toggleClass('active');
             $('.header-area .nav').slideToggle(200);
         });
