@@ -84,7 +84,10 @@
     }
   })(jQuery);
   
-  jQuery(function ($) {
+
+  const counter = () => {
+    const $ = window.jQuery;
+
     // custom formatting example
     $(".count-number").data("countToOptions", {
       formatter: function (value, options) {
@@ -102,5 +105,5 @@
       options = $.extend({}, options || {}, $this.data("countToOptions") || {});
       $this.countTo(options);
     }
-  });
+  };
   

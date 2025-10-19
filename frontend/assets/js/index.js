@@ -7,7 +7,7 @@ app.run();
 
 app.route({
     view: "page_Main",
-    onReady: function() {runCustom(); navigationMenu("#page_Main");}
+    onReady: function() {runCustom(); navigationMenu("#page_Main"); counter();}
 });
 
 app.route({
