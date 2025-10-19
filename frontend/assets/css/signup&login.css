@@ -294,7 +294,7 @@
     bottom: 800px;
     left: 20%;
     right: 20%;
-    z-index: 1;
+    z-index: 2000;
     border-radius: 15px;
     background-color: rgba(25, 181, 78, 0.8);
     border: 1.5px solid darkgreen;
@@ -319,7 +319,7 @@
     bottom: 800px;
     left: 20%;
     right: 20%;
-    z-index: 1;
+    z-index: 2000;
     border-radius: 15px;
     background-color: rgba(237, 28, 36, 0.5);
     border: 1.5px solid crimson;
