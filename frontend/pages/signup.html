@@ -1,0 +1,91 @@
+<div>
+    <br><br><br>
+    <hr class="section_line">
+    <nav class="navi_2">
+        <a class="signup_navi_button_left" href="#page_Main">Home page</a>
+        <p>If you have an account</p>
+        <a class="navi_button_right" href="#page_Login">Log in</a>
+    </nav>
+    <br><br><br>
+    <section class="signup_form">
+        <br><br><br>
+        <h2 id="signup_h4">Making Your Account</h2>
+        <p id="signup_p_h4">| Please enter your information</p>
+        <br><br><br>
+        <div class="signup_row">
+            <div class="background_form">
+                <form id="form" method="POST">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="User's name" class="input" required>
+                    <div class="invalid-feedback">Please enter your name</div>
+                    <br><br>
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" name="User's surname" class="input" required>
+                    <div class="invalid-feedback">Please enter your surname</div>
+                    <br><br>
+                    <label for="date_of_birth">Date of birth</label>
+                    <input type="date" id="date_of_birth" name="date_of_birth" class="input" required>
+                    <div class="invalid-feedback">Please enter your date of birth</div>
+                    <br><br>
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" class="input" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="neutarl">Neutral</option>
+                        <option selected></option>
+                    </select><br>
+                    <br>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="input" required>
+                    <div class="invalid-feedback">Please enter your valid email adresse</div>
+                    <br><br>
+                    <label for="phone_number">Phone number</label>
+                    <input type="tel" id="phone_number" name="phone_number" class="input" required>
+                    <div class="invalid-feedback">Please enter your valid phone number</div>
+                    <br><br>
+                    <label for="country">Country of current residence</label>
+                    <input type="text" id="country" name="country_of_residence" class="input" required>
+                    <div class="invalid-feedback">Please enter the country of your current residence</div>
+                    <br><br>
+                    <label for="adresse">Current adresse</label>
+                    <input type="text" id="adresse" name="curent_adresse" class="input" required>
+                    <div class="invalid-feedback">Please enter your current adresse</div>
+                    <br><br>
+                    <label for="boating_license">I am an agent</label>
+                    <input type="checkbox" id="agent_status" name="agent_status"><br>
+                    <br>
+                    <br>
+                    <br>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="Username" class="input" required>
+                    <div class="invalid-feedback">Please enter your username</div>
+                    <br>
+                    <br>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="input" minlength="5" required>
+                    <div id="password_txt" class="invalid-feedback">Please enter your password</div>
+                    <div class="password_strenght">
+                        <p id="password_strenght"></p>
+                    </div><br>
+                    <label for="passwordcheck">Repeat password</label>
+                    <input type="password" id="passwordcheck" name="passwordcheck" class="input" required>
+                    <div class="invalid-feedback">Please reeat your new password</div>
+                    <br><br><br><br><br><br><br>
+                    <input id="submit_btn" type="submit" value="Submit" class="submit_btn">
+                    <br><br>
+                </form>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br><br><br><br>
+    </section>
+    <br>
+    <div id="notification_red" class="notification_red">
+        <p>Error!</p>
+        <p>There was an error while submitting the form.</p>
+    </div>
+    <div id="exists_red" class="notification_red">
+        <p>Error!</p>
+        <p>User already exists, login.</p>
+    </div>
+</div>
