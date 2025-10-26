@@ -3,10 +3,10 @@ require_once __DIR__ "./../config.php";
 
 class BaseDao{
     protected $connection;
-    private $tabel_name;
+    private $table_name;
 
-    public function __construct($tabel_name){
-        $this->tabel_name = $tabel_name;
+    public function __construct($table_name){
+        $this->table_name = $table_name;
 
         try{
             $this->connection = new PDO(
@@ -35,6 +35,48 @@ class BaseDao{
         return reset($results);
     }
 
+    protected function add($entity){
+        $query = "INSERT INTO " . $this->table_name . " (";
+        $queryValues = ") VALUES (";
 
+        foreach($entity as $column => $_){
+            $query .= $column . ", ";
+            $queryValues .= ":" . $column . ", ";
+        }
+
+        $query = substr($query, 0, -2);
+        $queryValues = substr($queryValues, 0, -2);
+
+        $query .= $queryValues . ")";
+
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute($entity);
+
+        $entity["id"] = $this->connection->lastInsertId();
+        return $entity;
+    }
+
+    protected function update($entity, $id, $id_column = "id"){
+        $query = "UPDATE " . $this->table_name . " SET ";
+        foreach($entity as $column => $_){
+            $query .= $column . " = :" . $column . ", ";
+        }
+
+        $query = substr($query, 0, -2);
+
+        $query .= " WHERE " . $id_column . " = :id";
+
+        $stmt = $this->connection->prepare($query);
+        $entity["id"] = $id;
+        $stmt->execute($entity);
+
+        return $entity;
+    }
+
+    protected function delete($id){
+        $stmt = $this->connection->prepare("DELETE FROM " . $this->table_name . " WHERE id = :id");
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+    }
 }
 
