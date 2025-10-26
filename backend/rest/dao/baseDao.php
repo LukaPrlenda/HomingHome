@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ "./../config.php";
+require_once __DIR__ . "/../config.php";
 
 class BaseDao{
     protected $connection;
@@ -10,11 +10,11 @@ class BaseDao{
 
         try{
             $this->connection = new PDO(
-                "msql:host=" . Config::DB_HOST() . ";dbname=" . Config::DB_NAME() . ";port=" . Config::DB_PORT(),
+                "mysql:host=" . Config::DB_HOST() . ";dbname=" . Config::DB_NAME() . ";port=" . Config::DB_PORT(),
                 Config::DB_USER(),
                 Config::DB_PASSWORD(),
                 [
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTON,
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
                 ]
             );
@@ -25,7 +25,7 @@ class BaseDao{
 
     
     protected function query($query, $param){
-        $stmt = $this->connection->preapre($query);
+        $stmt = $this->connection->prepare($query);
         $stmt->execute($param);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -80,3 +80,4 @@ class BaseDao{
     }
 }
 
+?>
