@@ -62,7 +62,7 @@ CREATE TABLE `interests` (
   KEY `fk_interest_user` (`user_id`),
   CONSTRAINT `fk_interest_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_interest_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,6 +71,7 @@ CREATE TABLE `interests` (
 
 LOCK TABLES `interests` WRITE;
 /*!40000 ALTER TABLE `interests` DISABLE KEYS */;
+INSERT INTO `interests` VALUES (1,1,1,'Active','I am interested in your property, and i want to take a look at it');
 /*!40000 ALTER TABLE `interests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +90,7 @@ CREATE TABLE `listings` (
   PRIMARY KEY (`id`),
   KEY `fk_listing_property` (`property_id`),
   CONSTRAINT `fk_listing_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,6 +99,7 @@ CREATE TABLE `listings` (
 
 LOCK TABLES `listings` WRITE;
 /*!40000 ALTER TABLE `listings` DISABLE KEYS */;
+INSERT INTO `listings` VALUES (1,1,'Active','2025-10-26 16:18:17');
 /*!40000 ALTER TABLE `listings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,15 +120,15 @@ CREATE TABLE `properties` (
   `area` int(10) unsigned NOT NULL,
   `floor` int(10) unsigned NOT NULL,
   `parking` int(10) unsigned NOT NULL,
-  `price` float unsigned NOT NULL,
+  `price` decimal(12,2) DEFAULT NULL,
   `picture` longblob NOT NULL,
-  `description` varchar(200) NOT NULL,
+  `description` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_property_user` (`user_id`),
   KEY `fk_property_type` (`type_id`),
   CONSTRAINT `fk_property_type` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_property_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,6 +137,7 @@ CREATE TABLE `properties` (
 
 LOCK TABLES `properties` WRITE;
 /*!40000 ALTER TABLE `properties` DISABLE KEYS */;
+INSERT INTO `properties` VALUES (1,2,1,'24 New Street Miami, OR 24560',8,8,545,3,6,2264000.00,_binary 'THIS IS THE PLACE FOR LONGBLOB PICTURE','Luxury Villa with a swimming pool that is deep enough for diving at one end. Offering all modern luxuries, this is the perfect property to live in if you like modern styling.\n\n\nFor lovers of open space and simplicity, it is the perfect place to live. In its tropical environment, it offers peaceful accommodation with views of the sea. The house is full of cutting-edge technology, and although it is in a tropical environment, you will never get hot due to the amazing cutting-edge home temperature control.');
 /*!40000 ALTER TABLE `properties` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +152,7 @@ CREATE TABLE `types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `type` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,6 +161,7 @@ CREATE TABLE `types` (
 
 LOCK TABLES `types` WRITE;
 /*!40000 ALTER TABLE `types` DISABLE KEYS */;
+INSERT INTO `types` VALUES (1,'Luxury Villa'),(2,'Penthouse'),(3,'Apartment'),(4,'Modern Condo');
 /*!40000 ALTER TABLE `types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,7 +187,7 @@ CREATE TABLE `users` (
   `password` varchar(61) NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -192,6 +196,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Pero','Perić','1950-05-25','Male','peri@gmail.com','00387-12 123 456','Croatia','Sarajevska 101',0,'Peri155','827ccb0eea8a706c4c34a16891f84e7b',0),(2,'Luke','Skywalker','1977-05-25','Male','XWing@gmail.com','00111-12 798 9456','United States of America','Tatooine 50',0,'Skywalker02','325a3fdd2e4ccc79069c95f8df138e0f',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,4 +213,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-25 23:47:26
+-- Dump completed on 2025-10-26 17:21:47
