@@ -32,7 +32,7 @@ CREATE TABLE `admin_messages` (
   KEY `fk_admin_property` (`property_id`),
   CONSTRAINT `fk_admin_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_admin_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE `admin_messages` (
 
 LOCK TABLES `admin_messages` WRITE;
 /*!40000 ALTER TABLE `admin_messages` DISABLE KEYS */;
+INSERT INTO `admin_messages` VALUES (1,1,1,'Testing message option');
 /*!40000 ALTER TABLE `admin_messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,4 +214,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-26 17:21:47
+-- Dump completed on 2025-10-28 22:37:06

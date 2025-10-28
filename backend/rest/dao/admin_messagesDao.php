@@ -14,11 +14,11 @@ class Admin_messagesDao extends BaseDao{
     }
 
     public function get_by_user_id($user_id){
-        return $this->query('SELECT *  FROM ' . $this->table_name . 'WHERE user_id = :user_id', ['user_id' => $user_id]);
+        return $this->query('SELECT *  FROM ' . $this->table_name . ' WHERE user_id = :user_id', ['user_id' => $user_id]);
     }
 
     public function get_by_property_id($property_id){
-        return $this->query('SELECT *  FROM ' . $this->table_name . 'WHERE property_id = :property_id', ['property_id' => $property_id]);
+        return $this->query('SELECT *  FROM ' . $this->table_name . ' WHERE property_id = :property_id', ['property_id' => $property_id]);
     }
 
 

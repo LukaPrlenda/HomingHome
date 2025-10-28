@@ -80,7 +80,7 @@ class BaseDao{
     }
 
 
-    public function get_all(){
+    protected function get_all(){
         return $this->query('SELECT * FROM ' . $this->table_name, []);
     }
 }
