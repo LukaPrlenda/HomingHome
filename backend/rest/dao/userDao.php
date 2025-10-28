@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/baseDao.php';
+include_once __DIR__ . '/BaseDao.php';
 
 class UserDao extends BaseDao{
     protected $table_name;

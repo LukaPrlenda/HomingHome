@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__ . './admin_messagesDao.php';
-require_once __DIR__ . './baseDao.php';
-require_once __DIR__ . './interestDao.php';
-require_once __DIR__ . './listingDao.php';
-require_once __DIR__ . './propertiesDao.php';
-require_once __DIR__ . './userDao.php';
+require_once __DIR__ . './Admin_messagesDao.php';
+require_once __DIR__ . './BaseDao.php';
+require_once __DIR__ . './InterestDao.php';
+require_once __DIR__ . './ListingDao.php';
+require_once __DIR__ . './PropertiesDao.php';
+require_once __DIR__ . './UserDao.php';
 
 
 $admin = new Admin_messagesDao();
