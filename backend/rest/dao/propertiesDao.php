@@ -9,6 +9,11 @@ class PropertiesDao extends BaseDao{
         parent::__construct($this->table_name);
     }
 
+
+    public function get_all_properties(){
+        return $this->get_all();
+    }
+
     public function get_all_area(){
         return $this->query('SELECT id, area  FROM ' . $this->table_name, []);
     }

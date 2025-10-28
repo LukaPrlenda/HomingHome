@@ -9,8 +9,9 @@ class InterestDao extends BaseDao{
         parent::__construct($this->table_name);
     }
 
-    public function get_all(){
-        return $this->query('SELECT * FROM ' . $this->table_name, []);
+
+    public function get_all_interests(){
+        return $this->get_all();
     }
 
     public function get_by_status($status){
