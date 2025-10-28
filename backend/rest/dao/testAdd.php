@@ -14,12 +14,29 @@ $prop = new PropertiesDao();
 $user = new UserDao();
 
 
-$adimn->add([
-    "user_id"=>2, "property_id"=> 1, "message"=>"Testing admin messages"
-]);
+print_r(
+/*
+$admin->add_to_admin([
+    "user_id"=>2, "property_id"=> 1, "message"=>"Testing admin messages 2"
+])
+*/
+/*
+$user->add_user([
+    "name" => "John",
+    "surname" => "Doe",
+    "date_of_birth" => "1911-01-01",
+    "gender" => "Male",
+    "email" => "JD@gmial.com",
+    "phone_number" => "00111098765432",
+    "country" => "Canada",
+    "current_address" => "31st Street",
+    "is_agent" => FALSE,
+    "username" => "JD",
+    "password" => password_hash('D0nJ031234567890', PASSWORD_DEFAULT),
+    "is_admin" => FALSE
 
-$user->add([
-
-]);
-
+])
+*/
+);
+echo "<br>";echo "<br>";
 ?>
