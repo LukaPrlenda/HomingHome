@@ -32,7 +32,7 @@ CREATE TABLE `admin_messages` (
   KEY `fk_admin_property` (`property_id`),
   CONSTRAINT `fk_admin_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_admin_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `admin_messages` (
 
 LOCK TABLES `admin_messages` WRITE;
 /*!40000 ALTER TABLE `admin_messages` DISABLE KEYS */;
-INSERT INTO `admin_messages` VALUES (1,1,1,'Testing message option');
+INSERT INTO `admin_messages` VALUES (1,1,1,'Testing message option'),(2,2,1,'Testing admin messages 2'),(3,2,1,'Testing admin messages 2'),(4,2,1,'Testing admin messages 2');
 /*!40000 ALTER TABLE `admin_messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,6 +125,7 @@ CREATE TABLE `properties` (
   `picture` longblob NOT NULL,
   `description` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `properties_unique` (`location`),
   KEY `fk_property_user` (`user_id`),
   KEY `fk_property_type` (`type_id`),
   CONSTRAINT `fk_property_type` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -152,7 +153,8 @@ DROP TABLE IF EXISTS `types`;
 CREATE TABLE `types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `type` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `types_unique` (`type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -162,7 +164,7 @@ CREATE TABLE `types` (
 
 LOCK TABLES `types` WRITE;
 /*!40000 ALTER TABLE `types` DISABLE KEYS */;
-INSERT INTO `types` VALUES (1,'Luxury Villa'),(2,'Penthouse'),(3,'Apartment'),(4,'Modern Condo');
+INSERT INTO `types` VALUES (3,'Apartment'),(1,'Luxury Villa'),(4,'Modern Condo'),(2,'Penthouse');
 /*!40000 ALTER TABLE `types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -187,8 +189,9 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(61) NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_unique` (`username`,`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -197,7 +200,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Pero','Perić','1950-05-25','Male','peri@gmail.com','00387-12 123 456','Croatia','Sarajevska 101',0,'Peri155','827ccb0eea8a706c4c34a16891f84e7b',0),(2,'Luke','Skywalker','1977-05-25','Male','XWing@gmail.com','00111-12 798 9456','United States of America','Tatooine 50',0,'Skywalker02','325a3fdd2e4ccc79069c95f8df138e0f',0);
+INSERT INTO `users` VALUES (1,'Pero','Perić','1950-05-25','Male','peri@gmail.com','00387-12 123 456','Croatia','Sarajevska 101',0,'Peri155','827ccb0eea8a706c4c34a16891f84e7b',0),(2,'Luke','Skywalker','1977-05-25','Male','XWing@gmail.com','00111-12 798 9456','United States of America','Tatooine 50',0,'Skywalker02','325a3fdd2e4ccc79069c95f8df138e0f',0),(3,'John','Doe','1911-01-01','Male','J2D@yahoo.com','00111098765432','Canada','31st Street',0,'JD2','$2y$10$3wx9QZZ/vuNqYC7XnZLyo.cGPCEV8/qy4BdkulDQLmSuciLQYfkxS',0),(5,'John','Doe','1911-01-01','Male','JD@gmial.com','00111098765432','Canada','31st Street',0,'JD','$2y$10$WHHt7elEOOQnEUpgTgHDHOJoAUUpPyASPugC8m5xhcWwItPY3yGzi',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-28 22:37:06
+-- Dump completed on 2025-10-29  0:40:08
