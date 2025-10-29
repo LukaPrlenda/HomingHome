@@ -11,14 +11,12 @@ class UserDao extends BaseDao{
     }
 
  
-    public function get_all_users(){
-        return $this->get_all();
+
     }
 
     public function get_by_role($is_admin){
         return $this->query('SELECT * FROM ' . $this->table_name . ' WHERE is_admin = :is_admin', ['is_admin' => $is_admin]);
     }
-
 
     public function get_all_usersnames($is_admin){
         return $this->query('SELECT id, name, surname FROM ' . $this->table_name . ' WHERE is_admin = :is_admin', ['is_admin' => $is_admin]);
@@ -34,20 +32,6 @@ class UserDao extends BaseDao{
 
     public function get_by_username($username){
         return $this->query_unique('SELECT id, username, password FROM ' . $this->table_name . ' WHERE username = :username', ['username' => $username]);
-    }
-        
-        
-
-    public function add_user($entity){
-        return $this->add($entity);
-    }
-
-    public function update_user($entity, $id, $id_column = "id"){
-        return $this->update($entity, $id, $id_column);
-    }
-
-    public function delete_user($id){
-        return $this->delete($id);
     }
 }
 ?>

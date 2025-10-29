@@ -16,10 +16,10 @@ $user = new UserDao();
 
 print_r(
 /*
-$user->update_user(["email" => "J2D@yahoo.com"],3)
+$user->update(["email" => "J2D@yahoo.com"],3)
 */
 /*
-$user->update_user(["username" => "JD2"],3)
+$user->update(["username" => "JD2"],3)
 */
 
 );

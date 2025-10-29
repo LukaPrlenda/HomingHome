@@ -16,12 +16,12 @@ $user = new UserDao();
 
 print_r(
 /*
-$admin->add_to_admin([
+$admin->add([
     "user_id"=>2, "property_id"=> 1, "message"=>"Testing admin messages 2"
 ])
 */
 /*
-$user->add_user([
+$user->add([
     "name" => "John",
     "surname" => "Doe",
     "date_of_birth" => "1911-01-01",

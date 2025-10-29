@@ -10,7 +10,7 @@ require_once __DIR__ . '/UserDao.php';
 $admin = new Admin_messagesDao();
 
 
-print_r($admin->get_all_admin_messages());
+print_r($admin->get_all());
 echo "<br>";echo "<br>";
 print_r($admin->get_by_user_id(2));
 echo "<br>";echo "<br>";
@@ -20,7 +20,7 @@ echo "<br>";echo "<br>";echo "<br>";echo "<br>";
 
 $intr = new InterestDao();
 
-print_r($intr->get_all_interests());
+print_r($intr->get_all());
 echo "<br>";echo "<br>";
 print_r($intr->get_by_status("Active"));
 echo "<br>";echo "<br>";
@@ -32,7 +32,7 @@ echo "<br>";echo "<br>";echo "<br>";echo "<br>";
 
 $list = new ListingDao();
 
-print_r($list->get_all_listings());
+print_r($list->get_all());
 echo "<br>";echo "<br>";
 print_r($list->get_address_by_status("Active"));
 echo "<br>";echo "<br>";
@@ -50,7 +50,7 @@ echo "<br>";echo "<br>";echo "<br>";echo "<br>";
 
 $prop = new PropertiesDao();
 
-print_r($prop->get_all_properties());
+print_r($prop->get_all());
 echo "<br>";echo "<br>";
 print_r($prop->get_all_area());
 echo "<br>";echo "<br>";
@@ -60,7 +60,7 @@ echo "<br>";echo "<br>";echo "<br>";echo "<br>";
 
 $user = new UserDao();
 
-print_r($user->get_all_users());
+print_r($user->get_all());
 echo "<br>";echo "<br>";
 print_r($user->get_by_role(FALSE));
 echo "<br>";echo "<br>";
