@@ -1,7 +1,7 @@
 <?php
 include_once __DIR__ . '/BaseDao.php';
 
-class UserDao extends BaseDao{
+class TypeDao extends BaseDao{
     protected $table_name;
 
     public function __construct(){
