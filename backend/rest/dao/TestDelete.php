@@ -16,14 +16,10 @@ $user = new UserDao();
 
 print_r(
 /*
-$user->update(["email" => "J2D@yahoo.com"],3)
+$admin->delete(4)
 */
-/*
-$user->update(["username" => "JD2"],3)
-*/
-/*
-$user->update(["password" => password_hash('1234567890+-', PASSWORD_DEFAULT)], 1)
-*/
+
+
 );
 echo "<br>";echo "<br>";
 ?>
