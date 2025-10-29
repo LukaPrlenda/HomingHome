@@ -10,9 +10,7 @@ class UserDao extends BaseDao{
 
     }
 
- 
-
-    }
+    
 
     public function get_by_role($is_admin){
         return $this->query('SELECT * FROM ' . $this->table_name . ' WHERE is_admin = :is_admin', ['is_admin' => $is_admin]);
