@@ -34,5 +34,21 @@ class ListingDao extends BaseDao{
     public function get_first_N_of_status($status, $number){
         return $this->query('SELECT p.*, l.status, l.id AS listing_id, t.type FROM ' . $this->table_name . ' l JOIN properties p ON l.property_id = p.id JOIN types t ON t.id = p.type_id  WHERE l.status = :status LIMIT ' . $number, ['status' => $status]);
     }
+
+
+    public function get_all_listings(){
+        return $this->get_all();
+    }
+    public function add_listing($entity){
+        return $this->add($entity);
+    }
+
+    public function update_listing($entity, $id, $id_column = "id"){
+        return $this->update($entity, $id, $id_column);
+    }
+
+    public function delete_listing($id){
+        return $this->delete($id);
+    }
 }
 ?>

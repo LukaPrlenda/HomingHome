@@ -35,7 +35,7 @@ class BaseDao{
         return reset($results);
     }
 
-    public function add($entity){
+    protected function add($entity){
         $query = "INSERT INTO " . $this->table_name . " (";
         $queryValues = ") VALUES (";
 
@@ -56,7 +56,7 @@ class BaseDao{
         return $entity;
     }
 
-    public function update($entity, $id, $id_column = "id"){
+    protected function update($entity, $id, $id_column = "id"){
         $query = "UPDATE " . $this->table_name . " SET ";
         foreach($entity as $column => $_){
             $query .= $column . " = :" . $column . ", ";
@@ -73,14 +73,14 @@ class BaseDao{
         return $entity;
     }
 
-    public function delete($id){
+    protected function delete($id){
         $stmt = $this->connection->prepare("DELETE FROM " . $this->table_name . " WHERE id = :id");
         $stmt->bindValue(":id", $id);
         $stmt->execute();
     }
 
 
-    public function get_all(){
+    protected function get_all(){
         return $this->query('SELECT * FROM ' . $this->table_name, []);
     }
 }
