@@ -4,7 +4,7 @@ require_once __DIR__ . "/../dao/TypeDao.php";
 
 class TypeService extends BaseService{
     public function __construct(){
-        parebt::__construct(new TypeDao);
+        parent::__construct(new TypeDao);
     }
 
     public function get_by_type($type){

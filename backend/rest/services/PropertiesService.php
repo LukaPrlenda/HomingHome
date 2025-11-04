@@ -4,7 +4,7 @@ require_once __DIR__ . "/../dao/PropertiesDao.php";
 
 class PropertiesService extends BaseService{
     public function __construct(){
-        parebt::__construct(new PropertiesDao);
+        parent::__construct(new PropertiesDao);
     }
 
     public function get_all_area(){
@@ -21,6 +21,9 @@ class PropertiesService extends BaseService{
     }
 
     public function add_property($entity){
+        if($entity["price"] < 1)
+            throw new Exception("No free selling or aditional opayying on this Web App!");
+
         return $this->dao->add_property($entity);
     }
 

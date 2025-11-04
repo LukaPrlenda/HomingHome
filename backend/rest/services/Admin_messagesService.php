@@ -15,7 +15,7 @@ class Admin_messagesService extends BaseService{
     }
 
     public function get_by_property_id($property_id){
-        if(!is_number($property_id) || $property_id < 0)
+        if(!is_numeric($property_id) || $property_id < 0)
             throw new Exception ("Id must be a positive number");
 
         return $this->dao->get_by_property_id($property_id);
@@ -27,7 +27,7 @@ class Admin_messagesService extends BaseService{
     }
 
     public function add_to_admin($entity){
-        return $this->data->add_to_admin($entity);
+        return $this->dao->add_to_admin($entity);
     }
 
     public function update_admin($entity, $id, $id_column = "id"){

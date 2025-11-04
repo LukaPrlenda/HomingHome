@@ -4,7 +4,7 @@ require_once __DIR__ . "/../dao/UserDao.php";
 
 class UserService extends BaseService{
     public function __construct(){
-        parebt::__construct(new UserDao);
+        parent::__construct(new UserDao);
     }
 
     public function get_by_role($is_admin){
@@ -19,7 +19,7 @@ class UserService extends BaseService{
     public function get_by_id($id){
         return $this->dao->get_by_id($id);
     }
-
+s
     public function get_basic_data_by_id($id){
         return $this->dao->get_basic_data_by_id($id);
     }
@@ -34,6 +34,9 @@ class UserService extends BaseService{
     }
 
     public function add_user($entity){
+        if((date() - $entity["date_of_birth"]))
+            throw new Exception("Youir age is not appropreate");
+
         return $this->dao->add_user($entity);
     }
 
