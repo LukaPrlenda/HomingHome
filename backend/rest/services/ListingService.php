@@ -7,6 +7,7 @@ class ListingService extends BaseService{
         parent::__construct(new ListingDao);
     }
 
+    
     public function get_address_by_status($status){
         return $this->dao->get_address_by_status($status);
     }
@@ -25,7 +26,7 @@ class ListingService extends BaseService{
 
     public function get_first_N_of_status($status, $number){
         if(!is_numeric($number) || $number < 0)
-            throw new Exception ("Number or listings to get must be a positive number");
+            throw new Exception ("The number of listings must be a positive number.");
 
         return $this->dao->get_first_N_of_status($status, $number);
     }

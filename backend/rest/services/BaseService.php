@@ -4,7 +4,7 @@ class BaseService{
     protected $dao;
 
     protected function __construct($entity){
-        $this->fao = $entity;
+        $this->dao = $entity;
     }
 
 

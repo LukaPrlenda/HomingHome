@@ -7,6 +7,7 @@ class InterestService extends BaseService{
         parent::__construct(new InterestDao);
     }
 
+    
     public function get_by_status($status){
         return $this->dao->get_by_status($status);
     }

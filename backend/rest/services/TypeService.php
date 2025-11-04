@@ -7,6 +7,7 @@ class TypeService extends BaseService{
         parent::__construct(new TypeDao);
     }
 
+    
     public function get_by_type($type){
         return $this->dao->get_by_type($type);
     }

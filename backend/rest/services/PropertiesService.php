@@ -7,6 +7,7 @@ class PropertiesService extends BaseService{
         parent::__construct(new PropertiesDao);
     }
 
+    
     public function get_all_area(){
         return $this->dao->get_all_area();
     }
@@ -22,7 +23,7 @@ class PropertiesService extends BaseService{
 
     public function add_property($entity){
         if($entity["price"] < 1)
-            throw new Exception("No free selling or aditional opayying on this Web App!");
+            throw new Exception("No free selling or additional payments on this web app!");
 
         return $this->dao->add_property($entity);
     }

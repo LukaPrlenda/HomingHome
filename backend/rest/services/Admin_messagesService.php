@@ -7,16 +7,13 @@ class Admin_messagesService extends BaseService{
         parent::__construct(new Admin_messagesDao);
     }
 
+
     public function get_by_user_id($user_id){
-        if(!is_numeric($user_id) || $user_id < 0)
-            throw new Exception ("Id must be a positive number");
         
         return $this->dao->get_by_user_id($user_id);
     }
 
     public function get_by_property_id($property_id){
-        if(!is_numeric($property_id) || $property_id < 0)
-            throw new Exception ("Id must be a positive number");
 
         return $this->dao->get_by_property_id($property_id);
     }

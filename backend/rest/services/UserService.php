@@ -7,6 +7,7 @@ class UserService extends BaseService{
         parent::__construct(new UserDao);
     }
 
+    
     public function get_by_role($is_admin){
         return $this->dao->get_by_role($is_admin);
     }
