@@ -1,6 +1,6 @@
 <?php
 require_once 'BaseService.php';
-require_once __DIR__ . "/../dao/ListingDao.php";
+require_once __DIR__ . "/../dao/PropertiesDao.php";
 
 class PropertiesService extends BaseService{
     public function __construct(){
@@ -15,7 +15,7 @@ class PropertiesService extends BaseService{
         return $this->dao->get_sum_area();
     }
 
-    
+
     public function get_all_properties(){
         return $this->dao->get_all_properties();
     }
