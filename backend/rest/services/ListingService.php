@@ -15,6 +15,10 @@ class ListingService extends BaseService{
     public function get_by_status($status){
         return $this->dao->get_by_status($status);
     }
+    
+    public function get_first_by_status($status){
+        return $this->dao->get_first_by_status($status);
+    }
 
     public function get_first_by_type_and_status($type, $status){
         return $this->dao->get_first_by_type_and_status($type, $status);
