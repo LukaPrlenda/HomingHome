@@ -19,7 +19,7 @@ class UserService extends BaseService{
     public function get_by_id($id){
         return $this->dao->get_by_id($id);
     }
-s
+
     public function get_basic_data_by_id($id){
         return $this->dao->get_basic_data_by_id($id);
     }
@@ -34,8 +34,20 @@ s
     }
 
     public function add_user($entity){
-        if((date() - $entity["date_of_birth"]))
-            throw new Exception("Youir age is not appropreate");
+
+        $today = new DateTime();
+        $birth = new DateTime($entity["date_of_birth"]);
+
+        $age = $today->diff($birth)->y;
+
+        if($age < 18)
+            throw new Exception("Your age is not appropriate");
+
+        if(strlen($entity["password"]) < 5)
+            throw new Exception("Password is not strong enough");
+    
+        $entity["password"] = password_hash($entity["password"], PASSWORD_DEFAULT);
+
 
         return $this->dao->add_user($entity);
     }
@@ -45,9 +57,6 @@ s
     }
 
     public function delete_user($id){
-        if(!$this->get_by_id($id))
-            throw new Exception ("Invalid user Id");
-
         return $this->dao->delete_user($id);
     }
 }
