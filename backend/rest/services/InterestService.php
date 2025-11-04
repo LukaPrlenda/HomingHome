@@ -25,9 +25,6 @@ class InterestService extends BaseService{
     }
 
     public function add_interest($entity){
-        if(!$this->get_by_status($entity['status']))
-            throw new Exception ("Invalid status chosen"); 
-
         return $this->data->add_interest($entity);
     }
 
