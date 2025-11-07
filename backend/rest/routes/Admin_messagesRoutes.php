@@ -32,7 +32,7 @@ Flight::route('PUT /admin_messages/@id', function($id){
 });
 
 Flight::route('DELETE /admin_messages/@id', function($id){
-    Flight::admin_messagesService()->delete($id);
+    Flight::admin_messagesService()->delete_admin($id);
     Flight::json(['message' => "Admin message deleted successfully"]);
 });
 

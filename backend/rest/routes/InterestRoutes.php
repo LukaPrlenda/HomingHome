@@ -36,7 +36,8 @@ Flight::route('PUT /interest/@id', function($id){
 });
 
 Flight::route('DELETE /interest/@id', function($id){
-    Flight::interestService()->delete($id);
+    Flight::interestService()->delete_interest($id);
     Flight::json(['message' => "Interest deleted successfully"]);
 });
+
 ?>
