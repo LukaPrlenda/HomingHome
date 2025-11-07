@@ -35,4 +35,5 @@ Flight::route('DELETE /admin_messages/@id', function($id){
     Flight::admin_messagesService()->delete($id);
     Flight::json(['message' => "Admin message deleted successfully"]);
 });
+
 ?>
