@@ -51,7 +51,7 @@ Flight::route('GET /admin_messages/property/@id', function($id){
  *      summary="Fetch all admin messages",
  *      @OA\Response(
  *          response=200,
- *          description="Fetch the admin messages."
+ *          description="Fetch all admin messages."
  *      )
  *  )
  */
@@ -112,7 +112,7 @@ Flight::route('POST /admin_messages', function(){
  *          name="id",
  *          in="path",
  *          required=true,
- *          description="Admin message ID",
+ *          description="Value of ID",
  *          @OA\Schema(type="integer", example=1)
  *      ),
  *      @OA\Parameter(
