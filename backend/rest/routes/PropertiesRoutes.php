@@ -5,7 +5,7 @@ Flight::route('GET /properties/area', function(){
 });
 
 Flight::route('GET /properties/sum/area', function(){
-    Flight::json(Flight::propertiesService()->get_all_area());
+    Flight::json(Flight::propertiesService()->get_sum_area());
 });
 
 Flight::route('GET /properties', function(){
