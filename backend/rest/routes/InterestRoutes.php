@@ -10,7 +10,11 @@
  *          in="path",
  *          required=true,
  *          description="Status of interest",
- *          @OA\Schema(type="string", example="Active")
+ *          @OA\Schema(
+ *              type="string",
+ *              enum={"Active","No more intrested","Found property","Rmoved","Something else","Inappropriate","Not compliant with rules"},
+ *              example="Active"
+ *          )
  *      ),
  *      @OA\Response(
  *          response=200,
@@ -32,7 +36,11 @@ Flight::route('GET /interest/@status', function($status){
  *          in="path",
  *          required=true,
  *          description="Status of interest",
- *          @OA\Schema(type="string", example="Active")
+ *          @OA\Schema(
+ *              type="string",
+ *              enum={"Active","No more intrested","Found property","Rmoved","Something else","Inappropriate","Not compliant with rules"},
+ *              example="Active"
+ *          )
  *      ),
  *      @OA\Parameter(
  *          name="id",
@@ -61,7 +69,11 @@ Flight::route('GET /interest/interested/@status/@id', function($status, $id){
  *          in="path",
  *          required=true,
  *          description="Status of interest",
- *          @OA\Schema(type="string", example="Active")
+ *          @OA\Schema(
+ *              type="string",
+ *              enum={"Active","No more intrested","Found property","Rmoved","Something else","Inappropriate","Not compliant with rules"},
+ *              example="Active"
+ *          )
  *      ),
  *      @OA\Parameter(
  *          name="id",
