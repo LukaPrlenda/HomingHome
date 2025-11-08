@@ -14,7 +14,12 @@
 */
 /**
 *   @OA\Server(
-*       url="LOCALSERVER",
+*       url="http://localhost/HomingHome/backend/",
+*       description="API server"
+*   )
+*
+*   @OA\Server(
+*       url="https://production_server_to_add/backend/",
 *       description="API server"
 *   )
 */
