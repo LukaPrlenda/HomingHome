@@ -150,7 +150,7 @@ Flight::route('GET /listing/@status/@type', function($status, $type){
 
 /**
  *  @OA\Get(
- *      path="/listing/{status}/{number}",
+ *      path="/listing/first_N/{status}/{number}",
  *      tags={"listing"},
  *      summary="Fetch first N listings by status.",
  *      @OA\Parameter(
