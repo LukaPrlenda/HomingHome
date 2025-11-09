@@ -29,8 +29,7 @@ Flight::route('GET /type/@type', function($type){
  *  @OA\Get(
  *      path="/type",
  *      tags={"type"},
- *      summary="Fetch all types."
- *      ),
+ *      summary="Fetch all types.",
  *      @OA\Response(
  *          response=200,
  *          description="Fetch all types."
@@ -52,7 +51,7 @@ Flight::route('GET /type', function(){
  *              required={"type"},
  *              @OA\Property(
  *                  property="type",
- *                  type="String",
+ *                  type="string",
  *                  example="Luxury Villa",
  *                  description="Type of property."
  *              )
@@ -97,7 +96,7 @@ Flight::route('POST /type', function(){
  *          @OA\JsonContent(
  *              @OA\Property(
  *                  property="type",
- *                  type="String",
+ *                  type="string",
  *                  example="Luxury Villa",
  *                  description="Type of property."
  *              )

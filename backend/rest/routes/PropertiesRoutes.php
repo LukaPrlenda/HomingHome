@@ -4,8 +4,7 @@
  *  @OA\Get(
  *      path="/properties/area",
  *      tags={"properties"},
- *      summary="Fetch areas of properties."
- *      ),
+ *      summary="Fetch areas of properties.",
  *      @OA\Response(
  *          response=200,
  *          description="Fetch areas of properties."
@@ -20,8 +19,7 @@ Flight::route('GET /properties/area', function(){
  *  @OA\Get(
  *      path="/properties/sum/area",
  *      tags={"properties"},
- *      summary="Fetch sum area of properties."
- *      ),
+ *      summary="Fetch sum area of properties.",
  *      @OA\Response(
  *          response=200,
  *          description="Fetch sum area of properties."
@@ -36,8 +34,7 @@ Flight::route('GET /properties/sum/area', function(){
  *  @OA\Get(
  *      path="/properties",
  *      tags={"properties"},
- *      summary="Fetch all properties."
- *      ),
+ *      summary="Fetch all properties.",
  *      @OA\Response(
  *          response=200,
  *          description="Fetch all properties."
@@ -265,7 +262,7 @@ Flight::route('PATCH /properties/@id', function($id){
  *  )
  */
 Flight::route('DELETE /properties/@id', function($id){
-    Flight::interestService()->delete_property($id);
+    Flight::propertiesService()->delete_property($id);
     Flight::json(['message' => "Property deleted successfully"]);
 });
 
