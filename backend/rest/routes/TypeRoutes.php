@@ -1,13 +1,69 @@
 <?php
 
+/**
+ *  @OA\Get(
+ *      path="/type/{type}",
+ *      tags={"type"},
+ *      summary="Fetch type by type.",
+ *      @OA\Parameter(
+ *          name="type",
+ *          in="path",
+ *          required=true,
+ *          description="Type of property",
+ *          @OA\Schema(
+ *              type="string",
+ *              example="Luxury Villa"
+ *          )
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Fetch type by type."
+ *      )
+ *  )
+ */
 Flight::route('GET /type/@type', function($type){
     Flight::json(Flight::typeService()->get_by_type($type));
 });
 
+/**
+ *  @OA\Get(
+ *      path="/type",
+ *      tags={"type"},
+ *      summary="Fetch all types."
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Fetch all types."
+ *      )
+ *  )
+ */
 Flight::route('GET /type', function(){
     Flight::json(Flight::typeService()->get_all_types());
 });
 
+/**
+ *  @OA\Post(
+ *      path="/type",
+ *      tags={"type"},
+ *      summary="Add a new type",
+ *      @OA\RequestBody(
+ *          required=true,
+ *          @OA\JsonContent(
+ *              required={"type"},
+ *              @OA\Property(
+ *                  property="type",
+ *                  type="String",
+ *                  example="Luxury Villa",
+ *                  description="Type of property."
+ *              )
+ *          )
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Type added successfully."
+ *      )
+ *  )
+ */
 Flight::route('POST /type', function(){
     $request = Flight::request()->data->getData();
 
@@ -17,7 +73,43 @@ Flight::route('POST /type', function(){
     ]);
 });
 
-Flight::route('PUT /type/@id', function($id){
+/**
+ *  @OA\Patch(
+ *      path="/type/{id}",
+ *      tags={"type"},
+ *      summary="Update an existing type",
+ *      @OA\Parameter(
+ *          name="id",
+ *          in="path",
+ *          required=true,
+ *          description="Value of ID",
+ *          @OA\Schema(type="integer", example=1)
+ *      ),
+ *      @OA\Parameter(
+ *          name="id_column",
+ *          in="query",
+ *          required=false,
+ *          description="Column to use as ID",
+ *          @OA\Schema(type="string", example="id")
+ *      ),
+ *      @OA\RequestBody(
+ *          required=true,
+ *          @OA\JsonContent(
+ *              @OA\Property(
+ *                  property="type",
+ *                  type="String",
+ *                  example="Luxury Villa",
+ *                  description="Type of property."
+ *              )
+ *          )
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Type edited successfully."
+ *      )
+ *  )
+ */
+Flight::route('PATCH /type/@id', function($id){
     $data = Flight::request()->data->getData();
     $id_column = Flight::request()->query['id_column'] ?? "id";
     
@@ -27,6 +119,24 @@ Flight::route('PUT /type/@id', function($id){
     ]);
 });
 
+/**
+ *  @OA\Delete(
+ *      path="/type/{id}",
+ *      tags={"type"},
+ *      summary="Delete the type by ID",
+ *      @OA\Parameter(
+ *          name="id",
+ *          in="path",
+ *          required=true,
+ *          description="Type ID",
+ *          @OA\Schema(type="integer", example=1)
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Type deleted successfully."
+ *      )
+ *  )
+ */
 Flight::route('DELETE /type/@id', function($id){
     Flight::typeService()->delete_type($id);
     Flight::json(['message' => "Type deleted successfully"]);
