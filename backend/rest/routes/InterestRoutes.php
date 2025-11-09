@@ -12,7 +12,7 @@
  *          description="Status of interest",
  *          @OA\Schema(
  *              type="string",
- *              enum={"Active","No more intrested","Found property","Rmoved","Something else","Inappropriate","Not compliant with rules"},
+ *              enum={"Active","No more interested","Found property","Removed","Something else","Inappropriate","Not compliant with rules"},
  *              example="Active"
  *          )
  *      ),
@@ -38,7 +38,7 @@ Flight::route('GET /interest/@status', function($status){
  *          description="Status of interest",
  *          @OA\Schema(
  *              type="string",
- *              enum={"Active","No more intrested","Found property","Rmoved","Something else","Inappropriate","Not compliant with rules"},
+ *              enum={"Active","No more interested","Found property","Removed","Something else","Inappropriate","Not compliant with rules"},
  *              example="Active"
  *          )
  *      ),
@@ -46,7 +46,7 @@ Flight::route('GET /interest/@status', function($status){
  *          name="id",
  *          in="path",
  *          required=true,
- *          description="Intrested user ID",
+ *          description="Interested user ID",
  *          @OA\Schema(type="integer", example=1)
  *      ),
  *      @OA\Response(
@@ -71,7 +71,7 @@ Flight::route('GET /interest/interested/@status/@id', function($status, $id){
  *          description="Status of interest",
  *          @OA\Schema(
  *              type="string",
- *              enum={"Active","No more intrested","Found property","Rmoved","Something else","Inappropriate","Not compliant with rules"},
+ *              enum={"Active","No more interested","Found property","Removed","Something else","Inappropriate","Not compliant with rules"},
  *              example="Active"
  *          )
  *      ),
@@ -131,7 +131,7 @@ Flight::route('GET /interest', function(){
  *              @OA\Property(
  *                  property="status",
  *                  type="string",
- *                  enum={"Active","No more intrested","Found property","Rmoved","Something else","Inappropriate","Not compliant with rules"},
+ *                  enum={"Active","No more interested","Found property","Removed","Something else","Inappropriate","Not compliant with rules"},
  *                  example="Active",
  *                  description="Status of interest."
  *              ),
@@ -195,7 +195,7 @@ Flight::route('POST /interest', function(){
  *              @OA\Property(
  *                  property="status",
  *                  type="string",
- *                  enum={"Active","No more intrested","Found property","Rmoved","Something else","Inappropriate","Not compliant with rules"},
+ *                  enum={"Active","No more interested","Found property","Removed","Something else","Inappropriate","Not compliant with rules"},
  *                  example="Active",
  *                  description="Status of interest."
  *              ),
