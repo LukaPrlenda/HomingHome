@@ -15,6 +15,10 @@
  *      @OA\Response(
  *          response=200,
  *          description="Fetch the admin messages for user."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -37,6 +41,10 @@ Flight::route('GET /admin_messages/user/@id', function($id){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch the admin messages for property."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -52,6 +60,10 @@ Flight::route('GET /admin_messages/property/@id', function($id){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch all admin messages."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -91,6 +103,10 @@ Flight::route('GET /admin_messages', function(){
  *      @OA\Response(
  *          response=200,
  *          description="Admin message added successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -148,6 +164,10 @@ Flight::route('POST /admin_messages', function(){
  *      @OA\Response(
  *          response=200,
  *          description="Admin message edited successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -176,6 +196,10 @@ Flight::route('PATCH /admin_messages/@id', function($id){
  *      @OA\Response(
  *          response=200,
  *          description="Admin message deleted successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */

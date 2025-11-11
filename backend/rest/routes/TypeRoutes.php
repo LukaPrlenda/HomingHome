@@ -18,6 +18,10 @@
  *      @OA\Response(
  *          response=200,
  *          description="Fetch type by type."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -33,6 +37,10 @@ Flight::route('GET /type/@type', function($type){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch all types."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -60,6 +68,10 @@ Flight::route('GET /type', function(){
  *      @OA\Response(
  *          response=200,
  *          description="Type added successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -105,6 +117,10 @@ Flight::route('POST /type', function(){
  *      @OA\Response(
  *          response=200,
  *          description="Type edited successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -133,6 +149,10 @@ Flight::route('PATCH /type/@id', function($id){
  *      @OA\Response(
  *          response=200,
  *          description="Type deleted successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */

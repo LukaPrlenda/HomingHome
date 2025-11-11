@@ -19,6 +19,10 @@
  *      @OA\Response(
  *          response=200,
  *          description="Fetch user by role."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -45,6 +49,10 @@ Flight::route('GET /user/role/@is_admin', function($is_admin){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch usersnames by role."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -70,6 +78,10 @@ Flight::route('GET /user/usersnames/@is_admin', function($is_admin){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch user by ID."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -95,6 +107,10 @@ Flight::route('GET /user/@id', function($id){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch basic user data by ID."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -120,6 +136,10 @@ Flight::route('GET /user/basic_data/@id', function($id){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch user by username."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -135,6 +155,10 @@ Flight::route('GET /user/username/@username', function($username){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch all users."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -232,6 +256,10 @@ Flight::route('GET /user', function(){
  *      @OA\Response(
  *          response=200,
  *          description="User added successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -347,6 +375,10 @@ Flight::route('POST /user', function(){
  *      @OA\Response(
  *          response=200,
  *          description="User edited successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -375,6 +407,10 @@ Flight::route('PATCH /user/@id', function($id){
  *      @OA\Response(
  *          response=200,
  *          description="User deleted successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */

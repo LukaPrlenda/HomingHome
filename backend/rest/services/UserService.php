@@ -44,12 +44,6 @@ class UserService extends BaseService{
         if($age < 18)
             throw new Exception("Your age is not appropriate");
 
-        if(strlen($entity["password"]) < 5)
-            throw new Exception("Password is not strong enough");
-    
-        $entity["password"] = password_hash($entity["password"], PASSWORD_DEFAULT);
-
-
         return $this->dao->add_user($entity);
     }
 

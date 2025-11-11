@@ -19,6 +19,10 @@
  *      @OA\Response(
  *          response=200,
  *          description="Fetch interests by status."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -52,6 +56,10 @@ Flight::route('GET /interest/@status', function($status){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch interests by status and interested user ID."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -85,6 +93,10 @@ Flight::route('GET /interest/interested/@status/@id', function($status, $id){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch interests by status and owner ID."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -100,6 +112,10 @@ Flight::route('GET /interest/owner/@status/@id', function($status, $id){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch all interests."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -146,6 +162,10 @@ Flight::route('GET /interest', function(){
  *      @OA\Response(
  *          response=200,
  *          description="Interest added successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -210,6 +230,10 @@ Flight::route('POST /interest', function(){
  *      @OA\Response(
  *          response=200,
  *          description="Interest edited successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -238,6 +262,10 @@ Flight::route('PATCH /interest/@id', function($id){
  *      @OA\Response(
  *          response=200,
  *          description="Interest deleted successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */

@@ -8,6 +8,10 @@
  *      @OA\Response(
  *          response=200,
  *          description="Fetch areas of properties."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -23,6 +27,10 @@ Flight::route('GET /properties/area', function(){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch sum area of properties."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -38,6 +46,10 @@ Flight::route('GET /properties/sum/area', function(){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch all properties."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -125,6 +137,10 @@ Flight::route('GET /properties', function(){
  *      @OA\Response(
  *          response=200,
  *          description="Property added successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -230,6 +246,10 @@ Flight::route('POST /properties', function(){
  *      @OA\Response(
  *          response=200,
  *          description="Property edited successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -258,6 +278,10 @@ Flight::route('PATCH /properties/@id', function($id){
  *      @OA\Response(
  *          response=200,
  *          description="Property deleted successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */

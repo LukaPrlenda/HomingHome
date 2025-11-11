@@ -19,6 +19,10 @@
  *      @OA\Response(
  *          response=200,
  *          description="Fetch listing address by status."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -45,6 +49,10 @@ Flight::route('GET /listing/address/@status', function($status){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch listing by status."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -71,6 +79,10 @@ Flight::route('GET /listing/@status', function($status){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch first listing by status."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -106,6 +118,10 @@ Flight::route('GET /listing/first/@status', function($status){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch first listing by status and type."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -141,6 +157,10 @@ Flight::route('GET /listing/first/@status/@type', function($status, $type){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch listings by status and type."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -176,6 +196,10 @@ Flight::route('GET /listing/@status/@type', function($status, $type){
  *      @OA\Response(
  *          response=200,
  *          description="Fetch first N listings by status."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -191,6 +215,10 @@ Flight::route('GET /listing/first_N/@status/@number', function($status, $number)
  *      @OA\Response(
  *          response=200,
  *          description="Fetch all listings."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -225,6 +253,10 @@ Flight::route('GET /listing', function(){
  *      @OA\Response(
  *          response=200,
  *          description="Listing added successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -277,6 +309,10 @@ Flight::route('POST /listing', function(){
  *      @OA\Response(
  *          response=200,
  *          description="Listing edited successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
@@ -305,6 +341,10 @@ Flight::route('PATCH /listing/@id', function($id){
  *      @OA\Response(
  *          response=200,
  *          description="Listing deleted successfully."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
  *      )
  *  )
  */
