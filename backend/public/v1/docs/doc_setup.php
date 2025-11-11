@@ -7,7 +7,7 @@
 *   version="1.0",
 *   @OA\Contact(
 *       email="luka.prlenda@stu.ibu.edu.ba",
-*       name="LP"
+*       name="Luka Prlenda"
 *   )
 * )
 * @OA\Server(
