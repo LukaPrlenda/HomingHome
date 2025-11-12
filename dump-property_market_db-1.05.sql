@@ -32,7 +32,7 @@ CREATE TABLE `admin_messages` (
   KEY `fk_admin_property` (`property_id`),
   CONSTRAINT `fk_admin_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_admin_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,14 +56,14 @@ CREATE TABLE `interests` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `property_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
-  `status` enum('Active','No more intrested','Found property','Rmoved','Something else','Inappropriate','Not compliant with rules') NOT NULL DEFAULT 'Active',
+  `status` enum('Active','No more interested','Found property','Removed','Something else','Inappropriate','Not compliant with rules') NOT NULL DEFAULT 'Active',
   `message` varchar(200) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_interest_property` (`property_id`),
   KEY `fk_interest_user` (`user_id`),
   CONSTRAINT `fk_interest_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_interest_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +91,7 @@ CREATE TABLE `listings` (
   PRIMARY KEY (`id`),
   KEY `fk_listing_property` (`property_id`),
   CONSTRAINT `fk_listing_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +130,7 @@ CREATE TABLE `properties` (
   KEY `fk_property_type` (`type_id`),
   CONSTRAINT `fk_property_type` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_property_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,7 +155,7 @@ CREATE TABLE `types` (
   `type` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `types_unique` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -191,7 +191,7 @@ CREATE TABLE `users` (
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_unique` (`username`,`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,7 +200,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Pero','Perić','1950-05-25','Male','peri@gmail.com','00387-12 123 456','Croatia','Sarajevska 101',0,'Peri155','$2y$10$0xk.jRTpg60PrPDYbFAaWOI5UxJwoiDzJToEcyj5L.Wp30iMorxfS',0),(2,'Luke','Skywalker','1977-05-25','Male','XWing@gmail.com','00111-12 798 9456','United States of America','Tatooine 50',0,'Skywalker02','$2y$10$WkbyX0VcHPyfMbfmJfEHV.IsyzziypE8zilMDNcqwe7urEGe2Q2Pq',0),(3,'John','Doe','1911-01-01','Male','J2D@yahoo.com','00111098765432','Canada','31st Street',0,'JD2','$2y$10$3wx9QZZ/vuNqYC7XnZLyo.cGPCEV8/qy4BdkulDQLmSuciLQYfkxS',0),(5,'John','Doe','1911-01-01','Male','JD@gmial.com','00111098765432','Canada','31st Street',0,'JD','$2y$10$WHHt7elEOOQnEUpgTgHDHOJoAUUpPyASPugC8m5xhcWwItPY3yGzi',0),(6,'Brzo','Brzić','1999-10-20','Male','Brzi@gmial.com','001336554987','Germany','Guethe',1,'Brzi','$2y$10$5FnZoEsI/YzmywV9nTEGQepO2zcqvXdcPXHXoWRHdVYT0WfJMbsD2',0),(7,'Petko','Nedeljković','2000-01-20','Male','Suba123@gmial.com','001336554555','France','32th street',1,'Sub123','$2y$10$FhUAgPSXkJRfUvvd2VniIuSY/3EvKWc5OkveaTpTE43GQlQPjWwv6',0),(8,'Fin','Storm','1987-07-18','Male','fn2187@gmial.com','001336552187','Croatia','Šenoin put 10',1,'Sub123','$2y$10$9j85UQPG987hpeEUbTOlnu4Miw6ix8mmrmkFhwM8zlWl89TOPtoYq',1),(9,'Nyota','Uhura','2010-05-15','Female','nyota.uhura@gmial.com','001336551111','United States','Starfleet Academy, San Francisco',1,'NyotaU','$2y$10$nOcwW4JnTJQroXkWRB1xAem/AhdnxuNJkRWEstOB5203oY/xxCPJi',0),(10,'Seven','of Nine','2008-07-09','Female','seven.ofnine@gmial.com','001336552222','United Federation of Planets','USS Voyager',0,'Seven9','$2y$10$yxoZ5Uc7hAP3iHVFOGhtp.zEA0.T1R/RHVWM3jvSJFby6U0X690y2',0);
+INSERT INTO `users` VALUES (1,'Pero','Perić','1950-05-25','Male','peri@gmail.com','00387-12 123 456','Croatia','Sarajevska 101',0,'Peri155','$2y$10$0xk.jRTpg60PrPDYbFAaWOI5UxJwoiDzJToEcyj5L.Wp30iMorxfS',0),(2,'Luke','Skywalker','1977-05-25','Male','XWing@gmail.com','00111-12 798 9456','United States of America','Tatooine 50',0,'Skywalker02','$2y$10$WkbyX0VcHPyfMbfmJfEHV.IsyzziypE8zilMDNcqwe7urEGe2Q2Pq',0),(3,'John','Doe','1911-01-01','Male','J2D@yahoo.com','00111098765432','Canada','31st Street',0,'JD2','$2y$10$3wx9QZZ/vuNqYC7XnZLyo.cGPCEV8/qy4BdkulDQLmSuciLQYfkxS',0),(5,'John','Doe','1911-01-01','Male','JD@gmial.com','00111098765432','Canada','31st Street',0,'JD','$2y$10$WHHt7elEOOQnEUpgTgHDHOJoAUUpPyASPugC8m5xhcWwItPY3yGzi',0),(6,'Brzo','Brzić','1999-10-20','Male','Brzi@gmial.com','001336554987','Germany','Guethe',1,'Brzi','$2y$10$5FnZoEsI/YzmywV9nTEGQepO2zcqvXdcPXHXoWRHdVYT0WfJMbsD2',0),(7,'Petko','Nedeljković','2000-01-20','Male','Suba123@gmial.com','001336554555','France','32th street',1,'Sub123','$2y$10$FhUAgPSXkJRfUvvd2VniIuSY/3EvKWc5OkveaTpTE43GQlQPjWwv6',0),(8,'Fin','Storm','1987-07-18','Male','fn2187@gmial.com','001336552187','Croatia','Šenoin put 10',1,'Sub123','$2y$10$9j85UQPG987hpeEUbTOlnu4Miw6ix8mmrmkFhwM8zlWl89TOPtoYq',1),(9,'Nyota','Uhura','2005-05-15','Female','nyota.uhura@gmial.com','001336551111','United States','Starfleet Academy, San Francisco',1,'NyotaU','$2y$10$nOcwW4JnTJQroXkWRB1xAem/AhdnxuNJkRWEstOB5203oY/xxCPJi',0),(10,'Seven','of Nine','2007-07-09','Female','seven.ofnine@gmial.com','001336552222','United Federation of Planets','USS Voyager',0,'Seven9','$2y$10$yxoZ5Uc7hAP3iHVFOGhtp.zEA0.T1R/RHVWM3jvSJFby6U0X690y2',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-29 22:00:20
+-- Dump completed on 2025-11-09 20:16:35
