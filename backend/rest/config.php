@@ -24,8 +24,9 @@ class Config{
     public static function DB_HOST(){
         return Config::get_env("DB_HOST", "");
     }
+
     public static function JWT_SECRET(){
-        return Config::get_env("DB_HOST", "");
+        return Config::get_env("JWT_SECRET", "test");
     }
 
     public static function get_env($name, $default){
