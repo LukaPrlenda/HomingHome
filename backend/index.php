@@ -10,6 +10,8 @@ require_once __DIR__ . '/rest/services/PropertiesService.php';
 require_once __DIR__ . '/rest/services/TypeService.php';
 require_once __DIR__ . '/rest/services/UserService.php';
 
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 Flight::register('admin_messagesService', 'Admin_messagesService');
 Flight::register('authService', 'AuthService');
@@ -19,6 +21,22 @@ Flight::register('propertiesService', 'PropertiesService');
 Flight::register('typeService', 'TypeService');
 Flight::register('userService', 'UserService');
 
+Flight::route("/*", function () {
+    if(
+        strpos(Flight::request()->url, "/auth/login") === 0
+        || strpos(Flight::request()->url, "/auth/signup") === 0
+    ) {
+        return TRUE;
+    }
+    else {
+        try{
+            $token = Flight::request()->getHeader("Authentification");
+        }
+        catch (\Exception $e) {
+            Flight::halt(401, $e->getMessage());
+        }
+    }
+});
 
 require_once __DIR__ . '/rest/routes/Admin_messagesRoutes.php';
 require_once __DIR__ . '/rest/routes/AuthRoutes.php';

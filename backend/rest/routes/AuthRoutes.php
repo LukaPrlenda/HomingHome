@@ -5,9 +5,9 @@ use Firebase\JWT\Key;
 
 /**
  *  @OA\Post(
- *      path="/auth/signin",
+ *      path="/auth/signup",
  *      tags={"auth"},
- *      summary="Signin a new user",
+ *      summary="Signup a new user",
  *      @OA\RequestBody(
  *          required=true,
  *          @OA\JsonContent(
@@ -93,10 +93,10 @@ use Firebase\JWT\Key;
  *      )
  *  )
  */
-Flight::route("POST /auth/signin", function () {
+Flight::route("POST /auth/signup", function () {
     $data = Flight::request()->data->getData();
 
-    $response = Flight::authService()->signin($data);
+    $response = Flight::authService()->signup($data);
 
     if ($response['success']) {
         Flight::json([

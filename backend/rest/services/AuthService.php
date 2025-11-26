@@ -26,7 +26,7 @@ class AuthService extends BaseService{
     }
 
 
-    public function signin ($entity) {
+    public function signup ($entity) {
         if(empty($entity['name'])
             || empty($entity['surname'])
             || empty($entity['date_of_birth'])
