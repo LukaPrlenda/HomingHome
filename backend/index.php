@@ -16,6 +16,7 @@ require_once __DIR__ . '/middleware/AuthMiddleware.php';
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
+
 Flight::register('admin_messagesService', 'Admin_messagesService');
 Flight::register('authService', 'AuthService');
 Flight::register('interestService', 'InterestService');
@@ -23,6 +24,9 @@ Flight::register('listingService', 'ListingService');
 Flight::register('propertiesService', 'PropertiesService');
 Flight::register('typeService', 'TypeService');
 Flight::register('userService', 'UserService');
+
+Flight::register('auth_middleware', 'AuthMiddleware');
+
 
 Flight::route("/*", function () {
     if(
@@ -34,12 +38,15 @@ Flight::route("/*", function () {
     else {
         try{
             $token = Flight::request()->getHeader("Authentication");
+            if(Flight::auth_middleware()->verifyToken($token))
+                return TRUE;
         }
         catch (\Exception $e) {
             Flight::halt(401, $e->getMessage());
         }
     }
 });
+
 
 require_once __DIR__ . '/rest/routes/Admin_messagesRoutes.php';
 require_once __DIR__ . '/rest/routes/AuthRoutes.php';
