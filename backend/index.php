@@ -10,6 +10,9 @@ require_once __DIR__ . '/rest/services/PropertiesService.php';
 require_once __DIR__ . '/rest/services/TypeService.php';
 require_once __DIR__ . '/rest/services/UserService.php';
 
+require_once __DIR__ . '/middleware/AuthMiddleware.php';
+
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
@@ -30,7 +33,7 @@ Flight::route("/*", function () {
     }
     else {
         try{
-            $token = Flight::request()->getHeader("Authentification");
+            $token = Flight::request()->getHeader("Authentication");
         }
         catch (\Exception $e) {
             Flight::halt(401, $e->getMessage());
