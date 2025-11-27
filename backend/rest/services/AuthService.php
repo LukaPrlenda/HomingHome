@@ -53,6 +53,7 @@ class AuthService extends BaseService{
         
 
         $entity['password'] = password_hash($entity['password'], PASSWORD_BCRYPT);
+        $entity['role'] = roles::USER;
         $entity = $this->user_service->add_user($entity);
 
         unset($entity['password']);
@@ -77,6 +78,7 @@ class AuthService extends BaseService{
             'user' => $user,
             'iat' => time(),
             'exp' => time() + (60 * 60 * 3),
+            'role' => $user['role']
         ];
 
         $token = JWT::encode(
