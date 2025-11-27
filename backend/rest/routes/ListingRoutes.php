@@ -231,6 +231,9 @@ Flight::route('GET /listing', function(){
  *      path="/listing",
  *      tags={"listing"},
  *      summary="Add a new listing",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\RequestBody(
  *          required=true,
  *          @OA\JsonContent(
@@ -261,6 +264,8 @@ Flight::route('GET /listing', function(){
  *  )
  */
 Flight::route('POST /listing', function(){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     $request = Flight::request()->data->getData();
 
     Flight::json([
@@ -274,6 +279,9 @@ Flight::route('POST /listing', function(){
  *      path="/listing/{id}",
  *      tags={"listing"},
  *      summary="Update an existing listing",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -317,6 +325,8 @@ Flight::route('POST /listing', function(){
  *  )
  */
 Flight::route('PATCH /listing/@id', function($id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     $data = Flight::request()->data->getData();
     $id_column = Flight::request()->query['id_column'] ?? "id";
     
@@ -331,6 +341,9 @@ Flight::route('PATCH /listing/@id', function($id){
  *      path="/listing/{id}",
  *      tags={"listing"},
  *      summary="Delete the listing by ID",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -349,6 +362,8 @@ Flight::route('PATCH /listing/@id', function($id){
  *  )
  */
 Flight::route('DELETE /listing/@id', function($id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     Flight::listingService()->delete_listing($id);
     Flight::json(['message' => "Listing deleted successfully"]);
 });

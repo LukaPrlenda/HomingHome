@@ -5,6 +5,9 @@
  *      path="/admin_messages/user/{id}",
  *      tags={"admin_messages"},
  *      summary="Fetch the admin messages by user ID.",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -23,6 +26,8 @@
  *  )
  */
 Flight::route('GET /admin_messages/user/@id', function($id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     Flight::json(Flight::admin_messagesService()->get_by_user_id($id));
 });
 
@@ -31,6 +36,9 @@ Flight::route('GET /admin_messages/user/@id', function($id){
  *      path="/admin_messages/property/{id}",
  *      tags={"admin_messages"},
  *      summary="Fetch the admin messages by property ID.",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -49,6 +57,8 @@ Flight::route('GET /admin_messages/user/@id', function($id){
  *  )
  */
 Flight::route('GET /admin_messages/property/@id', function($id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     Flight::json(Flight::admin_messagesService()->get_by_property_id($id));
 });
 
@@ -57,6 +67,9 @@ Flight::route('GET /admin_messages/property/@id', function($id){
  *      path="/admin_messages",
  *      tags={"admin_messages"},
  *      summary="Fetch all admin messages",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Response(
  *          response=200,
  *          description="Fetch all admin messages."
@@ -68,6 +81,8 @@ Flight::route('GET /admin_messages/property/@id', function($id){
  *  )
  */
 Flight::route('GET /admin_messages', function(){
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
     Flight::json(Flight::admin_messagesService()->get_all_admin_messages());
 });
 
@@ -76,6 +91,9 @@ Flight::route('GET /admin_messages', function(){
  *      path="/admin_messages",
  *      tags={"admin_messages"},
  *      summary="Add a new admin message",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\RequestBody(
  *          required=true,
  *          @OA\JsonContent(
@@ -111,6 +129,8 @@ Flight::route('GET /admin_messages', function(){
  *  )
  */
 Flight::route('POST /admin_messages', function(){
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
     $request = Flight::request()->data->getData();
 
     Flight::json([
@@ -124,6 +144,9 @@ Flight::route('POST /admin_messages', function(){
  *      path="/admin_messages/{id}",
  *      tags={"admin_messages"},
  *      summary="Update an existing admin message",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -172,6 +195,8 @@ Flight::route('POST /admin_messages', function(){
  *  )
  */
 Flight::route('PATCH /admin_messages/@id', function($id){
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
     $data = Flight::request()->data->getData();
     $id_column = Flight::request()->query['id_column'] ?? "id";
     
@@ -186,6 +211,9 @@ Flight::route('PATCH /admin_messages/@id', function($id){
  *      path="/admin_messages/{id}",
  *      tags={"admin_messages"},
  *      summary="Delete the admin message by ID",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -204,6 +232,8 @@ Flight::route('PATCH /admin_messages/@id', function($id){
  *  )
  */
 Flight::route('DELETE /admin_messages/@id', function($id){
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
     Flight::admin_messagesService()->delete_admin($id);
     Flight::json(['message' => "Admin message deleted successfully"]);
 });
