@@ -13,7 +13,7 @@ class AuthDao extends BaseDao {
 
 
     public function get_by_username($username){
-        return $this->query_unique('SELECT id, username, password FROM ' . $this->table_name . ' WHERE username = :username', ['username' => $username]);
+        return $this->query_unique('SELECT id, username, role, password FROM ' . $this->table_name . ' WHERE username = :username', ['username' => $username]);
     }
 
     public function get_by_email($email){

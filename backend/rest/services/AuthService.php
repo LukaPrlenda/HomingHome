@@ -2,6 +2,7 @@
 require_once 'BaseService.php';
 require_once 'UserService.php';
 require_once __DIR__ . "/../dao/AuthDao.php";
+require_once __DIR__ . "/../../data/Roles.php";
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -12,7 +13,7 @@ class AuthService extends BaseService{
     public function __construct(){
         $this->user_service = new UserService();
 
-        parent::__construct(new InterestDao);
+        parent::__construct(new AuthDao);
     }
 
 
@@ -35,7 +36,7 @@ class AuthService extends BaseService{
             || empty($entity['phone_number'])
             || empty($entity['country'])
             || empty($entity['current_address'])
-            || empty($entity['is_agent'])
+            || !isset($entity['is_agent'])
             || empty($entity['username'])
             || empty($entity['password'])
             ){
@@ -44,7 +45,7 @@ class AuthService extends BaseService{
 
 
         $username_exists = $this -> get_by_username($entity['username']);
-        $email_exists = $this -> get_by_email($entity['username']);
+        $email_exists = $this -> get_by_email($entity['email']);
         if($username_exists)
             return ['success' => false, 'error' => 'Username already registered.'];
         

@@ -28,10 +28,15 @@ Flight::register('userService', 'UserService');
 Flight::register('auth_middleware', 'AuthMiddleware');
 
 
-Flight::route("/*", function () {
+Flight::before("start", function () {
+    $method = $_SERVER['REQUEST_METHOD'];
+
     if(
         strpos(Flight::request()->url, "/auth/login") === 0
         || strpos(Flight::request()->url, "/auth/signup") === 0
+        || ($method == 'GET' && strpos(Flight::request()->url, "/listing") === 0)
+        || ($method == 'GET' && strpos(Flight::request()->url, "/properties") === 0)
+        || ($method == 'GET' && strpos(Flight::request()->url, "/type") === 0)
     ) {
         return TRUE;
     }

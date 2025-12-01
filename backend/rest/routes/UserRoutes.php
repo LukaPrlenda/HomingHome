@@ -2,21 +2,21 @@
 
 /**
  *  @OA\Get(
- *      path="/user/role/{is_admin}",
+ *      path="/user/role/{role}",
  *      tags={"user"},
  *      summary="Fetch users by role.",
  *      security={
  *          {"ApiKey": {}}
  *      },
  *      @OA\Parameter(
- *          name="is_admin",
+ *          name="role",
  *          in="path",
  *          required=true,
  *          description="Role of the user",
  *          @OA\Schema(
- *              type="integer",
- *              enum={0, 1},
- *              example=0
+ *              type="string",
+ *              enum={"admin","user"},
+ *              example="user"
  *          )
  *      ),
  *      @OA\Response(
@@ -29,29 +29,29 @@
  *      )
  *  )
  */
-Flight::route('GET /user/role/@is_admin', function($is_admin){
-    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+Flight::route('GET /user/role/@role', function($role){
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
 
-    Flight::json(Flight::userService()->get_by_role($is_admin));
+    Flight::json(Flight::userService()->get_by_role($role));
 });
 
 /**
  *  @OA\Get(
- *      path="/user/usersnames/{is_admin}",
+ *      path="/user/usersnames/{role}",
  *      tags={"user"},
  *      summary="Fetch user names by role.",
  *      security={
  *          {"ApiKey": {}}
  *      },
  *      @OA\Parameter(
- *          name="is_admin",
+ *          name="role",
  *          in="path",
  *          required=true,
  *          description="Role of the user",
  *          @OA\Schema(
- *              type="integer",
- *              enum={0, 1},
- *              example=0
+ *              type="string",
+ *              enum={"admin","user"},
+ *              example="user"
  *          )
  *      ),
  *      @OA\Response(
@@ -64,10 +64,10 @@ Flight::route('GET /user/role/@is_admin', function($is_admin){
  *      )
  *  )
  */
-Flight::route('GET /user/usersnames/@is_admin', function($is_admin){
-    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+Flight::route('GET /user/usersnames/@role', function($role){
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
 
-    Flight::json(Flight::userService()->get_all_usersnames($is_admin));
+    Flight::json(Flight::userService()->get_all_usersnames($role));
 });
 
 /**
@@ -191,7 +191,7 @@ Flight::route('GET /user/username/@username', function($username){
  *  )
  */
 Flight::route('GET /user', function(){
-    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
 
     Flight::json(Flight::userService()->get_all_users());
 });
@@ -207,7 +207,7 @@ Flight::route('GET /user', function(){
  *      @OA\RequestBody(
  *          required=true,
  *          @OA\JsonContent(
- *              required={"name", "surname", "date_of_birth", "gender", "email", "phone_number", "country", "current_address", "is_agent", "username", "password", "is_admin"},
+ *              required={"name", "surname", "date_of_birth", "gender", "email", "phone_number", "country", "current_address", "is_agent", "username", "password", "role"},
  *              @OA\Property(
  *                  property="name",
  *                  type="string",
@@ -278,11 +278,11 @@ Flight::route('GET /user', function(){
  *                  description="Password of the user."
  *              ),
  *              @OA\Property(
- *                  property="is_admin",
- *                  type="integer",
- *                  enum={0, 1},
- *                  example=0,
- *                  description="Is user an admin."
+ *                  property="role",
+ *                  type="string",
+ *                  enum={"admin","user"},
+ *                  example="user",
+ *                  description="Role of the user."
  *              )
  *          )
  *      ),
@@ -402,11 +402,11 @@ Flight::route('POST /user', function(){
  *                  description="Password of the user."
  *              ),
  *              @OA\Property(
- *                  property="is_admin",
- *                  type="integer",
- *                  enum={0, 1},
- *                  example=0,
- *                  description="Is user an admin."
+ *                  property="role",
+ *                  type="string",
+ *                  enum={"admin","user"},
+ *                  example="user",
+ *                  description="Role of the user."
  *              )
  *          )
  *      ),

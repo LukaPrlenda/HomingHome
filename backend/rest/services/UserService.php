@@ -8,13 +8,13 @@ class UserService extends BaseService{
     }
 
     
-    public function get_by_role($is_admin){
-        return $this->dao->get_by_role($is_admin);
+    public function get_by_role($role){
+        return $this->dao->get_by_role($role);
     }
 
 
-    public function get_all_usersnames($is_admin){
-        return $this->dao->get_all_usersnames($is_admin);
+    public function get_all_usersnames($role){
+        return $this->dao->get_all_usersnames($role);
     }
 
     public function get_by_id($id){
