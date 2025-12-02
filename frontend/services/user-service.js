@@ -45,17 +45,7 @@ const UserService = {
                     nav = `
                     <li><a href="#page_Main">Home</a></li>
                     <li><a href="#page_Properties">Properties</a></li>
-                    <!-- 
-                    REMOVED FROM SHOWING IN MENI
-                    <li><a href="#page_Property-details">Property Details</a></li>
-                    -->
                     <li><a href="#page_Contact">Contact Us</a></li>
-                    <!-- 
-                    REMOVED FROM SHOWING IN MENI
-                    <li><a href="#page_Signup">Signup</a></li>
-                    -->
-                    <li><a href="#page_Login">Login</a></li>
-                    <li><a href="#page_Admin">Admin</a></li>
                     <li><a href="#page_My-account">My Account</a></li>
                     <li><a href="#page_Property-details"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
                     `;
@@ -73,38 +63,19 @@ const UserService = {
                         <section id="page_Property-details" data-load="property-details.html">
                             <h1>page_Property-details</h1>
                         </section>
-                        <section id="page_Signup" data-load="signup.html">
-                            <h1>page_Signup</h1>
-                        </section>
-                        <section id="page_Login" data-load="login.html">
-                            <h1>page_Login</h1>
-                        </section>
                         <section id="page_My-account" data-load="my-account.html">
                             <h1>page_My-account</h1>
-                        </section>
-                        <section id="page_Admin" data-load="admin.html">
-                            <h1>page_Admin</h1>
                         </section>
                     `;
 
                     break;
 
-                case Constants.USER_ROLE:
+                case Constants.ADMIN_ROLE:
                     nav = `
                     <li><a href="#page_Main">Home</a></li>
                     <li><a href="#page_Properties">Properties</a></li>
-                    <!-- 
-                    REMOVED FROM SHOWING IN MENI
-                    <li><a href="#page_Property-details">Property Details</a></li>
-                    -->
                     <li><a href="#page_Contact">Contact Us</a></li>
-                    <!-- 
-                    REMOVED FROM SHOWING IN MENI
-                    <li><a href="#page_Signup">Signup</a></li>
-                    -->
-                    <li><a href="#page_Login">Login</a></li>
                     <li><a href="#page_Admin">Admin</a></li>
-                    <li><a href="#page_My-account">My Account</a></li>
                     <li><a href="#page_Property-details"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
                     `;
 
@@ -120,15 +91,6 @@ const UserService = {
                         </section>
                         <section id="page_Property-details" data-load="property-details.html">
                             <h1>page_Property-details</h1>
-                        </section>
-                        <section id="page_Signup" data-load="signup.html">
-                            <h1>page_Signup</h1>
-                        </section>
-                        <section id="page_Login" data-load="login.html">
-                            <h1>page_Login</h1>
-                        </section>
-                        <section id="page_My-account" data-load="my-account.html">
-                            <h1>page_My-account</h1>
                         </section>
                         <section id="page_Admin" data-load="admin.html">
                             <h1>page_Admin</h1>
@@ -141,18 +103,9 @@ const UserService = {
                     nav = `
                     <li><a href="#page_Main">Home</a></li>
                     <li><a href="#page_Properties">Properties</a></li>
-                    <!-- 
-                    REMOVED FROM SHOWING IN MENI
-                    <li><a href="#page_Property-details">Property Details</a></li>
-                    -->
                     <li><a href="#page_Contact">Contact Us</a></li>
-                    <!-- 
-                    REMOVED FROM SHOWING IN MENI
                     <li><a href="#page_Signup">Signup</a></li>
-                    -->
                     <li><a href="#page_Login">Login</a></li>
-                    <li><a href="#page_Admin">Admin</a></li>
-                    <li><a href="#page_My-account">My Account</a></li>
                     <li><a href="#page_Property-details"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
                     `;
 
@@ -175,19 +128,17 @@ const UserService = {
                         <section id="page_Login" data-load="login.html">
                             <h1>page_Login</h1>
                         </section>
-                        <section id="page_My-account" data-load="my-account.html">
-                            <h1>page_My-account</h1>
-                        </section>
-                        <section id="page_Admin" data-load="admin.html">
-                            <h1>page_Admin</h1>
-                        </section>
                     `;
 
                     break;
             }
-            else{
-               window.location.hash = "page_Login"; 
-            }
+
+            $("#hh_nav").html(nav);
+            $("#spapp").html(main);
+
+        }
+        else{
+            window.location.hash = "page_Login"; 
         }
     }
 }
