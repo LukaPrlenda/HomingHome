@@ -40,6 +40,7 @@ let RestClient = {
                 error_callback(jqXHR);
             }
             else{
+                console.error(jqXHR.responseJSON.message);
                 toastr.error(jqXHR.responseJSON.message);
             }
             

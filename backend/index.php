@@ -1,4 +1,16 @@
 <?php
+//For handeling OPTIONS request on local host
+
+header("Access-Controle-Allow-Origin: *");
+header("Access-Controle-Allow-Headers: Content-Type, Authorization");
+header("Access-Controle-Allow-Methods: POST, DELETE, OPTIONS");
+
+if($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    return 0;
+}
+
+
+
 
 require 'vendor/autoload.php';
 
