@@ -34,12 +34,16 @@ const UserService = {
 
     generateMenuItems: function() {
         const token = localStorage.getItem("user_token");
-        const user = Utils.parseJwt(token).user;
+        const parsedToken = Utils.parseJwt(token);
+        let user;
 
+        if(parsedToken != null){
+            user = parsedToken.user;
+        }
+
+        let nav = "";
+        let main = "";
         if(user && user.role) {
-            let nav = "";
-            let main = "";
-
             switch(user.role) {
                 case Constants.USER_ROLE:
                     nav = `
@@ -132,13 +136,46 @@ const UserService = {
 
                     break;
             }
-
-            $("#hh_nav").html(nav);
-            $("#spapp").html(main);
-
         }
         else{
-            window.location.hash = "page_Login"; 
+            //window.location.hash = "page_Login";
+
+            nav = `
+                <li><a href="#page_Main">Home</a></li>
+                <li><a href="#page_Properties">Properties</a></li>
+                <li><a href="#page_Contact">Contact Us</a></li>
+                <li><a href="#page_Signup">Signup</a></li>
+                <li><a href="#page_Login">Login</a></li>
+                <li><a href="#page_Property-details"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
+                `;
+
+            main = `
+                <section id="page_Main" data-load="main.html">
+                    <h1>page_Main</h1>
+                </section>
+                <section id="page_Contact" data-load="contact.html">
+                    <h1>page_Contact</h1>
+                </section>
+                <section id="page_Properties" data-load="properties.html">
+                    <h1>page_Properties</h1>
+                </section>
+                <section id="page_Property-details" data-load="property-details.html">
+                    <h1>page_Property-details</h1>
+                </section>
+                <section id="page_Signup" data-load="signup.html">
+                    <h1>page_Signup</h1>
+                </section>
+                <section id="page_Login" data-load="login.html">
+                    <h1>page_Login</h1>
+                </section>
+            `;
         }
+
+        $("#hh_nav").html(nav);
+        $("#spapp").html(main);
+
+        app.run();
+
+        window.location.hash = "page_Main";
     }
 }
