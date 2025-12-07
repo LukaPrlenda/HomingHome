@@ -28,6 +28,10 @@ class ListingService extends BaseService{
         return $this->dao->get_by_type_and_status($type, $status);
     }
 
+    public function get_by_id_and_status($id, $status){
+        return $this->dao->get_by_id_and_status($id, $status);
+    }
+
     public function get_first_N_of_status($status, $number){
         if(!is_numeric($number) || $number < 0)
             throw new Exception ("The number of listings must be a positive number.");

@@ -170,6 +170,43 @@ Flight::route('GET /listing/@status/@type', function($status, $type){
 
 /**
  *  @OA\Get(
+ *      path="/listing/byId/{status}/{id}",
+ *      tags={"listing"},
+ *      summary="Fetch listings by status and id.",
+ *      @OA\Parameter(
+ *          name="status",
+ *          in="path",
+ *          required=true,
+ *          description="listing status",
+ *          @OA\Schema(
+ *              type="string",
+ *              enum={"Active","Sold!","Do not want to sell","Something else","Inappropriate","Not compliant with rules"},
+ *              example="Active"
+ *          )
+ *      ),
+ *      @OA\Parameter(
+ *          name="id",
+ *          in="path",
+ *          required=true,
+ *          description="Interested user ID",
+ *          @OA\Schema(type="integer", example=1)
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Fetch listings by status and id."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
+ *      )
+ *  )
+ */
+Flight::route('GET /listing/byId/@status/@id', function($status, $id){
+    Flight::json(Flight::listingService()->get_by_id_and_status($id, $status));
+});
+
+/**
+ *  @OA\Get(
  *      path="/listing/first_N/{status}/{number}",
  *      tags={"listing"},
  *      summary="Fetch first N listings by status.",
