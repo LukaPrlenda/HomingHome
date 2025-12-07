@@ -24,6 +24,7 @@ const MainService = {
                 let numberOfRooms = callback.bedrooms;
                 let parkingSpots = callback.parking;
                 let desc = callback.description;
+                let picture = Utils.showImage(callback.picture);
 
                 dbd += `<div class="row">
                                         <div class="col-lg-3">
@@ -38,7 +39,7 @@ const MainService = {
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <img src="assets/images/deal-01.jpg" alt="">
+                                            <img ` + picture + ` alt="">
                                         </div>
                                         <div class="col-lg-3">
                                             <h4>Extra Information About Property</h4>
@@ -69,6 +70,7 @@ const MainService = {
                 let numberOfRooms = callback.bedrooms;
                 let parkingSpots = callback.parking;
                 let desc = callback.description;
+                let picture = Utils.showImage(callback.picture);
 
                 dbd += `<div class="row">
                                         <div class="col-lg-3">
@@ -83,7 +85,7 @@ const MainService = {
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <img src="assets/images/deal-02.jpg" alt="">
+                                            <img ` + picture + ` alt="">
                                         </div>
                                         <div class="col-lg-3">
                                             <h4>Extra Information About New Villa</h4>
@@ -114,6 +116,7 @@ const MainService = {
                 let numberOfRooms = callback.bedrooms;
                 let parkingSpots = callback.parking;
                 let desc = callback.description;
+                let picture = Utils.showImage(callback.picture);
 
                 dbd += `<div class="row">
                                         <div class="col-lg-3">
@@ -128,7 +131,7 @@ const MainService = {
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <img src="assets/images/deal-03.jpg" alt="">
+                                            <img ` + picture + ` alt="">
                                         </div>
                                         <div class="col-lg-3">
                                             <h4>Extra Information About Penthouse</h4>

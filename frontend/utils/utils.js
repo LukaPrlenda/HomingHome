@@ -11,5 +11,9 @@ let Utils = {
             console.log("Invalid JWT token", e);
             return null;
         }
+    },
+
+    showImage: function(base64) {
+        return `src="data:image/jpeg;base64,` + base64 + `"`;
     }
 }
