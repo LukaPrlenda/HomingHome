@@ -7,7 +7,11 @@ app.run();
 
 app.route({
     view: "page_Main",
-    onCreate: function() {MainService.displayTotalFlatSpace(); MainService.displayBestDeal(); PropertiesService.properties6CardMinimal();},
+    onCreate: function() {MainService.displayTotalFlatSpace();
+        MainService.displayBestDeal();
+        PropertiesService.properties6CardMinimal();
+        ButtonEventListoner.addBtnPropertyInfo(["appartment", "villa", "penthouse", "bestPropertyes"]);
+    },
     onReady: function() {runCustom(); navigationMenu("#page_Main"); counter();}
 });
 
@@ -18,7 +22,7 @@ app.route({
 
 app.route({
     view: "page_Properties",
-    //onCreate: function() {PropertiesService.propertiesAllCardMinimal();},
+    onCreate: function() {ButtonEventListoner.addBtnPropertyInfo(["allProperties"]);},
     onReady: function() {PropertiesService.propertiesAllCardMinimal(); runCustom(); navigationMenu("#page_Properties");}
 });
 

@@ -25,6 +25,7 @@ const MainService = {
                 let parkingSpots = callback.parking;
                 let desc = callback.description;
                 let picture = Utils.showImage(callback.picture);
+                let id = callback.id;
 
                 dbd += `<div class="row">
                                         <div class="col-lg-3">
@@ -47,7 +48,7 @@ const MainService = {
                                             + desc + 
                                             `</p>
                                             <div class="icon-button">
-                                                <a href="#page_Property-details"><i class="fa fa-calendar"></i> Schedule
+                                                <a href="#page_Property-details" class="propertiesCardBtn" data-id="` + id + `"><i class="fa fa-calendar"></i> Schedule
                                                     a visit</a>
                                             </div>
                                         </div>
@@ -71,6 +72,7 @@ const MainService = {
                 let parkingSpots = callback.parking;
                 let desc = callback.description;
                 let picture = Utils.showImage(callback.picture);
+                let id = callback.id;
 
                 dbd += `<div class="row">
                                         <div class="col-lg-3">
@@ -93,7 +95,7 @@ const MainService = {
                                             + desc + 
                                             `</p>
                                             <div class="icon-button">
-                                                <a href="#page_Property-details"><i class="fa fa-calendar"></i> Schedule
+                                                <a href="#page_Property-details" class="propertiesCardBtn" data-id="` + id + `"><i class="fa fa-calendar"></i> Schedule
                                                     a visit</a>
                                             </div>
                                         </div>
@@ -117,6 +119,7 @@ const MainService = {
                 let parkingSpots = callback.parking;
                 let desc = callback.description;
                 let picture = Utils.showImage(callback.picture);
+                let id = callback.id;
 
                 dbd += `<div class="row">
                                         <div class="col-lg-3">
@@ -139,7 +142,7 @@ const MainService = {
                                             + desc + 
                                             `</p>
                                             <div class="icon-button">
-                                                <a href="#page_Property-details"><i class="fa fa-calendar"></i> Schedule
+                                                <a href="#page_Property-details" class="propertiesCardBtn" data-id="` + id + `"><i class="fa fa-calendar"></i> Schedule
                                                     a visit</a>
                                             </div>
                                         </div>

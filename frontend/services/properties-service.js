@@ -14,10 +14,11 @@ const PropertiesService = {
                     let area = obj.area + ` m2`;
                     let floor = obj.floor;
                     let parking = obj.parking + ` spots`;
+                    let id = obj.id;
 
                     pcd += `<div class="col-lg-4 col-md-6">
                     <div class="item">
-                        <a href="#page_Property-details"><img ` + picture + ` alt=""></a>
+                        <a href="#page_Property-details"><img ` + picture + ` alt="" class="propertiesCardBtn" data-id="` + id + `"></a>
                         <span class="category">` + type + `</span>
                         <h6>` + price + `</h6>
                         <h4><a href="#page_Property-details">` + location + `</a></h4>
@@ -29,7 +30,7 @@ const PropertiesService = {
                             <li>Parking: <span>` + parking + `</span></li>
                         </ul>
                         <div class="main-button">
-                            <a href="#page_Property-details">Schedule a visit</a>
+                            <a href="#page_Property-details" class="propertiesCardBtn" data-id="` + id + `">Schedule a visit</a>
                         </div>
                     </div>
                 </div>`
@@ -58,10 +59,11 @@ const PropertiesService = {
                     let floor = obj.floor;
                     let parking = obj.parking + ` spots`;
                     let filter = obj.type.split(" ").join("");
+                    let id = obj.id;
 
                     pcd += `<div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 ` + filter + `">
                     <div class="item">
-                        <a href="#page_Property-details"><img ` + picture + ` alt=""></a>
+                        <a href="#page_Property-details"><img ` + picture + ` alt="" class="propertiesCardBtn" data-id="` + id + `"></a>
                         <span class="category">` + type + `</span>
                         <h6>` + price + `</h6>
                         <h4><a href="#page_Property-details">` + location + `</a></h4>
@@ -73,7 +75,7 @@ const PropertiesService = {
                             <li>Parking: <span>` + parking + `</span></li>
                         </ul>
                         <div class="main-button">
-                            <a href="#page_Property-details">Schedule a visit</a>
+                            <a href="#page_Property-details" class="propertiesCardBtn" data-id="` + id + `">Schedule a visit</a>
                         </div>
                     </div>
                 </div>`
