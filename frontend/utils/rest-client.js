@@ -9,7 +9,7 @@ let RestClient = {
                     localStorage.getItem("user_token")
                 );
             },
-            sucess: function(response) {
+            success: function(response) {
                 if(callback)
                     callback(response);
             },

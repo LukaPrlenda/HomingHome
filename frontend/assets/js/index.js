@@ -7,7 +7,9 @@ app.run();
 
 app.route({
     view: "page_Main",
-    onReady: function() {runCustom(); navigationMenu("#page_Main"); counter();}
+    onReady: function() {runCustom(); navigationMenu("#page_Main"); counter();
+        MainService.displayTotalFlatSpace(); MainService.displayBestDeal();
+    }
 });
 
 app.route({
