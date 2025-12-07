@@ -7,7 +7,7 @@ app.run();
 
 app.route({
     view: "page_Main",
-    onCreate: function() {MainService.displayTotalFlatSpace(); MainService.displayBestDeal();},
+    onCreate: function() {MainService.displayTotalFlatSpace(); MainService.displayBestDeal(); PropertiesService.propertiesCardMinimal();},
     onReady: function() {runCustom(); navigationMenu("#page_Main"); counter();}
 });
 
