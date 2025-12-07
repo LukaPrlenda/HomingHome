@@ -122,7 +122,7 @@ CREATE TABLE `properties` (
   `floor` int(10) unsigned NOT NULL,
   `parking` int(10) unsigned NOT NULL,
   `price` decimal(12,2) DEFAULT NULL,
-  `picture` longblob NOT NULL,
+  `picture` longtext NOT NULL,
   `description` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `properties_unique` (`location`),
