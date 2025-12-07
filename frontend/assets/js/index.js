@@ -7,7 +7,7 @@ app.run();
 
 app.route({
     view: "page_Main",
-    onCreate: function() {MainService.displayTotalFlatSpace(); MainService.displayBestDeal(); PropertiesService.propertiesCardMinimal();},
+    onCreate: function() {MainService.displayTotalFlatSpace(); MainService.displayBestDeal(); PropertiesService.properties6CardMinimal();},
     onReady: function() {runCustom(); navigationMenu("#page_Main"); counter();}
 });
 
@@ -18,7 +18,8 @@ app.route({
 
 app.route({
     view: "page_Properties",
-    onReady: function() {runCustom(); navigationMenu("#page_Properties");}
+    //onCreate: function() {PropertiesService.propertiesAllCardMinimal();},
+    onReady: function() {PropertiesService.propertiesAllCardMinimal(); runCustom(); navigationMenu("#page_Properties");}
 });
 
 app.route({
