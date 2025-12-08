@@ -32,7 +32,7 @@ class ListingDao extends BaseDao{
     }
 
     public function get_by_id_and_status($id, $status){
-        return $this->query('SELECT p.*, l.status, l.id AS listing_id, t.type FROM ' . $this->table_name . ' l JOIN properties p ON l.property_id = p.id JOIN types t ON t.id = p.type_id  WHERE l.status = :status AND l.id = :id', ['status' => $status, 'id' => $id]);
+        return $this->query_unique('SELECT p.*, l.status, l.id AS listing_id, t.type FROM ' . $this->table_name . ' l JOIN properties p ON l.property_id = p.id JOIN types t ON t.id = p.type_id  WHERE l.status = :status AND l.id = :id', ['status' => $status, 'id' => $id]);
     }
 
     public function get_first_N_of_status($status, $number){
