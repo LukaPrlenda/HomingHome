@@ -6,7 +6,8 @@ const ButtonEventListoner = {
             div.addEventListener("click", function(event) {
                 if(event.target.classList.contains("propertiesCardBtn")) {
                     const dataId = event.target.dataset.id;
-                    console.log("id=" + dataId);
+                    
+                    PropertiesService.propertiesIdCardDetaild(dataId);
                 }
             });
         });

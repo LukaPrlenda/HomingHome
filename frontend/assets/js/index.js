@@ -7,8 +7,9 @@ app.run();
 
 app.route({
     view: "page_Main",
-    onCreate: function() {MainService.displayTotalFlatSpace();
-        MainService.displayBestDeal();
+    onCreate: function() {
+        MainService.displayTotalFlatSpace();
+        MainService.displayBestDealMain();
         PropertiesService.properties6CardMinimal();
         ButtonEventListoner.addBtnPropertyInfo(["appartment", "villa", "penthouse", "bestPropertyes"]);
     },
@@ -28,6 +29,10 @@ app.route({
 
 app.route({
     view: "page_Property-details",
+    onCreate: function() {
+        MainService.displayBestDealProperty();
+        ButtonEventListoner.addBtnPropertyInfo(["propertAappartment", "propertyVilla", "propertyPenthouse"]);
+    },
     onReady: function() {runCustom(); navigationMenu("#page_Property-details");}
 });
 

@@ -88,4 +88,84 @@ const PropertiesService = {
             }
         );
     },
+
+    propertiesIdCardDetaild: function(propertyId) {
+         RestClient.get(
+            `listing/byId/Active/` + propertyId,
+            callback => {
+                let pcd = ``;
+                let picture = Utils.showImage(callback.picture);
+                let type = callback.type;
+                let location = callback.location;
+                let area = callback.area + ` m2`;
+                let desc = callback.description;
+                
+                console.log(callback);
+
+                pcd += `<div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="main-image">
+            <img ` + picture + ` alt="">
+          </div>
+          <div class="main-content">
+            <span class="category">` + type + `</span>
+            <h4>` + location + `</h4>
+            <p>
+            ` + desc + `
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="info-table">
+            <ul>
+              <li>
+                <img src="assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
+                <h4>` + area + `<br><span>Total Flat Space</span></h4>
+              </li>
+              <li>
+                <img src="assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
+                <h4>Contract<br><span>Contract Ready</span></h4>
+              </li>
+              <li>
+                <img src="assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
+                <h4>Payment<br><span>Payment Process</span></h4>
+              </li>
+              <li>
+                <img src="assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
+                <h4>Safety<br><span>24/7 Under Control</span></h4>
+              </li>
+            </ul>
+          </div>
+          <div class="contact-page section">
+            <form id="contact-form" action="" method="post">
+              <div class="row">
+                <div class="col-lg-12">
+                  <fieldset>
+                    <label for="message">
+                      To <strong>schedule a visit</strong> while <strong>logged into your account</strong>, 
+                      you can write a message and send information to the seller to show that you are interested in the property. The seller will get back to you.
+                    </label>
+                    <textarea name="message" id="message" placeholder="Your Message to the Seller"></textarea>
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <button type="button" id="form-submit" class="orange-button">Show Intrest for Scheduling</button>
+                  </fieldset>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>`
+                
+            $("#propertyDetailCard").html(pcd);
+            },
+            error_callback => {
+                console.log("Error geting Best Deal: " + error_callback);
+            }
+        );
+    },
 }
