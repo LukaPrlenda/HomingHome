@@ -64,7 +64,7 @@ Flight::route('GET /listing/@status', function($status){
  *  @OA\Get(
  *      path="/listing/owner/{status}/{user_id}",
  *      tags={"listing"},
- *      summary="Fetch listing by status and owner id.",
+ *      summary="Fetch listing by status and owner Id.",
  *      @OA\Parameter(
  *          name="status",
  *          in="path",
@@ -85,7 +85,7 @@ Flight::route('GET /listing/@status', function($status){
  *      ),
  *      @OA\Response(
  *          response=200,
- *          description="Fetch listing by status."
+ *          description="Fetch listing by status and owner Id."
  *      ),
  *      @OA\Response(
  *          response=500,

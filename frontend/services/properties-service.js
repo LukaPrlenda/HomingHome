@@ -99,8 +99,6 @@ const PropertiesService = {
                 let location = callback.location;
                 let area = callback.area + ` m2`;
                 let desc = callback.description;
-                
-                console.log(callback);
 
                 pcd += `<div class="container">
       <div class="row">

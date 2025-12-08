@@ -47,6 +47,13 @@ app.route({
 });
 app.route({
     view: "page_My-account",
+    onCreate: function() {
+        MyAccountService.displayName();
+        MyAccountService.displayInterestsInMe();
+        MyAccountService.displayMyListings();
+        MyAccountService.formsDataFill();
+        ButtonEventListoner.addBtnPropertyInfo(["interestsInMeCards", "myCurrentListings"]);
+    },
     onReady: function() {runCustom(); navigationMenu("#page_My-account");}
 });
 app.route({

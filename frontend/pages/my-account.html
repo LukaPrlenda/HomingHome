@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <span class="breadcrumb"><a href="#page_Main">Home</a>  /  My Account</span>
-                    <h3>Hello NAME SURNAME!</h3>
+                    <h3 id="nameSurname">Hello!</h3>
                 </div>
             </div >
         </div>
@@ -25,13 +25,13 @@
                         <div class="col-lg-12">
                             <div class="item phone">
                                 <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
-                                <h6>010-020-0340<br><span>Phone Number</span></h6>
+                                <h6 id="myPhone"><br><span>Phone Number</span></h6>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="item phone">
                                 <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
-                                <h6>info@villa.co<br><span>Personal Email</span></h6>
+                                <h6 id="myEmail"><br><span>Personal Email</span></h6>
                             </div>
                         </div>
                     </div>
@@ -41,19 +41,19 @@
                             <div class="col-lg-12">
                                 <div class="item phone">
                                     <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
-                                    <h6>25 street New Yourk<br><span>Adress</span></h6>
+                                    <h6 id="myAdress"><br><span>Adress</span></h6>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                <div class="item phone">
                                     <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
-                                    <h6>10<br><span>Number of my live listings</span></h6>
+                                    <h6 id="myNOfListings"><br><span>Number of my live listings</span></h6>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="item email">
                                     <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
-                                    <h6>10<br><span>Number of interests in you</span></h6>
+                                    <h6 id="nOfIntrestsInMe"><br><span>Number of interests in you</span></h6>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="interestsInMeCards">
+                <!--
                 <div class="col-lg-4 col-md-6">
                     <div class="item">
                         <a href="#page_Property-details"><img src="assets/images/property-01.jpg" alt=""></a>
@@ -128,6 +129,7 @@
                         </div>
                     </div>
                 </div>
+                -->
             </div>
         </div>
     </div>
@@ -142,7 +144,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="myCurrentListings">
+              <!--
                 <div class="col-lg-4 col-md-6">
                     <div class="item">
                         <a href="#page_Property-details"><img src="assets/images/property-01.jpg" alt=""></a>
@@ -198,6 +201,7 @@
                         </div>
                     </div>
                 </div>
+              -->
             </div>
         </div>
     </div>
@@ -245,13 +249,13 @@
             <div class="col-lg-12">
               <div class="item phone">
                 <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
-                <h6>010-020-0340<br><span>Phone Number</span></h6>
+                <h6 id="myPhone2"><br><span>Phone Number</span></h6>
               </div>
             </div>
             <div class="col-lg-12">
               <div class="item email">
                 <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
-                <h6>info@villa.co<br><span>Business Email</span></h6>
+                <h6 id="myEmail2"><br><span>Personal Email</span></h6>
               </div>
             </div>
           </div>
@@ -268,12 +272,14 @@
               <div class="col-lg-12">
                 <fieldset>
                   <label for="propertyType">Property Type</label>
-                    <select id="propertyType" name="propertyType" class="input select_element_temp_stayle" required>
+                    <select id="form1PropertyType" name="propertyType" class="input select_element_temp_stayle" required>
+                      <!--
                         <option value="" disabeled selected>Chouse your property type...</option>
                         <option value="luxuryVilla">Luxury Villa</option>
                         <option value="penthaouse">Penthouse</option>
                         <option value="apartment">Apartment</option>
                         <option value="modernCondo">Modern Condo</option>
+                    -->
                     </select>
                 </fieldset>
               </div>
@@ -361,18 +367,22 @@
               <div class="col-lg-12">
                 <fieldset>
                   <label for="propertyType">Property Listing</label>
-                    <select id="propertyType" name="propertyType" class="input select_element_temp_stayle" required>
+                    <select id="form2PropertyListings" name="propertyType" class="input select_element_temp_stayle" required>
 
                         <option value="" disabeled selected>Chouse the property...</option>
 
-                        <optgroup label="Interest in my properties:">
+                        <optgroup label="Interest in my properties:" id="f2pl1">
+                            <!--
                             <option value="18_New_Street_Miami,_OR_97219">18 New Street Miami, OR 97219</option>
                             <option value="22_New_Street_Portland,_OR_16540">22 New Street Portland, OR 16540</option>
+                            -->
                         </optgroup>
 
-                         <optgroup label="My interest in properties:">
+                         <optgroup label="My interest in properties:" id="f2pl2">
+                            <!--
                             <option value="26_Old_Street_Miami,_OR_12870">26 Old Street Miami, OR 12870</option>
                             <option value="54_New_Street_Florida,_OR_27001">54 New Street Florida, OR 27001</option>
+                            -->
                         </optgroup>
 
                     </select>
@@ -432,13 +442,13 @@
               <div class="col-lg-12">
                 <fieldset>
                   <label for="propertyType">Property Listing</label>
-                    <select id="propertyType" name="propertyType" class="input select_element_temp_stayle" required>
-
+                    <select id="form3PropertyListings" name="propertyType" class="input select_element_temp_stayle" required>
+                      <!--
                       <option value="" disabeled selected>Chouse the property...</option>
                       <option value="18_New_Street_Miami,_OR_97219">18 New Street Miami, OR 97219</option>
                       <option value="22_New_Street_Portland,_OR_16540">22 New Street Portland, OR 16540</option>
                       <option value="34_Beach_Street_Miami,_OR_42680">34 Beach Street Miami, OR 42680</option>
-
+                      -->
                     </select>
                 </fieldset>
               </div>
