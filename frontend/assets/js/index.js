@@ -58,6 +58,13 @@ app.route({
 });
 app.route({
     view: "page_Admin",
+        onCreate: function() {
+        AdminService.displayStats();
+        AdminService.displayAllListings();
+        AdminService.displayAllInterests();
+        AdminService.formsAdminDataFill();
+        ButtonEventListoner.addBtnPropertyInfo(["adminAllListingsCards", "adminAllInterestsCards"]);
+    },
     onReady: function() {runCustom(); navigationMenu("#page_Admin");}
 });
 /*
