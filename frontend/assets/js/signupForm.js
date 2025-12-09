@@ -1,11 +1,12 @@
 function start_signup_js(){
     console.log("it is started 2");
 
-    document.getElementById("form").addEventListener("submit", function(event){password_repeat(event);});
+    document.getElementById("submit_btn").addEventListener("click", function(event){password_repeat(event);});
+
     function password_repeat(event){
+        event.preventDefault();
         let password=document.getElementById("password").value;
         let password_repeat=document.getElementById("passwordcheck").value;
-        event.preventDefault();
         if(password!=password_repeat){
             window.alert("The passwords do not match!");
         }
@@ -46,9 +47,18 @@ function start_signup_js(){
     }
 
 
-    async function form_submittion() {
-        const form=document.getElementById("form");
-        const data=new FormData(form);
+
+    function form_submittion() {
+        const form = document.getElementById("form");
+        const data = Object.fromEntries(new FormData(form));
+        delete data.passwordcheck;
+        data.is_agent = (data.is_agent == "1") ? 1 : 0;
+
+        console.log(data);
+        UserService.register(data);
+    }
+
+        /*
         let stat=0
         try{
             const response=await fetch ("https://jsonplaceholder.typicode.com/posts", {
@@ -86,5 +96,5 @@ function start_signup_js(){
             console.log("Error while submitting form: ",error);
             setTimeout(function(){document.getElementById("notification_red").style.display="none";}, 3000);
         }
-    }
+            */
 }

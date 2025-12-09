@@ -38,7 +38,8 @@ app.route({
 
 app.route({
     view: "page_Signup",
-    onReady: function() {runCustom(); navigationMenu("#page_Signup"); start_signup_js();}
+    onCreate: function() {start_signup_js();},
+    onReady: function() {runCustom(); navigationMenu("#page_Signup");}
 });
 
 app.route({

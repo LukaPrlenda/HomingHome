@@ -32,6 +32,40 @@ const UserService = {
         window.location.hash = "page_Login";
     },
 
+    register: function(entity) {
+        RestClient.post(
+            `auth/signup`,
+            entity,
+            callback => {
+                document.getElementById("form").reset();
+
+                msg = `<p>Success!</p>
+                        <p>` + callback.message + `</p>
+                        <p>You successfully made an account!</p>`
+
+                $("#notification_green").html(msg);
+
+                console.log("Form successfully submitted!");
+                window.location.hash="page_Login"
+
+                document.getElementById("notification_green").style.display="block";
+                setTimeout(function(){document.getElementById("notification_green").style.display="none";}, 2500);
+             },
+            error => {
+            msg = `<p>Error!</p>
+                    <p>` + error.responseText + `</p>`
+
+            $("#notification_red").html(msg);
+
+            console.log("Error while submitting form: ",error);
+
+            document.getElementById("notification_red").style.display="block";
+            setTimeout(function(){document.getElementById("notification_red").style.display="none";}, 3000);
+            }
+        );
+
+    },
+
     generateMenuItems: function() {
         const token = localStorage.getItem("user_token");
         const parsedToken = Utils.parseJwt(token);
