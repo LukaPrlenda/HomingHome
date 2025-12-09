@@ -1,15 +1,11 @@
 function start_login_js(){
-    console.log("it is started login 2");
-
-    document.getElementById("form_login").addEventListener("submit", function(event){form_submittion(event);});
+    document.getElementById("submit_btn_login").addEventListener("click", function(event){form_submittion(event);});
     
-
-
     function form_submittion() {
-        const form=document.getElementById("form");
-        const data=new FormData(form);
+        const form = document.getElementById("form_login");
+        const data = Object.fromEntries(new FormData(form));
 
-        UserSer
+        UserService.login(data);
     }
 
         /*

@@ -44,6 +44,7 @@ app.route({
 
 app.route({
     view: "page_Login",
+    onCreate: function() {start_login_js();},
     onReady: function() {runCustom(); navigationMenu("#page_Login");}
 });
 app.route({

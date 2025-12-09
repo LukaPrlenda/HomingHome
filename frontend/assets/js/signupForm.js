@@ -1,6 +1,4 @@
 function start_signup_js(){
-    console.log("it is started 2");
-
     document.getElementById("submit_btn").addEventListener("click", function(event){password_repeat(event);});
 
     function password_repeat(event){
@@ -54,7 +52,6 @@ function start_signup_js(){
         delete data.passwordcheck;
         data.is_agent = (data.is_agent == "1") ? 1 : 0;
 
-        console.log(data);
         UserService.register(data);
     }
 

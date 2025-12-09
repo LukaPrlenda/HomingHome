@@ -16,13 +16,35 @@ const UserService = {
     login: function(entity) {
         RestClient.post(
             "auth/login",
-            JSON.stringify(entity),
+            entity,
             data => {
                 console.log(data);
                 localStorage.setItem("user_token", data.data.token);
+                UserService.generateMenuItems();
                 window.location.hash = "page_Main";
+
+                document.getElementById("form_login").reset();
+
+                msg = `<p>Success!</p>
+                        <p>` + data.message + `</p>
+                        <p>You successfully logged In!</p>
+                        <p>Welcom ` + data.data.username + `!</p>`
+
+                $("#notification_green").html(msg);
+
+                document.getElementById("notification_green").style.display="block";
+                setTimeout(function(){document.getElementById("notification_green").style.display="none";}, 2500);
             },
             error => {
+                msg = `<p>Error!</p>
+                    <p>` + error.responseText + `</p>`
+
+                $("#notification_red").html(msg);
+
+                console.log("Error while submitting form: ",error);
+
+                document.getElementById("notification_red").style.display="block";
+                setTimeout(function(){document.getElementById("notification_red").style.display="none";}, 3000);
             }
         );
     },
