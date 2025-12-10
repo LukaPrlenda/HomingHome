@@ -1,8 +1,13 @@
 function start_signup_js(){
-    document.getElementById("submit_btn").addEventListener("click", function(event){password_repeat(event);});
+    document.getElementById("form").addEventListener("submit", function(event){password_repeat(event);});
 
     function password_repeat(event){
         event.preventDefault();
+        if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
         let password=document.getElementById("password").value;
         let password_repeat=document.getElementById("passwordcheck").value;
         if(password!=password_repeat){

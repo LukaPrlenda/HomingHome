@@ -136,7 +136,7 @@ const PropertiesService = {
             </ul>
           </div>
           <div class="contact-page section">
-            <form id="contact-form" action="" method="post">
+            <form id="interest-contact-form" class="contact-form" action="" method="post">
               <div class="row">
                 <div class="col-lg-12">
                   <fieldset>
@@ -144,12 +144,12 @@ const PropertiesService = {
                       To <strong>schedule a visit</strong> while <strong>logged into your account</strong>, 
                       you can write a message and send information to the seller to show that you are interested in the property. The seller will get back to you.
                     </label>
-                    <textarea name="message" id="message" placeholder="Your Message to the Seller"></textarea>
+                    <textarea name="message" id="message" placeholder="Your Message to the Seller" required></textarea>
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
-                    <button type="button" id="form-submit" class="orange-button">Show Intrest for Scheduling</button>
+                    <button type="submit" id="submit_intrest_scheduling" data-id="` + propertyId + `" class="orange-button">Show Intrest for Scheduling</button>
                   </fieldset>
                 </div>
               </div>
@@ -160,6 +160,8 @@ const PropertiesService = {
     </div>`
                 
             $("#propertyDetailCard").html(pcd);
+
+            ButtonEventListoner.addBtnSchedulingIntrest();
             },
             error_callback => {
                 console.log("Error geting Best Deal: " + error_callback);

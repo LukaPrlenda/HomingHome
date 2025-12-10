@@ -196,11 +196,17 @@ Flight::route('POST /interest', function(){
     Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
 
     $request = Flight::request()->data->getData();
+    $response = Flight::interestService()->add_interest($request);
 
-    Flight::json([
-        'message' => "Interest added successfully",
-        'data' => Flight::interestService()->add_interest($request)
-    ]);
+    if ($response['success']) {
+        Flight::json([
+            'message' => 'Interest added successfully',
+            'data' => $response['data']
+        ]);
+    }
+    else {
+        Flight::halt(500, $response['error']);
+    }
 });
 
 /**

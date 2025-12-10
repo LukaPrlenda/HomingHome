@@ -12,4 +12,19 @@ const ButtonEventListoner = {
             });
         });
     },
+
+    addBtnSchedulingIntrest: function() {
+        const form = document.getElementById("interest-contact-form");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const propertyId = document.getElementById("submit_intrest_scheduling").dataset.id;
+            ListingsService.schedulingIntrest(propertyId);
+        });
+    },
 }

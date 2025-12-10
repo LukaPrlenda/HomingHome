@@ -1278,7 +1278,7 @@ Contact Style
   font-weight: 400;
 }
 
-.contact-content #contact-form {
+.contact-content .contact-form {
   margin-left: 30px;
   border-radius: 10px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
@@ -1286,13 +1286,13 @@ Contact Style
   background-color: #fff;
 }
 
-.contact-content #contact-form label {
+.contact-content .contact-form label {
   font-size: 15px;
   color: #3a3a3a;
   margin-bottom: 15px;
 }
 
-.contact-content #contact-form input {
+.contact-content .contact-form input {
   width: 100%;
   height: 44px;
   border-radius: 22px;
@@ -1303,7 +1303,7 @@ Contact Style
   padding: 0px 15px;
 }
 
-.contact-content #contact-form textarea {
+.contact-content .contact-form textarea {
   width: 100%;
   height: 150px;
   max-height: 180px;
@@ -1315,7 +1315,7 @@ Contact Style
   padding: 15px 15px;
 }
 
-.contact-content #contact-form button {
+.contact-content .contact-form button {
   background-color: #1e1e1e;
   height: 44px;
   border-radius: 22px;
@@ -1327,7 +1327,7 @@ Contact Style
   transition: all .5s;
 }
 
-.contact-content #contact-form button:hover {
+.contact-content .contact-form button:hover {
   background-color: #f35525;
 }
 
@@ -1638,7 +1638,7 @@ Contact Page Style
   font-weight: 400;
 }
 
-.contact-page #contact-form {
+.contact-page .contact-form {
   margin-left: 30px;
   border-radius: 10px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
@@ -1646,13 +1646,13 @@ Contact Page Style
   background-color: #fff;
 }
 
-.contact-page #contact-form label {
+.contact-page .contact-form label {
   font-size: 15px;
   color: #3a3a3a;
   margin-bottom: 15px;
 }
 
-.contact-page #contact-form input {
+.contact-page .contact-form input {
   width: 100%;
   height: 44px;
   border-radius: 22px;
@@ -1663,7 +1663,7 @@ Contact Page Style
   padding: 0px 15px;
 }
 
-.contact-page #contact-form textarea {
+.contact-page .contact-form textarea {
   width: 100%;
   height: 150px;
   max-height: 180px;
@@ -1675,7 +1675,7 @@ Contact Page Style
   padding: 15px 15px;
 }
 
-.contact-page #contact-form button {
+.contact-page .contact-form button {
   background-color: #1e1e1e;
   height: 44px;
   border-radius: 22px;
@@ -1687,7 +1687,7 @@ Contact Page Style
   transition: all .5s;
 }
 
-.contact-page #contact-form button:hover {
+.contact-page .contact-form button:hover {
   background-color: #f35525;
 }
 
@@ -1797,7 +1797,7 @@ body {
     margin-left: 0px;
     margin-bottom: 45px;
   }
-  .contact-content #contact-form {
+  .contact-content .contact-form {
     margin-left: 0px;
   }
   .single-property .info-table {
@@ -1807,7 +1807,7 @@ body {
   .contact-page .section-heading {
     margin-right: 0px !important;
   }
-  .contact-page #contact-form {
+  .contact-page .contact-form {
     margin-left: 0px;
     margin-top: 60px;
   }
