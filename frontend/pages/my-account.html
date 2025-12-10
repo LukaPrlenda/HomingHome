@@ -261,18 +261,18 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <form class="contact-form" action="" method="post">
+          <form id="form-add-listing" class="contact-form" action="" method="post">
             <div class="row">
               <div class="col-lg-12">
                 <fieldset>
                   <label for="name">Property Location</label>
-                  <input type="text" name="propertyLocation" id="propertyLocation" placeholder="Your Property Location..." autocomplete="on" required>
+                  <input type="text" name="location" id="propertyLocation" placeholder="Your Property Location..." autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
                   <label for="form1PropertyType">Property Type</label>
-                    <select id="form1PropertyType" name="propertyType" class="input select_element_temp_stayle" required>
+                    <select id="form1PropertyType" name="type_id" class="input select_element_temp_stayle" required>
                       <!--
                         <option value="" disabeled selected>Chouse your property type...</option>
                         <option value="luxuryVilla">Luxury Villa</option>
@@ -322,7 +322,7 @@
               <div class="col-lg-12">
                 <fieldset>
                   <label for="price">Picture</label>
-                  <input type="file" accept="image/*" name="price" id="price" placeholder="Price of the property in $..." autocomplete="on" required>
+                  <input type="file" accept="image/jpeg" name="picture" id="price" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
@@ -333,7 +333,7 @@
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <button type="button" id="form-submit" class="orange-button">List My Property</button>
+                  <button type="submit" id="list-propert-form-submit" class="orange-button">List My Property</button>
                 </fieldset>
               </div>
             </div>
@@ -408,7 +408,7 @@
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <button type="button" id="form-submit" class="orange-button">Update Interest Status</button>
+                  <button type="button" id="edit-form-submit" class="orange-button">Update Interest Status</button>
                 </fieldset>
               </div>
             </div>
@@ -471,7 +471,7 @@
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <button type="button" id="form-submit" class="orange-button">Remove This Listing</button>
+                  <button type="button" id="remove-form-submit" class="orange-button">Remove This Listing</button>
                 </fieldset>
               </div>
             </div>
@@ -492,4 +492,31 @@
         </div>
     </div>
 
-</div>
+
+  <div class="section best-deal">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="section-heading">
+            <h6>| Log Out</h6>
+            <h2>Press the button to log out!</h2>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="tabs-content">
+            <div class="row">
+              <div class="nav-wrapper ">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="logoutBtn" >Log Out</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>                            

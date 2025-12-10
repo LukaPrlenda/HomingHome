@@ -51,6 +51,7 @@ const UserService = {
 
     logout: function() {
         localStorage.clear();
+        UserService.generateMenuItems();
         window.location.hash = "page_Login";
     },
 

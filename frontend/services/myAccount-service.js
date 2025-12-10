@@ -181,11 +181,20 @@ const MyAccountService = {
                 let typ = `<option value="" disabeled selected>Chouse your property type...</option>`;
                 for(const obj of callback){
                     let type = obj.type;
+                    let id = obj.id;
 
-                    typ += `<option value="` + type + `">` + type + `</option>`;
+                    typ += `<option value="` + id + `">` + type + `</option>`;
                 }
 
                 $("#form1PropertyType").html(typ);
+
+
+
+
+
+
+
+                ButtonEventListoner.addBtnListProperty();
             },
             error_callback => {
                 console.log("Error geting Total Flat Space: " + error_callback);
