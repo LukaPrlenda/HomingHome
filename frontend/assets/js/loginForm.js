@@ -5,6 +5,13 @@ function start_login_js(){
         const form = document.getElementById("form_login");
         const data = Object.fromEntries(new FormData(form));
 
+        event.preventDefault();
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+
         UserService.login(data);
     }
 

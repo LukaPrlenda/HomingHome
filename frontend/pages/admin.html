@@ -454,12 +454,12 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
-                                                <form class="contact-form" action="" method="post">
+                                                <form class="contact-form" id="admin-remove-user-form-submit">
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <fieldset>
                                                                 <label for="adminAllUsernames">User Name</label>
-                                                                <select id="adminAllUsernames" name="user_Name" class="input select_element_temp_stayle" required>
+                                                                <select id="adminAllUsernames" name="id" class="input select_element_temp_stayle" required>
                                                                     <!--
                                                                     <option value="" disabeled selected>Chouse the user...</option>
                                                                     <option value="Pero_Perić">Pero Perić</option>
@@ -472,8 +472,7 @@
                                                         <div class="col-lg-12">
                                                             <fieldset>
                                                                 <label for="reason">Reason</label>
-                                                                <select id="reason" name="reason"
-                                                                    class="input select_element_temp_stayle" required>
+                                                                <select id="reason" name="reason" class="input select_element_temp_stayle" required>
                                                                     <option value="" disabled selected>Chouse the removal reason...</option>
                                                                     <option value="noMoreInterest">Old account</option>
                                                                     <option value="inapropreate">Inappropriate behaveour</option>
@@ -485,15 +484,14 @@
                                                         </div>
                                                         <div class="col-lg-12">
                                                             <fieldset>
-                                                                <label for="message">Message</label>
+                                                                <label for="message" required>Message</label>
                                                                 <textarea name="message" id="message"
                                                                     placeholder="Your Message"></textarea>
                                                             </fieldset>
                                                         </div>
                                                         <div class="col-lg-12">
                                                             <fieldset>
-                                                                <button type="button" id="form-submit"
-                                                                    class="orange-button">Remove This User</button>
+                                                                <button type="submit" class="orange-button">Remove This User</button>
                                                             </fieldset>
                                                         </div>
                                                     </div>

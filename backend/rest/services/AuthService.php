@@ -44,6 +44,10 @@ class AuthService extends BaseService{
         }
 
 
+        $today = new DateTime();
+        $birth = new DateTime($entity["date_of_birth"]);
+        $age = $today->diff($birth)->y;
+
         $username_exists = $this -> get_by_username($entity['username']);
         $email_exists = $this -> get_by_email($entity['email']);
         if($username_exists)
@@ -51,7 +55,9 @@ class AuthService extends BaseService{
         
         if($email_exists)
             return ['success' => false, 'error' => 'Email already registered.'];
-        
+
+        if($age < 18 || $birth > $today)
+            return ['success' => false, 'error' => 'Your age is not appropriate!'];
 
         $entity['password'] = password_hash($entity['password'], PASSWORD_BCRYPT);
         $entity['role'] = roles::USER;

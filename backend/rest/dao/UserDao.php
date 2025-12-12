@@ -17,7 +17,7 @@ class UserDao extends BaseDao{
     }
 
     public function get_all_usersnames($role){
-        return $this->query('SELECT id, name, surname FROM ' . $this->table_name . ' WHERE role = :role', ['role' => $role]);
+        return $this->query('SELECT id, username, email FROM ' . $this->table_name . ' WHERE role = :role ORDER BY username ASC', ['role' => $role]);
     }
 
     public function get_by_id($id){

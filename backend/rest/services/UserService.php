@@ -35,15 +35,6 @@ class UserService extends BaseService{
     }
 
     public function add_user($entity){
-
-        $today = new DateTime();
-        $birth = new DateTime($entity["date_of_birth"]);
-
-        $age = $today->diff($birth)->y;
-
-        if($age < 18)
-            throw new Exception("Your age is not appropriate");
-
         return $this->dao->add_user($entity);
     }
 

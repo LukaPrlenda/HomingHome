@@ -206,4 +206,24 @@ const ButtonEventListoner = {
         form.removeEventListener("submit", ButtonEventListoner.helpF8);
         form.addEventListener("submit", ButtonEventListoner.helpF8);
     },
+
+    //Admin Remove User
+    helpF9: function(event) {
+        const form = document.getElementById("admin-remove-user-form-submit");
+
+        event.preventDefault();
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+        AdminService.deleteUser(form);
+    },
+
+    addBtnAdminRemoveProperties: function() {
+        const form = document.getElementById("admin-remove-user-form-submit");
+
+        form.removeEventListener("submit", ButtonEventListoner.helpF9);
+        form.addEventListener("submit", ButtonEventListoner.helpF9);
+    },
 }

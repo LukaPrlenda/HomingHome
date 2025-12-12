@@ -56,7 +56,7 @@ const AdminService = {
         );
 
         RestClient.get(
-            `user`,
+            `user/usersnames/user`,
             callback => {
                 const numberOfUsers = callback.length;
 
@@ -295,20 +295,59 @@ const AdminService = {
     formsAdminDataFill: function() {
 
         RestClient.get(
-            `user`,
+            `user/usersnames/user`,
             callback => {
                 let f2pl = `<option value="" disabeled selected>Chouse the user...</option>`;
                 for(const obj of callback){
-                    let name = obj.name;
-                    let surname = obj.surname;
+                    let id = obj.id;
+                    let username = obj.username;
+                    let email = obj.email;
 
-                    f2pl += `<option value="` + name + ` ` + surname + `">` + name + ` ` + surname + `</option>`;
+                    f2pl += `<option value="` + id + `">` + username + ` | ` + email + `</option>`;
                 }
 
                 $("#adminAllUsernames").html(f2pl);
             },
             error_callback => {
                 console.log("Error geting Total Flat Space: " + error_callback);
+            }
+        );
+    },
+
+
+    deleteUser: function(form) {
+        const dataForm = Object.fromEntries(new FormData(form));
+
+        RestClient.delete(
+            "user/" + dataForm.id,
+            {},
+            data => {
+                console.log(data);
+
+                form.reset();
+                AdminService.formsAdminDataFill();
+                AdminService.displayStats();
+
+                msg = `<p>Success!</p>
+                        <p>You successfully deleted the user!</p>`
+
+                $("#notification_green").html(msg);
+
+                document.getElementById("notification_green").style.display="block";
+                setTimeout(function(){document.getElementById("notification_green").style.display="none";}, 2500);
+
+
+            },
+            error => {
+                msg = `<p>Error!</p>
+                        <p>Error while submitting form</p>`
+
+                $("#notification_red").html(msg);
+
+                console.log("Error while deleting user: ",error);
+
+                document.getElementById("notification_red").style.display="block";
+                setTimeout(function(){document.getElementById("notification_red").style.display="none";}, 3000);
             }
         );
     },

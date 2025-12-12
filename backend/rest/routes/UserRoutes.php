@@ -56,7 +56,7 @@ Flight::route('GET /user/role/@role', function($role){
  *      ),
  *      @OA\Response(
  *          response=200,
- *          description="Fetch usersnames by role."
+ *          description="Fetch usernames and email by role."
  *      ),
  *      @OA\Response(
  *          response=500,
