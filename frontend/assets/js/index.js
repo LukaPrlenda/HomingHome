@@ -70,10 +70,13 @@ app.route({
         onCreate: function() {
         AdminService.displayStats();
         AdminService.displayAllListings();
-        AdminService.displayAllInterests();
         AdminService.formsAdminDataFill();
-        ButtonEventListoner.addBtnPropertyInfo(["adminAllListingsCards", "adminAllInterestsCards"]);
+        ButtonEventListoner.addBtnPropertyInfo(["adminAllListingsCards"]);
         ButtonEventListoner.addBtnLogout();
+
+        ButtonEventListoner.addBtnAdminOpenAllProperties();
+        ButtonEventListoner.addBtnAdminRemoveProperties();
+
     },
     onReady: function() {runCustom(); navigationMenu("#page_Admin");}
 });

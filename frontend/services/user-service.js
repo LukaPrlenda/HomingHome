@@ -53,6 +53,10 @@ const UserService = {
         localStorage.clear();
         UserService.generateMenuItems();
         window.location.hash = "page_Login";
+
+        $("#myAllProperties").html("");
+        $("#myAllIntrestsInME").html("");
+        $("#myAllIntrestsInSomeone").html("");
     },
 
     register: function(entity) {

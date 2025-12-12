@@ -23,8 +23,14 @@ const ButtonEventListoner = {
 
                     const dataId = event.target.dataset.id;
                     const dataLocation = event.target.dataset.location;
+                    const dataAdmin = event.target.dataset.admin;
                     
-                    MyAccountService.enterDataInForme(dataId, dataLocation);
+                    if(dataAdmin) {
+                        AdminService.enterAdminDataInForme(dataId, dataLocation);
+                    }
+                    else{
+                        MyAccountService.enterDataInForme(dataId, dataLocation);
+                    }
                 }
             });
         });
@@ -101,7 +107,7 @@ const ButtonEventListoner = {
 
 
 
-    //User Remove Property
+    //User Remove Listing
     helpF3: function(event) {
         event.preventDefault();
         MyAccountService.openMyListingsFull();
@@ -165,5 +171,39 @@ const ButtonEventListoner = {
 
         form.removeEventListener("submit", ButtonEventListoner.helpF6);
         form.addEventListener("submit", ButtonEventListoner.helpF6);
+    },
+
+
+
+    //Admin Remove Listing
+    helpF7: function(event) {
+        event.preventDefault();
+        AdminService.openAdminListingsFull();
+    },
+
+    addBtnAdminOpenAllProperties: function() {
+        const btn = document.getElementById("adminOpenAllProperties");
+
+        btn.removeEventListener("click", ButtonEventListoner.helpF7);
+        btn.addEventListener("click", ButtonEventListoner.helpF7);
+    },
+
+    helpF8: function(event) {
+        const form = document.getElementById("admin-remove-form-submit");
+
+        event.preventDefault();
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+        AdminService.submitAdminRemoveListing(form);
+    },
+
+    addBtnAdminRemoveProperties: function() {
+        const form = document.getElementById("admin-remove-form-submit");
+
+        form.removeEventListener("submit", ButtonEventListoner.helpF8);
+        form.addEventListener("submit", ButtonEventListoner.helpF8);
     },
 }
