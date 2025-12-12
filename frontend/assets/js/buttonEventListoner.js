@@ -30,6 +30,23 @@ const ButtonEventListoner = {
         });
     },
 
+    addBtnSelectIntrest: function(list) {
+        list.forEach(id => {
+            const div = document.getElementById(id);
+
+            div.addEventListener("click", function(event) {
+
+                if(event.target.classList.contains("choseAInterest")) {
+
+                    const dataId = event.target.dataset.id;
+                    const dataLocation = event.target.dataset.location;
+                    
+                    MyAccountService.enterDataInFormeIntrest(dataId, dataLocation);
+                }
+            });
+        });
+    },
+
     addBtnSchedulingIntrest: function() {
         const form = document.getElementById("interest-contact-form");
 
@@ -45,6 +62,9 @@ const ButtonEventListoner = {
         });
     },
 
+
+
+    //Add Listing
     helpF1: function(event) {
         const form = document.getElementById("form-add-listing");
 
@@ -65,6 +85,8 @@ const ButtonEventListoner = {
     },
 
 
+
+    //Logout
     helpF2: function(event) {
         event.preventDefault();
         UserService.logout();
@@ -77,6 +99,9 @@ const ButtonEventListoner = {
         btn.addEventListener("click", ButtonEventListoner.helpF2);
     },
 
+
+
+    //User Remove Property
     helpF3: function(event) {
         event.preventDefault();
         MyAccountService.openMyListingsFull();
@@ -106,5 +131,39 @@ const ButtonEventListoner = {
 
         form.removeEventListener("submit", ButtonEventListoner.helpF4);
         form.addEventListener("submit", ButtonEventListoner.helpF4);
+    },
+
+
+
+    //User Update Intrest
+    helpF5: function(event) {
+        event.preventDefault();
+        MyAccountService.openMyIntrestsFull();
+    },
+
+    addBtnOpenAllIntrests: function() {
+        const btn = document.getElementById("openAllIntrests");
+
+        btn.removeEventListener("click", ButtonEventListoner.helpF5);
+        btn.addEventListener("click", ButtonEventListoner.helpF5);
+    },
+
+    helpF6: function(event) {
+        const form = document.getElementById("remove-intrest-form-submit");
+
+        event.preventDefault();
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+        MyAccountService.submitUpdateIntrest(form);
+    },
+
+    addBtnRemoveIntrests: function() {
+        const form = document.getElementById("remove-intrest-form-submit");
+
+        form.removeEventListener("submit", ButtonEventListoner.helpF6);
+        form.addEventListener("submit", ButtonEventListoner.helpF6);
     },
 }

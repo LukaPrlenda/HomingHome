@@ -56,8 +56,12 @@ app.route({
         MyAccountService.formsDataFill();
         ButtonEventListoner.addBtnPropertyInfo(["interestsInMeCards", "myCurrentListings"]);
         ButtonEventListoner.addBtnLogout();
+
         ButtonEventListoner.addBtnOpenAllProperties();
         ButtonEventListoner.addBtnRemoveProperties();
+
+        ButtonEventListoner.addBtnOpenAllIntrests();
+        ButtonEventListoner.addBtnRemoveIntrests();
     },
     onReady: function() {MyAccountService.displayInterestsInMe(); runCustom(); navigationMenu("#page_My-account");}
 });
@@ -83,7 +87,7 @@ app.route({
 app.route({
     view: "page_My-Intrests",
     onCreate: function() {
-        ButtonEventListoner.addBtnSelectProperty("myAllIntrests");
+        ButtonEventListoner.addBtnSelectIntrest(["myAllIntrestsInME", "myAllIntrestsInSomeone"]);
     },
     onReady: function() {runCustom(); navigationMenu("#page_Admin");}
 });
