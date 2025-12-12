@@ -13,6 +13,23 @@ const ButtonEventListoner = {
         });
     },
 
+    addBtnSelectProperty: function(list) {
+        list.forEach(id => {
+            const div = document.getElementById(id);
+
+            div.addEventListener("click", function(event) {
+
+                if(event.target.classList.contains("choseAProperty")) {
+
+                    const dataId = event.target.dataset.id;
+                    const dataLocation = event.target.dataset.location;
+                    
+                    MyAccountService.enterDataInForme(dataId, dataLocation);
+                }
+            });
+        });
+    },
+
     addBtnSchedulingIntrest: function() {
         const form = document.getElementById("interest-contact-form");
 
@@ -49,8 +66,6 @@ const ButtonEventListoner = {
 
 
     helpF2: function(event) {
-        const btn = document.getElementById("form-add-listing");
-
         event.preventDefault();
         UserService.logout();
     },
@@ -60,5 +75,36 @@ const ButtonEventListoner = {
 
         btn.removeEventListener("click", ButtonEventListoner.helpF2);
         btn.addEventListener("click", ButtonEventListoner.helpF2);
+    },
+
+    helpF3: function(event) {
+        event.preventDefault();
+        MyAccountService.openMyListingsFull();
+    },
+
+    addBtnOpenAllProperties: function() {
+        const btn = document.getElementById("openAllProperties");
+
+        btn.removeEventListener("click", ButtonEventListoner.helpF3);
+        btn.addEventListener("click", ButtonEventListoner.helpF3);
+    },
+
+    helpF4: function(event) {
+        const form = document.getElementById("remove-form-submit");
+
+        event.preventDefault();
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+        MyAccountService.submitRemoveListing(form);
+    },
+
+    addBtnRemoveProperties: function() {
+        const form = document.getElementById("remove-form-submit");
+
+        form.removeEventListener("submit", ButtonEventListoner.helpF4);
+        form.addEventListener("submit", ButtonEventListoner.helpF4);
     },
 }

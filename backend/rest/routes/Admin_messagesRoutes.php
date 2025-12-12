@@ -129,7 +129,7 @@ Flight::route('GET /admin_messages', function(){
  *  )
  */
 Flight::route('POST /admin_messages', function(){
-    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
 
     $request = Flight::request()->data->getData();
 

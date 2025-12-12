@@ -285,6 +285,11 @@
   padding: 0px 15px;
 }
 
+.fake_select {
+    pointer-events: none;
+    width: 100%;
+}
+
 /* Notification css */
 
 .notification_green {

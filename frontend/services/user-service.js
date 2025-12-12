@@ -127,6 +127,12 @@ const UserService = {
                         <section id="page_My-account" data-load="my-account.html">
                             <h1>page_My-account</h1>
                         </section>
+                        <section id="page_My-Properties" data-load="myProperties.html">
+                            <h1>page_My-Properties</h1>
+                        </section>
+                        <section id="page_My-Intrests" data-load="myIntrests.html">
+                            <h1>page_My-Intrests</h1>
+                        </section>
                     `;
 
                     break;
@@ -155,6 +161,12 @@ const UserService = {
                         </section>
                         <section id="page_Admin" data-load="admin.html">
                             <h1>page_Admin</h1>
+                        </section>
+                        <section id="page_My-Properties" data-load="myProperties.html">
+                            <h1>page_My-Properties</h1>
+                        </section>
+                        <section id="page_My-Intrests" data-load="myIntrests.html">
+                            <h1>page_My-Intrests</h1>
                         </section>
                     `;
 
