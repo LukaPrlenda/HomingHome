@@ -72,7 +72,7 @@ const AdminService = {
 
     displayAllListings: function() {
         RestClient.get(
-            `listing/Active`,
+            `listing/first_N/Active/6`,
             callback => {
             let adlst = ``;
                 for(const obj of callback){

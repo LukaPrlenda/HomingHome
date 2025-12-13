@@ -12,13 +12,17 @@ app.route({
         MainService.displayBestDealMain();
         PropertiesService.properties6CardMinimal();
         ButtonEventListoner.addBtnPropertyInfo(["appartment", "villa", "penthouse", "bestPropertyes"]);
+        ButtonEventListoner.addBtnAdminSendEmailMain();
     },
     onReady: function() {runCustom(); navigationMenu("#page_Main"); counter();}
 });
 
 app.route({
     view: "page_Contact",
-    onReady: function() {runCustom(); navigationMenu("#page_Contact");}
+        onCreate: function() {
+        ButtonEventListoner.addBtnAdminSendEmailContact();
+    },
+    onReady: function() {runCustom(); navigationMenu("#page_Contact"); ButtonEventListoner.addBtnAdminSendEmail();}
 });
 
 app.route({

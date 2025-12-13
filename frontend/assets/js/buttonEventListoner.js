@@ -226,4 +226,43 @@ const ButtonEventListoner = {
         form.removeEventListener("submit", ButtonEventListoner.helpF9);
         form.addEventListener("submit", ButtonEventListoner.helpF9);
     },
+
+    //Email
+    helpF10: function(event) {
+        const form = document.getElementById("send-email-form");
+
+        event.preventDefault();
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+        MailForm.sendEmail(form);
+    },
+
+    addBtnAdminSendEmailMain: function() {
+        const form = document.getElementById("send-email-form");
+
+        form.removeEventListener("submit", ButtonEventListoner.helpF10);
+        form.addEventListener("submit", ButtonEventListoner.helpF10);
+    },
+
+    helpF11: function(event) {
+        const form = document.getElementById("send-email-contact-form");
+
+        event.preventDefault();
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+        MailForm.sendEmail(form);
+    },
+
+    addBtnAdminSendEmailContact: function() {
+        const form = document.getElementById("send-email-contact-form");
+
+        form.removeEventListener("submit", ButtonEventListoner.helpF11);
+        form.addEventListener("submit", ButtonEventListoner.helpF11);
+    },
 }
