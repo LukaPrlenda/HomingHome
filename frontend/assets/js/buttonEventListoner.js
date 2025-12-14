@@ -220,7 +220,7 @@ const ButtonEventListoner = {
         AdminService.deleteUser(form);
     },
 
-    addBtnAdminRemoveProperties: function() {
+    addBtnAdminRemoveUser: function() {
         const form = document.getElementById("admin-remove-user-form-submit");
 
         form.removeEventListener("submit", ButtonEventListoner.helpF9);

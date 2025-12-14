@@ -84,6 +84,7 @@ app.route({
 
         ButtonEventListoner.addBtnAdminOpenAllProperties();
         ButtonEventListoner.addBtnAdminRemoveProperties();
+        ButtonEventListoner.addBtnAdminRemoveUser();
 
     },
     onReady: function() {runCustom(); navigationMenu("#page_Admin");}
