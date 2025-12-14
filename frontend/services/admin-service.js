@@ -23,7 +23,7 @@ const AdminService = {
                 $("#myEmail2").html(myemail);
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting user data: " + error_callback);
             }
         );
 
@@ -37,7 +37,7 @@ const AdminService = {
 
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Total number of listings: " + error_callback);
             }
         );
 
@@ -51,12 +51,12 @@ const AdminService = {
 
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Total number of interests: " + error_callback);
             }
         );
 
         RestClient.get(
-            `user/usersnames/user`,
+            `user/usersnames/`+ Constants.USER_ROLE,
             callback => {
                 const numberOfUsers = callback.length;
 
@@ -65,7 +65,7 @@ const AdminService = {
 
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Total number of users: " + error_callback);
             }
         );
 
@@ -80,7 +80,7 @@ const AdminService = {
 
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Total sold properties: " + error_callback);
             }
         );
 
@@ -94,7 +94,7 @@ const AdminService = {
 
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Does not want to sell anymore: " + error_callback);
             }
         );
 
@@ -108,12 +108,12 @@ const AdminService = {
 
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Number of property types: " + error_callback);
             }
         );
 
         RestClient.get(
-            `user/usersnames/admin`,
+            `user/usersnames/` + Constants.ADMIN_ROLE,
             callback => {
                 const numberOfUsers = callback.length;
 
@@ -122,7 +122,7 @@ const AdminService = {
 
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Total number of admins: " + error_callback);
             }
         );
     },
@@ -167,7 +167,7 @@ const AdminService = {
             $("#adminAllListingsCards").html(adlst);
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting First 6 listings: " + error_callback);
             }
         );
     },
@@ -220,7 +220,7 @@ const AdminService = {
             
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Active listings: " + error_callback);
             }
         );
     },
@@ -352,7 +352,7 @@ const AdminService = {
     formsAdminDataFill: function() {
 
         RestClient.get(
-            `user/usersnames/user`,
+            `user/usersnames/` + Constants.USER_ROLE,
             callback => {
                 let f2pl = `<option value="" disabeled selected>Chouse the user...</option>`;
                 for(const obj of callback){

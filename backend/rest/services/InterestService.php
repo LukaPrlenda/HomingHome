@@ -20,6 +20,10 @@ class InterestService extends BaseService{
         return $this->dao->get_by_status_and_owner_id($status, $user_id);
     }
 
+    public function get_by_status_and_owner_id_first_N($status, $user_id, $number){
+        return $this->dao->get_by_status_and_owner_id_first_N($status, $user_id, $number);
+    }
+
     public function get_by_status_interested_id_and_property_id($status, $user_id, $property_id){
         return $this->dao->get_by_status_interested_id_and_property_id($status, $user_id, $property_id);
     }

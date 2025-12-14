@@ -66,6 +66,8 @@ app.route({
 
         ButtonEventListoner.addBtnOpenAllIntrests();
         ButtonEventListoner.addBtnRemoveIntrests();
+
+        ButtonEventListoner.addBtnOpenViewAllIntrests();
     },
     onReady: function() {MyAccountService.displayInterestsInMe(); runCustom(); navigationMenu("#page_My-account");}
 });
@@ -97,6 +99,13 @@ app.route({
         ButtonEventListoner.addBtnSelectIntrest(["myAllIntrestsInME", "myAllIntrestsInSomeone"]);
     },
     onReady: function() {runCustom(); navigationMenu("#page_Admin");}
+});
+app.route({
+    view: "page_My-ViewIntrests",
+    onCreate: function() {
+        ButtonEventListoner.addBtnPropertyInfo(["myViewAllIntrestsInME", "myViewAllIntrestsInSomeone"]);
+    },
+    onReady: function() {runCustom(); navigationMenu("#page_My-account");}
 });
 /*
 

@@ -28,7 +28,7 @@ const MyAccountService = {
                 $("#myEmail2").html(myemail);
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Account data: " + error_callback);
             }
         );
 
@@ -42,7 +42,7 @@ const MyAccountService = {
 
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Total Number of my live listings: " + error_callback);
             }
         );
 
@@ -56,7 +56,7 @@ const MyAccountService = {
 
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Number of interests in you: " + error_callback);
             }
         );
     },
@@ -66,7 +66,7 @@ const MyAccountService = {
         const userId = tokenData.user.id;
 
         RestClient.get(
-            `interest/owner/Active/` + userId,
+            `interest/owner/first_N/Active/` + userId + `/6`,
             callback => {
             let myint = ``;
                 for(const obj of callback){
@@ -118,10 +118,144 @@ const MyAccountService = {
             $("#interestsInMeCards").html(myint);
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Total Intrests in me: " + error_callback);
             }
         );
     },
+
+    displayViewIntrestsInMeFull: function() {
+        const tokenData = Utils.parseJwt(localStorage.getItem("user_token"));
+        const userId = tokenData.user.id;
+
+        RestClient.get(
+           `interest/owner/Active/` + userId,
+            callback => {
+            let myint = ``;
+                for(const obj of callback){
+                    let picture = Utils.showImage(obj.picture);
+                    let type = obj.type;
+                    let price = `$` + obj.price;
+                    let location = obj.location;
+                    let bedrooms = obj.bedrooms;
+                    let bathrooms = obj.bathrooms;
+                    let area = obj.area + ` m2`;
+                    let floor = obj.floor;
+                    let parking = obj.parking + ` spots`;
+                    let id = obj.id;
+
+                    let intrestedName = obj.intrested_name;
+                    let intrestedSurname = obj.intrested_surname;
+                    let intrestedPhone = obj.intrested_phone;
+                    let intrestedEmail = obj.intrested_gmail;
+                    let intrestedMessage = obj.message;
+
+                    myint += `<div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <a href="#page_Property-details"><img ` + picture + ` alt="" class="propertiesCardBtn" data-id="` + id + `"></a>
+                        <span class="category">` + type + `</span>
+                        <h6>` + price + `</h6>
+                        <h4><a href="#page_Property-details">` + location + `</a></h4>
+                        <ul>
+                            <li>Bedrooms: <span>` + bedrooms + `</span></li>
+                            <li>Bathrooms: <span>` + bathrooms + `</span></li>
+                            <li>Area: <span>` + area + `</span></li>
+                            <li>Floor: <span>` + floor + `</span></li>
+                            <li>Parking: <span>` + parking + `</span></li>
+                        </ul>
+                        <div>
+                           <ul>
+                            <li>Name: <span>` + intrestedName + ` ` + intrestedSurname + `</span></li>
+                            <li>Phone: <span>` + intrestedPhone + `</span></li>
+                            <li>Email: <span>` + intrestedEmail + `</span></li>
+                            <li>Message: <span>` + intrestedMessage + `</span></li>
+                        </ul>
+                        </div>
+                        <div class="main-button ">
+                            <a href="#page_Property-details" class="propertiesCardBtn" data-id=` + id + `">Detailed listing</a>
+                        </div>
+                    </div>
+                </div>`
+                }
+
+            $("#myViewAllIntrestsInME").html(myint);
+            },
+            error_callback => {
+                console.log("Error geting Intrests in me: " + error_callback);
+            }
+        );
+    },
+
+    displayViewIntrestsInSomeoneFull: function() {
+        const tokenData = Utils.parseJwt(localStorage.getItem("user_token"));
+        const userId = tokenData.user.id;
+
+        RestClient.get(
+           `interest/interested/Active/` + userId,
+            callback => {
+            let myint = ``;
+                for(const obj of callback){
+                    let picture = Utils.showImage(obj.picture);
+                    let type = obj.type;
+                    let price = `$` + obj.price;
+                    let location = obj.location;
+                    let bedrooms = obj.bedrooms;
+                    let bathrooms = obj.bathrooms;
+                    let area = obj.area + ` m2`;
+                    let floor = obj.floor;
+                    let parking = obj.parking + ` spots`;
+                    let id = obj.id;
+
+                    let intrestedName = obj.intrested_name;
+                    let intrestedSurname = obj.intrested_surname;
+                    let intrestedPhone = obj.intrested_phone;
+                    let intrestedEmail = obj.intrested_gmail;
+                    let intrestedMessage = obj.message;
+
+                    myint += `<div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <a href="#page_Property-details"><img ` + picture + ` alt="" class="propertiesCardBtn" data-id="` + id + `"></a>
+                        <span class="category">` + type + `</span>
+                        <h6>` + price + `</h6>
+                        <h4><a href="#page_Property-details">` + location + `</a></h4>
+                        <ul>
+                            <li>Bedrooms: <span>` + bedrooms + `</span></li>
+                            <li>Bathrooms: <span>` + bathrooms + `</span></li>
+                            <li>Area: <span>` + area + `</span></li>
+                            <li>Floor: <span>` + floor + `</span></li>
+                            <li>Parking: <span>` + parking + `</span></li>
+                        </ul>
+                        <div>
+                           <ul>
+                            <li>Name: <span>` + intrestedName + ` ` + intrestedSurname + `</span></li>
+                            <li>Phone: <span>` + intrestedPhone + `</span></li>
+                            <li>Email: <span>` + intrestedEmail + `</span></li>
+                            <li>Message: <span>` + intrestedMessage + `</span></li>
+                        </ul>
+                        </div>
+                        <div class="main-button ">
+                            <a href="#page_Property-details" class="propertiesCardBtn" data-id=` + id + `">Detailed listing</a>
+                        </div>
+                    </div>
+                </div>`
+                }
+
+            $("#myViewAllIntrestsInSomeone").html(myint);
+            },
+            error_callback => {
+                console.log("Error geting Intrests in someones property: " + error_callback);
+            }
+        );
+    },
+
+    openViewMyIntrestsFull: function() {
+        MyAccountService.displayViewIntrestsInMeFull();
+        MyAccountService.displayViewIntrestsInSomeoneFull();
+
+        window.location.hash = "page_My-ViewIntrests";
+    },
+
+
+
 
     displayMyListings: function() {
         const tokenData = Utils.parseJwt(localStorage.getItem("user_token"));
@@ -166,7 +300,7 @@ const MyAccountService = {
             $("#myCurrentListings").html(mylst);
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting My listings: " + error_callback);
             }
         );
     },
@@ -218,7 +352,7 @@ const MyAccountService = {
             
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting My listings: " + error_callback);
             }
         );
     },
@@ -378,7 +512,6 @@ const MyAccountService = {
                     let intrestedEmail = obj.intrested_gmail;
                     let intrestedMessage = obj.message;
 
-                    console.log(obj);
 
                     myint += `<div class="col-lg-4 col-md-6">
                     <div class="item">
@@ -411,7 +544,7 @@ const MyAccountService = {
             $("#myAllIntrestsInME").html(myint);
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Intrests in me: " + error_callback);
             }
         );
     },
@@ -475,7 +608,7 @@ const MyAccountService = {
             $("#myAllIntrestsInSomeone").html(myint);
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Intrests in someones property: " + error_callback);
             }
         );
     },
@@ -627,7 +760,7 @@ const MyAccountService = {
                 ButtonEventListoner.addBtnListProperty();
             },
             error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
+                console.log("Error geting Property type: " + error_callback);
             }
         );
 /*

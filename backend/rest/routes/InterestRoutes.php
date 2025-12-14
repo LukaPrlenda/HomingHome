@@ -122,6 +122,58 @@ Flight::route('GET /interest/owner/@status/@id', function($status, $id){
 
 /**
  *  @OA\Get(
+ *      path="/interest/owner/first_N/{status}/{id}/{number}",
+ *      tags={"interest"},
+ *      summary="Fetch interests by status and owner ID.",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
+ *      @OA\Parameter(
+ *          name="status",
+ *          in="path",
+ *          required=true,
+ *          description="Status of interest",
+ *          @OA\Schema(
+ *              type="string",
+ *              enum={"Active","No more interested","Found property","Removed","Something else","Inappropriate","Not compliant with rules"},
+ *              example="Active"
+ *          )
+ *      ),
+ *      @OA\Parameter(
+ *          name="id",
+ *          in="path",
+ *          required=true,
+ *          description="Owner ID",
+ *          @OA\Schema(type="integer", example=1)
+ *      ),
+ *      @OA\Parameter(
+ *          name="number",
+ *          in="path",
+ *          required=true,
+ *          description="Number of first interests to fetch",
+ *          @OA\Schema(
+ *              type="integer", example=10
+ *          )
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Fetch interests by status and owner ID."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
+ *      )
+ *  )
+ */
+Flight::route('GET /interest/owner/first_N/@status/@id/@number', function($status, $id, $number){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+    Flight::auth_middleware()->authorizeUserID($id);
+
+    Flight::json(Flight::interestService()->get_by_status_and_owner_id_first_N($status, $id, $number));
+});
+
+/**
+ *  @OA\Get(
  *      path="/interest",
  *      tags={"interest"},
  *      summary="Fetch all interests.",

@@ -137,6 +137,9 @@ const UserService = {
                         <section id="page_My-Intrests" data-load="myIntrests.html">
                             <h1>page_My-Intrests</h1>
                         </section>
+                        <section id="page_My-ViewIntrests" data-load="myViewIntrests.html">
+                            <h1>page_My-ViewIntrests</h1>
+                        </section>
                     `;
 
                     break;
@@ -171,6 +174,9 @@ const UserService = {
                         </section>
                         <section id="page_My-Intrests" data-load="myIntrests.html">
                             <h1>page_My-Intrests</h1>
+                        </section>
+                        <section id="page_My-ViewIntrests" data-load="myViewIntrests.html">
+                            <h1>page_My-ViewIntrests</h1>
                         </section>
                     `;
 

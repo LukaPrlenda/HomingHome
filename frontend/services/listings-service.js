@@ -1,7 +1,22 @@
 const ListingsService = {
     schedulingIntrest: function(propertyId) {
         const tokenData = Utils.parseJwt(localStorage.getItem("user_token"));
+        if(tokenData == null){
+            msg = `<p>Error!</p>
+                    <p>To send the interest to the property owner, you must be logged in.</p>`
+
+            $("#notification_red").html(msg);
+
+            console.log("To send the interest to the property owner, you must be logged in.");
+
+            document.getElementById("notification_red").style.display="block";
+            setTimeout(function(){document.getElementById("notification_red").style.display="none";}, 3000);
+            return;
+        }
+
         const userId = tokenData.user.id;
+
+        
 
         const form = document.getElementById("interest-contact-form");
         const data = Object.fromEntries(new FormData(form));

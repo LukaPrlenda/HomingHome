@@ -38,7 +38,7 @@ const PropertiesService = {
             $("#bestPropertyes").html(pcd);
             },
             error_callback => {
-                onsole.log("Error geting Best Deal: " + error_callback);
+                onsole.log("Error geting First 6 listings: " + error_callback);
             }
         );
     },
@@ -84,7 +84,7 @@ const PropertiesService = {
             runCustom();
             },
             error_callback => {
-                onsole.log("Error geting Best Deal: " + error_callback);
+                onsole.log("Error geting Active listings: " + error_callback);
             }
         );
     },
@@ -166,7 +166,7 @@ const PropertiesService = {
             ButtonEventListoner.addBtnSchedulingIntrest();
             },
             error_callback => {
-                console.log("Error geting Best Deal: " + error_callback);
+                console.log("Error geting Property detailes: " + error_callback);
             }
         );
     },
