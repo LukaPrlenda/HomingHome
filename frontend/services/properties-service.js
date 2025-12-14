@@ -111,7 +111,7 @@ const PropertiesService = {
           <div class="main-content">
             <span class="category">` + type + `</span>
             <h4>` + location + `</h4>
-            <p>
+            <p class="wrap-text">
             ` + desc + `
             </p>
           </div>

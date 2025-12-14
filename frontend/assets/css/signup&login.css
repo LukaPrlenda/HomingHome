@@ -344,5 +344,33 @@
 
 
 .more-to-open {
-    
+    display: block;
+    width: 100%;
+    max-width: 67.5%;
+    margin: 0 auto;
+    cursor: pointer;
+    border: 3px solid #eee;
+    border-radius: 5px;
+    background: transparent;
+    height: 45px;
+
+    box-shadow: none;
+    font-size: 17px;
+    font-weight: 500;
+    color: #1e1e1e;
+    text-align: center;
+    line-height: 45px;
+}
+
+.more-to-open:hover {
+    border-color: #eee;
+    color: #fff;
+    background-color: #eee;
+}
+
+
+.wrap-text {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }

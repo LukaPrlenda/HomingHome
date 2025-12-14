@@ -28,7 +28,7 @@ const AdminService = {
         );
 
         RestClient.get(
-            `listing/Active`,
+            `listing/address/Active`,
             callback => {
                 const numberOfListings = callback.length;
 
@@ -62,6 +62,63 @@ const AdminService = {
 
                 let usersN = numberOfUsers + `<br><span>Total number of users</span>`;
                 $("#adminNOfUsers").html(usersN);
+
+            },
+            error_callback => {
+                console.log("Error geting Total Flat Space: " + error_callback);
+            }
+        );
+
+        //Bottom stats
+        RestClient.get(
+            `listing/address/Sold!`,
+            callback => {
+                const numberOfListings = callback.length;
+
+                let noflistings = numberOfListings + `<br><span>Total sold properties</span>`;
+                $("#totalSoldProperties").html(noflistings);
+
+            },
+            error_callback => {
+                console.log("Error geting Total Flat Space: " + error_callback);
+            }
+        );
+
+        RestClient.get(
+            `listing/address/Do not want to sell`,
+            callback => {
+                const numberOfListings = callback.length;
+
+                let noflistings = numberOfListings + `<br><span>Does not want to sell anymore</span>`;
+                $("#noSell").html(noflistings);
+
+            },
+            error_callback => {
+                console.log("Error geting Total Flat Space: " + error_callback);
+            }
+        );
+
+        RestClient.get(
+            `type`,
+            callback => {
+                const numberOfListings = callback.length;
+
+                let noflistings = numberOfListings + `<br><span>Number of property types</span>`;
+                $("#nOfTypes").html(noflistings);
+
+            },
+            error_callback => {
+                console.log("Error geting Total Flat Space: " + error_callback);
+            }
+        );
+
+        RestClient.get(
+            `user/usersnames/admin`,
+            callback => {
+                const numberOfUsers = callback.length;
+
+                let usersN = numberOfUsers + `<br><span>Total number of admins</span>`;
+                $("#nOfAdmins").html(usersN);
 
             },
             error_callback => {
