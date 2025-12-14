@@ -265,4 +265,56 @@ const ButtonEventListoner = {
         form.removeEventListener("submit", ButtonEventListoner.helpF11);
         form.addEventListener("submit", ButtonEventListoner.helpF11);
     },
+
+    //User Get All Intrests
+    helpF12: function(event) {
+        event.preventDefault();
+        MyAccountService.openViewMyIntrestsFull();
+    },
+
+    addBtnOpenViewAllIntrests: function() {
+        const btn = document.getElementById("show_all_intrests");
+
+        btn.removeEventListener("click", ButtonEventListoner.helpF12);
+        btn.addEventListener("click", ButtonEventListoner.helpF12);
+    },
+
+    //User Delete Account
+    helpF13: function(event) {
+        event.preventDefault();
+        MyAccountService.showDeleteAccountModal();
+    },
+
+    addBtnDeleteAccount: function() {
+        const btn = document.getElementById("buttonToDeleteAccount");
+
+        btn.removeEventListener("click", ButtonEventListoner.helpF13);
+        btn.addEventListener("click", ButtonEventListoner.helpF13);
+    },
+
+     //User Modal Delete Account
+    helpF14: function(event) {
+        event.preventDefault();
+        MyAccountService.deleteMyAccount();
+    },
+
+    addBtnModalDeleteMyAccount: function() {
+        const btn = document.getElementById("modalYesToDeleteAccount");
+
+        btn.removeEventListener("click", ButtonEventListoner.helpF14);
+        btn.addEventListener("click", ButtonEventListoner.helpF14);
+    },
+
+    //User Modal Hide Without Delition
+    helpF15: function(event) {
+        event.preventDefault();
+        MyAccountService.hideModalWithoutDeleting();
+    },
+
+    addBtnHideModalWithoutDeleting: function() {
+        const btn = document.getElementById("modalNoToDeleteAccount");
+
+        btn.removeEventListener("click", ButtonEventListoner.helpF15);
+        btn.addEventListener("click", ButtonEventListoner.helpF15);
+    },
 }

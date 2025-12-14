@@ -14,7 +14,7 @@ let Utils = {
     },
 
     showImage: function(base64) {
-        return `src="data:image/jpeg;base64,` + base64 + `"`;
+        return `src="` + base64 + `"`;
     },
 
     parseImage: function(image) {
@@ -22,7 +22,7 @@ let Utils = {
             const reader = new FileReader();
 
             reader.onload = () => {
-                const base64 = reader.result.split(',')[1];
+                const base64 = reader.result;
                 resolve(base64);
             }
 

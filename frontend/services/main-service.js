@@ -104,7 +104,7 @@ const MainService = {
                 $("#villa").html(dbd);
             },
             error_callback => {
-                console.log("Error geting Best Deal: " + error_callback);
+                console.log("Error geting first Luxury Villa: " + error_callback);
             }
         );
 
@@ -151,7 +151,7 @@ const MainService = {
                 $("#penthouse").html(dbd);
             },
             error_callback => {
-                console.log("Error geting Best Deal: " + error_callback);
+                console.log("Error geting first Penthouse: " + error_callback);
             }
         );
     },
@@ -200,7 +200,7 @@ const MainService = {
                 $("#propertAappartment").html(dbd);
             },
             error_callback => {
-                console.log("Error geting Best Deal: " + error_callback);
+                console.log("Error geting first Appartment: " + error_callback);
             }
         );
 
@@ -247,7 +247,7 @@ const MainService = {
                 $("#propertyVilla").html(dbd);
             },
             error_callback => {
-                console.log("Error geting Best Deal: " + error_callback);
+                console.log("Error geting first Luxury Villa: " + error_callback);
             }
         );
 
@@ -294,7 +294,7 @@ const MainService = {
                 $("#propertyPenthouse").html(dbd);
             },
             error_callback => {
-                console.log("Error geting Best Deal: " + error_callback);
+                console.log("Error geting first Penthouse: " + error_callback);
             }
         );
     },

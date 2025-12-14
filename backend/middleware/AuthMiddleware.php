@@ -39,5 +39,13 @@ class AuthMiddleware {
             Flight::halt(403, 'Access denied: permission missing');
         }
     }
+
+    function authorizeUserID($id) {
+        $user = Flight::get('user');
+
+        if($id != $user->id && $user->role != Roles::ADMIN) {
+            Flight::halt(403, 'Access denied: The ID in the request was tampered with!');
+        }
+    }
 }
 ?>

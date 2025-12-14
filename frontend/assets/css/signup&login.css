@@ -344,5 +344,60 @@
 
 
 .more-to-open {
-    
+    display: block;
+    width: 100%;
+    max-width: 67.5%;
+    margin: 0 auto;
+    cursor: pointer;
+    border: 3px solid #eee;
+    border-radius: 5px;
+    background: transparent;
+    height: 45px;
+
+    box-shadow: none;
+    font-size: 17px;
+    font-weight: 500;
+    color: #1e1e1e;
+    text-align: center;
+    line-height: 45px;
+}
+
+.more-to-open:hover {
+    border-color: #eee;
+    color: #fff;
+    background-color: #eee;
+}
+
+
+
+.button-to-delete-account {
+    display: block;
+    width: 100%;
+    max-width: 23%;
+    margin: 0 auto;
+    cursor: pointer;
+    border: 3px solid crimson;
+    border-radius: 5px;
+    background: transparent;
+    height: 45px;
+
+    box-shadow: none;
+    font-size: 17px;
+    font-weight: 500;
+    color: rgba(237, 28, 36, 0.5);
+    text-align: center;
+    line-height: 45px;
+}
+
+.button-to-delete-account:hover {
+    border-color: crimson;
+    color: #fff;
+    background-color: crimson;
+}
+
+
+.wrap-text {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }

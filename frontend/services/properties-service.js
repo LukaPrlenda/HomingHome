@@ -38,7 +38,7 @@ const PropertiesService = {
             $("#bestPropertyes").html(pcd);
             },
             error_callback => {
-                onsole.log("Error geting Best Deal: " + error_callback);
+                onsole.log("Error geting First 6 listings: " + error_callback);
             }
         );
     },
@@ -84,7 +84,7 @@ const PropertiesService = {
             runCustom();
             },
             error_callback => {
-                onsole.log("Error geting Best Deal: " + error_callback);
+                onsole.log("Error geting Active listings: " + error_callback);
             }
         );
     },
@@ -100,6 +100,7 @@ const PropertiesService = {
                 let location = callback.location;
                 let area = callback.area + ` m2`;
                 let desc = callback.description;
+                let price = `$` + callback.price;
                 console.log(callback);
 
                 pcd += `<div class="container">
@@ -111,7 +112,7 @@ const PropertiesService = {
           <div class="main-content">
             <span class="category">` + type + `</span>
             <h4>` + location + `</h4>
-            <p>
+            <p class="wrap-text">
             ` + desc + `
             </p>
           </div>
@@ -133,7 +134,7 @@ const PropertiesService = {
               </li>
               <li>
                 <img src="assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
-                <h4>Safety<br><span>24/7 Under Control</span></h4>
+                <h4>` + price + `<br><span>Property price</span></h4>
               </li>
             </ul>
           </div>
@@ -166,7 +167,7 @@ const PropertiesService = {
             ButtonEventListoner.addBtnSchedulingIntrest();
             },
             error_callback => {
-                console.log("Error geting Best Deal: " + error_callback);
+                console.log("Error geting Property detailes: " + error_callback);
             }
         );
     },

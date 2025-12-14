@@ -1,7 +1,22 @@
 const ListingsService = {
     schedulingIntrest: function(propertyId) {
         const tokenData = Utils.parseJwt(localStorage.getItem("user_token"));
+        if(tokenData == null){
+            msg = `<p>Error!</p>
+                    <p>To send the interest to the property owner, you must be logged in.</p>`
+
+            $("#notification_red").html(msg);
+
+            console.log("To send the interest to the property owner, you must be logged in.");
+
+            document.getElementById("notification_red").style.display="block";
+            setTimeout(function(){document.getElementById("notification_red").style.display="none";}, 3000);
+            return;
+        }
+
         const userId = tokenData.user.id;
+
+        
 
         const form = document.getElementById("interest-contact-form");
         const data = Object.fromEntries(new FormData(form));
@@ -45,8 +60,23 @@ const ListingsService = {
         const tokenData = Utils.parseJwt(localStorage.getItem("user_token"));
         const userId = tokenData.user.id;
 
+        const alowedFileSize = 0.5 * 1024 * 1024;
+
         const form = document.getElementById("form-add-listing");
         const formData = Object.fromEntries(new FormData(form));
+
+        if(formData.picture.size > alowedFileSize){
+             msg = `<p>Error!</p>
+                    <p>Error: Submitted image is too large. Must be smaller than 0.5 MB.</p>`
+
+                $("#notification_red").html(msg);
+
+                console.log("Error submited immage too large.");
+
+                document.getElementById("notification_red").style.display="block";
+                setTimeout(function(){document.getElementById("notification_red").style.display="none";}, 3000);
+                return;
+        }
 
         Utils.parseImage(formData.picture)
         .then( base64Picture => {
