@@ -115,6 +115,7 @@ Flight::route('GET /interest/interested/@status/@id', function($status, $id){
  */
 Flight::route('GET /interest/owner/@status/@id', function($status, $id){
     Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+    Flight::auth_middleware()->authorizeUserID($id);
 
     Flight::json(Flight::interestService()->get_by_status_and_owner_id($status, $id));
 });

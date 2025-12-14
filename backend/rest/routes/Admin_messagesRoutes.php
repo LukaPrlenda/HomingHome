@@ -27,6 +27,7 @@
  */
 Flight::route('GET /admin_messages/user/@id', function($id){
     Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+    Flight::auth_middleware()->authorizeUserID($id);
 
     Flight::json(Flight::admin_messagesService()->get_by_user_id($id));
 });
