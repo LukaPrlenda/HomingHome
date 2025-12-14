@@ -109,9 +109,3 @@ app.route({
     },
     onReady: function() {runCustom(); navigationMenu("#page_My-account");}
 });
-/*
-
-    OLD CODE FROM OTHER WEBSITE
-
-start_signup_js()
-*/

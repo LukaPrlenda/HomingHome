@@ -763,59 +763,6 @@ const MyAccountService = {
                 console.log("Error geting Property type: " + error_callback);
             }
         );
-/*
-        RestClient.get(
-            `interest/owner/Active/` + userId,
-            callback => {
-                let f2pl = ``;
-                for(const obj of callback){
-                    let location = obj.location;
-
-                    f2pl += `<option value="` + location + `">` + location + `</option>`;
-                }
-
-                $("#f2pl1").html(f2pl);
-            },
-            error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
-            }
-        );
-
-        RestClient.get(
-            `interest/interested/Active/` + userId,
-            callback => {
-                let f2pl = ``;
-                for(const obj of callback){
-                    let location = obj.location;
-
-                    f2pl += `<option value="` + location + `">` + location + `</option>`;
-                }
-
-                $("#f2pl2").html(f2pl);
-            },
-            error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
-            }
-        );
-        */
-/*
-        RestClient.get(
-            `listing/owner/Active/` + userId,
-            callback => {
-                let f2pl = `<option value="" disabeled selected>Chouse the property...</option>`;
-                for(const obj of callback){
-                    let location = obj.location;
-
-                    f2pl += `<option value="` + location + `">` + location + `</option>`;
-                }
-
-                $("#form3PropertyListings").html(f2pl);
-            },
-            error_callback => {
-                console.log("Error geting Total Flat Space: " + error_callback);
-            }
-        );
-        */
     },
 
 
@@ -834,7 +781,6 @@ const MyAccountService = {
                 ButtonEventListoner.addBtnHideModalWithoutDeleting();          
 
                 document.getElementById("notification_red").style.display="block";
-                //setTimeout(function(){document.getElementById("notification_red").style.display="none";}, 3000);
     },
 
     hideModalWithoutDeleting: function() {
