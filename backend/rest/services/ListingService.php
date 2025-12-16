@@ -15,6 +15,14 @@ class ListingService extends BaseService{
     public function get_by_status($status){
         return $this->dao->get_by_status($status);
     }
+
+    public function get_by_status_desc($status){
+        return $this->dao->get_by_status_desc($status);
+    }
+
+    public function get_by_status_and_owner_id($status, $user_id){
+        return $this->dao->get_by_status_and_owner_id($status, $user_id);
+    }
     
     public function get_first_by_status($status){
         return $this->dao->get_first_by_status($status);
@@ -26,6 +34,10 @@ class ListingService extends BaseService{
 
     public function get_by_type_and_status($type, $status){
         return $this->dao->get_by_type_and_status($type, $status);
+    }
+
+    public function get_by_id_and_status($id, $status){
+        return $this->dao->get_by_id_and_status($id, $status);
     }
 
     public function get_first_N_of_status($status, $number){

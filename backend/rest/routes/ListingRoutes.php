@@ -62,6 +62,73 @@ Flight::route('GET /listing/@status', function($status){
 
 /**
  *  @OA\Get(
+ *      path="/listing/desc/{status}",
+ *      tags={"listing"},
+ *      summary="Fetch listing by status in descending order.",
+ *      @OA\Parameter(
+ *          name="status",
+ *          in="path",
+ *          required=true,
+ *          description="listing status",
+ *          @OA\Schema(
+ *              type="string",
+ *              enum={"Active","Sold!","Do not want to sell","Something else","Inappropriate","Not compliant with rules"},
+ *              example="Active"
+ *          )
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Fetch listing by status."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
+ *      )
+ *  )
+ */
+Flight::route('GET /listing/desc/@status', function($status){
+    Flight::json(Flight::listingService()->get_by_status_desc($status));
+});
+
+/**
+ *  @OA\Get(
+ *      path="/listing/owner/{status}/{user_id}",
+ *      tags={"listing"},
+ *      summary="Fetch listing by status and owner Id.",
+ *      @OA\Parameter(
+ *          name="status",
+ *          in="path",
+ *          required=true,
+ *          description="listing status",
+ *          @OA\Schema(
+ *              type="string",
+ *              enum={"Active","Sold!","Do not want to sell","Something else","Inappropriate","Not compliant with rules"},
+ *              example="Active"
+ *          )
+ *      ),
+ *      @OA\Parameter(
+ *          name="user_id",
+ *          in="path",
+ *          required=true,
+ *          description="Owner ID",
+ *          @OA\Schema(type="integer", example=1)
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Fetch listing by status and owner Id."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
+ *      )
+ *  )
+ */
+Flight::route('GET /listing/owner/@status/@user_id', function($status, $user_id){
+    Flight::json(Flight::listingService()->get_by_status_and_owner_id($status, $user_id));
+});
+
+/**
+ *  @OA\Get(
  *      path="/listing/first/{status}",
  *      tags={"listing"},
  *      summary="Fetch first listing by status.",
@@ -170,6 +237,43 @@ Flight::route('GET /listing/@status/@type', function($status, $type){
 
 /**
  *  @OA\Get(
+ *      path="/listing/byId/{status}/{id}",
+ *      tags={"listing"},
+ *      summary="Fetch listings by status and id.",
+ *      @OA\Parameter(
+ *          name="status",
+ *          in="path",
+ *          required=true,
+ *          description="listing status",
+ *          @OA\Schema(
+ *              type="string",
+ *              enum={"Active","Sold!","Do not want to sell","Something else","Inappropriate","Not compliant with rules"},
+ *              example="Active"
+ *          )
+ *      ),
+ *      @OA\Parameter(
+ *          name="id",
+ *          in="path",
+ *          required=true,
+ *          description="Interested user ID",
+ *          @OA\Schema(type="integer", example=1)
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Fetch listings by status and id."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
+ *      )
+ *  )
+ */
+Flight::route('GET /listing/byId/@status/@id', function($status, $id){
+    Flight::json(Flight::listingService()->get_by_id_and_status($id, $status));
+});
+
+/**
+ *  @OA\Get(
  *      path="/listing/first_N/{status}/{number}",
  *      tags={"listing"},
  *      summary="Fetch first N listings by status.",
@@ -231,6 +335,9 @@ Flight::route('GET /listing', function(){
  *      path="/listing",
  *      tags={"listing"},
  *      summary="Add a new listing",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\RequestBody(
  *          required=true,
  *          @OA\JsonContent(
@@ -261,6 +368,8 @@ Flight::route('GET /listing', function(){
  *  )
  */
 Flight::route('POST /listing', function(){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     $request = Flight::request()->data->getData();
 
     Flight::json([
@@ -274,6 +383,9 @@ Flight::route('POST /listing', function(){
  *      path="/listing/{id}",
  *      tags={"listing"},
  *      summary="Update an existing listing",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -317,6 +429,8 @@ Flight::route('POST /listing', function(){
  *  )
  */
 Flight::route('PATCH /listing/@id', function($id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     $data = Flight::request()->data->getData();
     $id_column = Flight::request()->query['id_column'] ?? "id";
     
@@ -331,6 +445,9 @@ Flight::route('PATCH /listing/@id', function($id){
  *      path="/listing/{id}",
  *      tags={"listing"},
  *      summary="Delete the listing by ID",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -349,6 +466,8 @@ Flight::route('PATCH /listing/@id', function($id){
  *  )
  */
 Flight::route('DELETE /listing/@id', function($id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     Flight::listingService()->delete_listing($id);
     Flight::json(['message' => "Listing deleted successfully"]);
 });

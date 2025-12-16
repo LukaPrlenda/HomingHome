@@ -53,6 +53,9 @@ Flight::route('GET /type', function(){
  *      path="/type",
  *      tags={"type"},
  *      summary="Add a new type",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\RequestBody(
  *          required=true,
  *          @OA\JsonContent(
@@ -76,6 +79,8 @@ Flight::route('GET /type', function(){
  *  )
  */
 Flight::route('POST /type', function(){
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
     $request = Flight::request()->data->getData();
 
     Flight::json([
@@ -89,6 +94,9 @@ Flight::route('POST /type', function(){
  *      path="/type/{id}",
  *      tags={"type"},
  *      summary="Update an existing type",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -125,6 +133,8 @@ Flight::route('POST /type', function(){
  *  )
  */
 Flight::route('PATCH /type/@id', function($id){
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
     $data = Flight::request()->data->getData();
     $id_column = Flight::request()->query['id_column'] ?? "id";
     
@@ -139,6 +149,9 @@ Flight::route('PATCH /type/@id', function($id){
  *      path="/type/{id}",
  *      tags={"type"},
  *      summary="Delete the type by ID",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -157,6 +170,8 @@ Flight::route('PATCH /type/@id', function($id){
  *  )
  */
 Flight::route('DELETE /type/@id', function($id){
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
     Flight::typeService()->delete_type($id);
     Flight::json(['message' => "Type deleted successfully"]);
 });

@@ -62,6 +62,9 @@ Flight::route('GET /properties', function(){
  *      path="/properties",
  *      tags={"properties"},
  *      summary="Add a new property",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\RequestBody(
  *          required=true,
  *          @OA\JsonContent(
@@ -145,6 +148,8 @@ Flight::route('GET /properties', function(){
  *  )
  */
 Flight::route('POST /properties', function(){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     $request = Flight::request()->data->getData();
 
     Flight::json([
@@ -158,6 +163,9 @@ Flight::route('POST /properties', function(){
  *      path="/properties/{id}",
  *      tags={"properties"},
  *      summary="Update an existing property",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -254,6 +262,8 @@ Flight::route('POST /properties', function(){
  *  )
  */
 Flight::route('PATCH /properties/@id', function($id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     $data = Flight::request()->data->getData();
     $id_column = Flight::request()->query['id_column'] ?? "id";
     
@@ -268,6 +278,9 @@ Flight::route('PATCH /properties/@id', function($id){
  *      path="/properties/{id}",
  *      tags={"properties"},
  *      summary="Delete the property by ID",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -286,6 +299,8 @@ Flight::route('PATCH /properties/@id', function($id){
  *  )
  */
 Flight::route('DELETE /properties/@id', function($id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     Flight::propertiesService()->delete_property($id);
     Flight::json(['message' => "Property deleted successfully"]);
 });

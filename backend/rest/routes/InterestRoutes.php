@@ -5,6 +5,9 @@
  *      path="/interest/{status}",
  *      tags={"interest"},
  *      summary="Fetch interests by status.",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="status",
  *          in="path",
@@ -27,6 +30,8 @@
  *  )
  */
 Flight::route('GET /interest/@status', function($status){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     Flight::json(Flight::interestService()->get_by_status($status));
 });
 
@@ -35,6 +40,9 @@ Flight::route('GET /interest/@status', function($status){
  *      path="/interest/interested/{status}/{id}",
  *      tags={"interest"},
  *      summary="Fetch interests by status and interested user ID.",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="status",
  *          in="path",
@@ -64,6 +72,8 @@ Flight::route('GET /interest/@status', function($status){
  *  )
  */
 Flight::route('GET /interest/interested/@status/@id', function($status, $id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     Flight::json(Flight::interestService()->get_by_status_and_interested_id($status, $id));
 });
 
@@ -72,6 +82,9 @@ Flight::route('GET /interest/interested/@status/@id', function($status, $id){
  *      path="/interest/owner/{status}/{id}",
  *      tags={"interest"},
  *      summary="Fetch interests by status and owner ID.",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="status",
  *          in="path",
@@ -101,7 +114,62 @@ Flight::route('GET /interest/interested/@status/@id', function($status, $id){
  *  )
  */
 Flight::route('GET /interest/owner/@status/@id', function($status, $id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+    Flight::auth_middleware()->authorizeUserID($id);
+
     Flight::json(Flight::interestService()->get_by_status_and_owner_id($status, $id));
+});
+
+/**
+ *  @OA\Get(
+ *      path="/interest/owner/first_N/{status}/{id}/{number}",
+ *      tags={"interest"},
+ *      summary="Fetch interests by status and owner ID.",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
+ *      @OA\Parameter(
+ *          name="status",
+ *          in="path",
+ *          required=true,
+ *          description="Status of interest",
+ *          @OA\Schema(
+ *              type="string",
+ *              enum={"Active","No more interested","Found property","Removed","Something else","Inappropriate","Not compliant with rules"},
+ *              example="Active"
+ *          )
+ *      ),
+ *      @OA\Parameter(
+ *          name="id",
+ *          in="path",
+ *          required=true,
+ *          description="Owner ID",
+ *          @OA\Schema(type="integer", example=1)
+ *      ),
+ *      @OA\Parameter(
+ *          name="number",
+ *          in="path",
+ *          required=true,
+ *          description="Number of first interests to fetch",
+ *          @OA\Schema(
+ *              type="integer", example=10
+ *          )
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="Fetch interests by status and owner ID."
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal error."
+ *      )
+ *  )
+ */
+Flight::route('GET /interest/owner/first_N/@status/@id/@number', function($status, $id, $number){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+    Flight::auth_middleware()->authorizeUserID($id);
+
+    Flight::json(Flight::interestService()->get_by_status_and_owner_id_first_N($status, $id, $number));
 });
 
 /**
@@ -109,6 +177,9 @@ Flight::route('GET /interest/owner/@status/@id', function($status, $id){
  *      path="/interest",
  *      tags={"interest"},
  *      summary="Fetch all interests.",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Response(
  *          response=200,
  *          description="Fetch all interests."
@@ -120,6 +191,8 @@ Flight::route('GET /interest/owner/@status/@id', function($status, $id){
  *  )
  */
 Flight::route('GET /interest', function(){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     Flight::json(Flight::interestService()->get_all_interests());
 });
 
@@ -128,6 +201,9 @@ Flight::route('GET /interest', function(){
  *      path="/interest",
  *      tags={"interest"},
  *      summary="Add a new interest",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\RequestBody(
  *          required=true,
  *          @OA\JsonContent(
@@ -170,12 +246,20 @@ Flight::route('GET /interest', function(){
  *  )
  */
 Flight::route('POST /interest', function(){
-    $request = Flight::request()->data->getData();
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
 
-    Flight::json([
-        'message' => "Interest added successfully",
-        'data' => Flight::interestService()->add_interest($request)
-    ]);
+    $request = Flight::request()->data->getData();
+    $response = Flight::interestService()->add_interest($request);
+
+    if ($response['success']) {
+        Flight::json([
+            'message' => 'Interest added successfully',
+            'data' => $response['data']
+        ]);
+    }
+    else {
+        Flight::halt(500, $response['error']);
+    }
 });
 
 /**
@@ -183,6 +267,9 @@ Flight::route('POST /interest', function(){
  *      path="/interest/{id}",
  *      tags={"interest"},
  *      summary="Update an existing interest",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -238,6 +325,8 @@ Flight::route('POST /interest', function(){
  *  )
  */
 Flight::route('PATCH /interest/@id', function($id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     $data = Flight::request()->data->getData();
     $id_column = Flight::request()->query['id_column'] ?? "id";
     
@@ -252,6 +341,9 @@ Flight::route('PATCH /interest/@id', function($id){
  *      path="/interest/{id}",
  *      tags={"interest"},
  *      summary="Delete the interest by ID",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Parameter(
  *          name="id",
  *          in="path",
@@ -270,6 +362,8 @@ Flight::route('PATCH /interest/@id', function($id){
  *  )
  */
 Flight::route('DELETE /interest/@id', function($id){
+    Flight::auth_middleware()->authorizeRoles([Roles::ADMIN, Roles::USER]);
+
     Flight::interestService()->delete_interest($id);
     Flight::json(['message' => "Interest deleted successfully"]);
 });

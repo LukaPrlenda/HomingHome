@@ -16,11 +16,11 @@
             <div class="background_form">
                 <form id="form" method="POST">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="User's name" class="input" required>
+                    <input type="text" id="name" name="name" class="input" required>
                     <div class="invalid-feedback">Please enter your name</div>
                     <br><br>
                     <label for="surname">Surname</label>
-                    <input type="text" id="surname" name="User's surname" class="input" required>
+                    <input type="text" id="surname" name="surname" class="input" required>
                     <div class="invalid-feedback">Please enter your surname</div>
                     <br><br>
                     <label for="date_of_birth">Date of birth</label>
@@ -29,9 +29,9 @@
                     <br><br>
                     <label for="gender">Gender</label>
                     <select id="gender" name="gender" class="input" required>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="neutarl">Neutral</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Neutral">Neutral</option>
                         <option selected></option>
                     </select><br>
                     <br>
@@ -44,20 +44,21 @@
                     <div class="invalid-feedback">Please enter your valid phone number</div>
                     <br><br>
                     <label for="country">Country of current residence</label>
-                    <input type="text" id="country" name="country_of_residence" class="input" required>
+                    <input type="text" id="country" name="country" class="input" required>
                     <div class="invalid-feedback">Please enter the country of your current residence</div>
                     <br><br>
                     <label for="adresse">Current adresse</label>
-                    <input type="text" id="adresse" name="curent_adresse" class="input" required>
+                    <input type="text" id="adresse" name="current_address" class="input" required>
                     <div class="invalid-feedback">Please enter your current adresse</div>
                     <br><br>
                     <label for="boating_license">I am an agent</label>
-                    <input type="checkbox" id="agent_status" name="agent_status"><br>
+                    <input type="hidden" name="is_agent" value="0"><br>
+                    <input type="checkbox" id="agent_status" name="is_agent" value="1"><br>
                     <br>
                     <br>
                     <br>
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="Username" class="input" required>
+                    <input type="text" id="username" name="username" class="input" required>
                     <div class="invalid-feedback">Please enter your username</div>
                     <br>
                     <br>
@@ -80,12 +81,4 @@
     <br><br><br><br><br><br><br>
     </section>
     <br>
-    <div id="notification_red" class="notification_red">
-        <p>Error!</p>
-        <p>There was an error while submitting the form.</p>
-    </div>
-    <div id="exists_red" class="notification_red">
-        <p>Error!</p>
-        <p>User already exists, login.</p>
-    </div>
 </div>
