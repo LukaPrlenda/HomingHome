@@ -15,7 +15,7 @@
 *   description="API server"
 * )
 * @OA\Server(
-*   url="https://production_server_to_add/backend/",
+*   url="https://hominghome-kzvl5.ondigitalocean.app/hominghome-backend/",
 *   description="API server"
 * )
 * @OA\SecurityScheme(
