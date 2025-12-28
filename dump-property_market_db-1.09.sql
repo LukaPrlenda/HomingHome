@@ -124,7 +124,7 @@ CREATE TABLE `properties` (
   `picture` longtext NOT NULL,
   `description` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `properties_unique` (`type_id`,`location`,`bedrooms`,`bathrooms`,`area`,`floor`,`parking`,`description`) USING HASH,
+  UNIQUE KEY `properties_unique` (`type_id`,`location`,`bedrooms`,`bathrooms`,`area`,`floor`,`parking`) USING HASH,
   KEY `fk_property_user` (`user_id`),
   KEY `fk_property_type` (`type_id`),
   CONSTRAINT `fk_property_type` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
